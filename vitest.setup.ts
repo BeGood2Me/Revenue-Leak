@@ -1,8 +1,8 @@
 import { execSync } from "child_process";
-import path from "path";
 
-const testDbPath = path.join(__dirname, "prisma", "test-integration.db");
-const testDbUrl = `file:${testDbPath}`;
+const testDbUrl =
+  process.env.TEST_DATABASE_URL?.trim() ||
+  "postgresql://postgres:postgres@127.0.0.1:5432/revenue_leak_test";
 
 process.env.DATABASE_URL = testDbUrl;
 process.env.DIAGNOSTIC_ACCESS_SECRET = "test-secret-key";

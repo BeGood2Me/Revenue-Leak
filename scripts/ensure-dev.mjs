@@ -1,5 +1,4 @@
 import { existsSync } from "fs";
-import { join } from "path";
 import {
   ENV_LOCAL,
   ensureAccessSecret,
@@ -17,10 +16,9 @@ function log(message) {
 }
 
 function ensureDatabase() {
-  const dbPath = join(process.cwd(), "prisma", "dev.db");
-  if (existsSync(dbPath)) return;
+  if (process.env.VERCEL || process.env.CI) return;
 
-  log("Creating local SQLite database…");
+  log("Syncing local database schema…");
   runNpx(["prisma", "db", "push", "--skip-generate"], {
     stdio: quiet ? "pipe" : "inherit",
   });

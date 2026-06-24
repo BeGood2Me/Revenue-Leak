@@ -53,7 +53,11 @@ export function ensureEnvLocal() {
 export function ensureBaselineEnv(content) {
   let next = content;
   if (!getEnvValue(next, "DATABASE_URL")) {
-    next = upsertEnvValue(next, "DATABASE_URL", '"file:./dev.db"');
+    next = upsertEnvValue(
+      next,
+      "DATABASE_URL",
+      '"postgresql://postgres:postgres@127.0.0.1:5432/revenue_leak_dev"'
+    );
   }
   if (!getEnvValue(next, "NEXT_PUBLIC_APP_URL")) {
     next = upsertEnvValue(next, "NEXT_PUBLIC_APP_URL", "http://localhost:3000");
