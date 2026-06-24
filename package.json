@@ -1,0 +1,52 @@
+{
+  "name": "revenue-leak",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:paid-flow": "tsx scripts/verify-paid-flow.ts",
+    "test:all": "vitest run && playwright test",
+    "setup": "node scripts/setup.mjs",
+    "env:setup": "node scripts/ensure-dev.mjs",
+    "db:migrate": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio",
+    "stripe:login": "node scripts/stripe-cli.mjs login",
+    "stripe:setup": "node scripts/stripe-setup.mjs",
+    "stripe:create-price": "node scripts/stripe-create-price.mjs",
+    "stripe:listen": "node scripts/stripe-listen.mjs",
+    "postinstall": "prisma generate && node scripts/ensure-dev.mjs --postinstall",
+    "predev": "node scripts/ensure-dev.mjs --quiet"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.5.0",
+    "next": "14.2.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "resend": "^6.14.0",
+    "stripe": "^17.7.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.0",
+    "@types/node": "^20.17.24",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@types/uuid": "^10.0.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "14.2.35",
+    "postcss": "^8.5.3",
+    "prisma": "^6.5.0",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.22.4",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9"
+  }
+}

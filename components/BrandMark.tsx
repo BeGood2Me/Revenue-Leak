@@ -1,0 +1,24 @@
+type BrandMarkProps = {
+  className?: string;
+};
+
+/** Funnel + drip mark — shared by header and app/icon.svg */
+export function BrandMark({ className }: BrandMarkProps) {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect width="32" height="32" rx="8" fill="#006FC7" />
+      <path d="M9 9h14l-5.5 10H14.5L9 9z" fill="white" />
+      <rect x="14.5" y="19" width="3" height="3" rx="0.5" fill="white" />
+      <path
+        d="M16 23.5c1.2 1.8 2.5 3.2 2.5 4.5a2.5 2.5 0 1 1-5 0c0-1.3 1.3-2.7 2.5-4.5z"
+        fill="white"
+      />
+    </svg>
+  );
+}

@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Diagnostic {
+  id               String   @id @default(uuid())
+  createdAt        DateTime @default(now())
+  businessType     String
+  answers          String   // JSON
+  leakScores       String   // JSON
+  estimatedLosses  String   // JSON
+  totalEstimatedLoss Float
+  isPaid           Boolean  @default(false)
+  stripeSessionId  String?
+  stripeCustomerId String?
+  email            String?
+  reportEmailSentAt DateTime?
+  emailCapturedAt  DateTime?
+  nurtureEmailSentAt DateTime?
+
+  @@index([stripeSessionId])
+  @@index([isPaid, emailCapturedAt, nurtureEmailSentAt])
+}
