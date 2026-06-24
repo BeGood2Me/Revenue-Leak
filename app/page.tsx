@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import Link from "next/link";
 import { Header, Footer } from "@/components/layout";
 import { DiagnosticWizard } from "@/components/DiagnosticWizard";
 import { Button } from "@/components/Button";
@@ -24,9 +25,9 @@ export default function HomePage() {
                 and estimates where money is slipping away each month.
               </p>
               <div className="mt-8">
-                <a href="/?fresh=1#start">
+                <Link href="/?fresh=1#start">
                   <Button size="lg">Start diagnostic — it&apos;s free</Button>
-                </a>
+                </Link>
               </div>
               <p className="mt-3 text-sm text-slate-500">
                 No signup required to start · Takes ~5 minutes · Pay only to unlock the full report

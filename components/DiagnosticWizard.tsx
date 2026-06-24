@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import type { Answers, BusinessType, EstimatedLosses, LeakCategory } from "@/lib/types";
@@ -98,47 +98,50 @@ export function DiagnosticWizard() {
       ? getStepMicroFeedback(businessType, stepIndex, answers)
       : null;
 
-  function applyPreviewData(
-    data: Record<string, unknown>,
-    type: BusinessType,
-    savedAnswers: Answers
-  ) {
-    const diagnosticId = data.id as string;
-    activeDiagnosticIdRef.current = diagnosticId;
-    setPreview({
-      id: diagnosticId,
-      leakScores: data.leakScores as Record<LeakCategory, number>,
-      estimatedLosses: (data.estimatedLosses as EstimatedLosses) ?? {
-        acquisition: 0,
-        response: 0,
-        conversion: 0,
-        retention: 0,
-        billing: 0,
-        expansion: 0,
-      },
-      healthScore: (data.healthScore as number) ?? 0,
-      totalEstimatedLoss: data.totalEstimatedLoss as number,
-      lossRange: data.lossRange as LossRange,
-      topLeakCategory: (data.topLeakCategory as LeakCategory | null) ?? null,
-      topLeakLabel: (data.topLeakLabel as string | null) ?? null,
-      topLeakSeverity: (data.topLeakSeverity as number) ?? 0,
-      isPaid: Boolean(data.isPaid),
-    });
+  const applyPreviewData = useCallback(
+    (
+      data: Record<string, unknown>,
+      type: BusinessType,
+      savedAnswers: Answers
+    ) => {
+      const diagnosticId = data.id as string;
+      activeDiagnosticIdRef.current = diagnosticId;
+      setPreview({
+        id: diagnosticId,
+        leakScores: data.leakScores as Record<LeakCategory, number>,
+        estimatedLosses: (data.estimatedLosses as EstimatedLosses) ?? {
+          acquisition: 0,
+          response: 0,
+          conversion: 0,
+          retention: 0,
+          billing: 0,
+          expansion: 0,
+        },
+        healthScore: (data.healthScore as number) ?? 0,
+        totalEstimatedLoss: data.totalEstimatedLoss as number,
+        lossRange: data.lossRange as LossRange,
+        topLeakCategory: (data.topLeakCategory as LeakCategory | null) ?? null,
+        topLeakLabel: (data.topLeakLabel as string | null) ?? null,
+        topLeakSeverity: (data.topLeakSeverity as number) ?? 0,
+        isPaid: Boolean(data.isPaid),
+      });
 
-    if (data.topLeakCategory) {
-      setPersonalizedLine(
-        getPersonalizedPreviewLine(type, savedAnswers, data.topLeakCategory as LeakCategory)
-      );
-    } else {
-      setPersonalizedLine("");
-    }
+      if (data.topLeakCategory) {
+        setPersonalizedLine(
+          getPersonalizedPreviewLine(type, savedAnswers, data.topLeakCategory as LeakCategory)
+        );
+      } else {
+        setPersonalizedLine("");
+      }
 
-    if (typeof data.reportAccessToken === "string") {
-      setAccessToken(data.reportAccessToken);
-    } else if (typeof data.accessToken === "string") {
-      setAccessToken(data.accessToken);
-    }
-  }
+      if (typeof data.reportAccessToken === "string") {
+        setAccessToken(data.reportAccessToken);
+      } else if (typeof data.accessToken === "string") {
+        setAccessToken(data.accessToken);
+      }
+    },
+    []
+  );
 
   async function loadDiagnosticFromApi(id: string, token: string) {
     const res = await fetch(
@@ -154,21 +157,24 @@ export function DiagnosticWizard() {
     };
   }
 
-  function applyDiagnosticRestore(
-    data: Record<string, unknown> & {
-      businessType: BusinessType;
-      answers?: Answers;
-      email?: string | null;
+  const applyDiagnosticRestore = useCallback(
+    (
+      data: Record<string, unknown> & {
+        businessType: BusinessType;
+        answers?: Answers;
+        email?: string | null;
+      },
+      fallbackAnswers: Answers = {}
+    ) => {
+      const type = data.businessType;
+      const restoredAnswers = data.answers ?? fallbackAnswers;
+      setBusinessType(type);
+      setAnswers(restoredAnswers);
+      setEmail(data.email ?? "");
+      applyPreviewData(data, type, restoredAnswers);
     },
-    fallbackAnswers: Answers = {}
-  ) {
-    const type = data.businessType;
-    const restoredAnswers = data.answers ?? fallbackAnswers;
-    setBusinessType(type);
-    setAnswers(restoredAnswers);
-    setEmail(data.email ?? "");
-    applyPreviewData(data, type, restoredAnswers);
-  }
+    [applyPreviewData]
+  );
 
   function resetWizardState() {
     restoreGenerationRef.current += 1;
@@ -358,7 +364,7 @@ export function DiagnosticWizard() {
       cancelled = true;
       setRestoring(false);
     };
-  }, [restoreDiagnosticId, restoreToken, isCheckoutCancel, wantsFreshStart]);
+  }, [restoreDiagnosticId, restoreToken, isCheckoutCancel, wantsFreshStart, applyDiagnosticRestore]);
 
   useEffect(() => {
     if (phase !== "preview" || !preview || !scrollToPreviewRef.current) return;
