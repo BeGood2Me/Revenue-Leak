@@ -3,8 +3,11 @@ import { LegalPage } from "@/components/LegalPage";
 import { getContactEmail, SITE_NAME } from "@/lib/site";
 
 export const metadata = {
-  title: `Privacy Policy — ${SITE_NAME}`,
+  title: "Privacy Policy",
   description: `How ${SITE_NAME} collects and uses your information.`,
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPage() {

@@ -4,8 +4,11 @@ import { REPORT_PRICE_LABEL } from "@/lib/preview";
 import { getContactEmail, SITE_NAME } from "@/lib/site";
 
 export const metadata = {
-  title: `Terms of Service — ${SITE_NAME}`,
+  title: "Terms of Service",
   description: `Terms for using ${SITE_NAME}.`,
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 export default function TermsPage() {

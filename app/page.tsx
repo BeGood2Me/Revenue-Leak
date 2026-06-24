@@ -4,11 +4,13 @@ import { Header, Footer } from "@/components/layout";
 import { DiagnosticWizard } from "@/components/DiagnosticWizard";
 import { Button } from "@/components/Button";
 import { FAQ, CredibilityBand } from "@/components/FAQ";
+import { FaqJsonLd } from "@/components/FaqJsonLd";
 import { SITE_NAME } from "@/lib/site";
 
 export default function HomePage() {
   return (
     <>
+      <FaqJsonLd />
       <Header />
       <main>
         <section className="border-b border-slate-200 bg-gradient-to-b from-white to-slate-50">

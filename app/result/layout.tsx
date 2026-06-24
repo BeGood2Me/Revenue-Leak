@@ -2,6 +2,14 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   referrer: "no-referrer",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
 };
 
 export default function ResultLayout({ children }: { children: React.ReactNode }) {
