@@ -52,14 +52,48 @@ export default function PrivacyPage() {
         </li>
       </ul>
 
-      <h2>What we do not collect (today)</h2>
+      <h2>Analytics and cookies</h2>
+      <p>
+        When enabled, we use <strong>Google Analytics</strong> to understand how visitors use the
+        site (for example page views and conversion events such as completing the diagnostic or
+        purchasing a report). Google may set cookies or use similar technologies. See{" "}
+        <a
+          href="https://policies.google.com/privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google&apos;s privacy policy
+        </a>
+        . You can opt out of Google Analytics in your browser or via{" "}
+        <a
+          href="https://tools.google.com/dlpage/gaoptout"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google&apos;s opt-out add-on
+        </a>
+        .
+      </p>
+      <p>
+        When configured, we may also use the <strong>Meta Pixel</strong> to measure ad
+        performance and site conversions. Meta may set cookies or use similar technologies. See{" "}
+        <a
+          href="https://www.facebook.com/privacy/policy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Meta&apos;s privacy policy
+        </a>
+        .
+      </p>
+      <p>
+        We also use <strong>browser local storage</strong> to save your in-progress diagnostic
+        answers on your device. That is not used for advertising.
+      </p>
+
+      <h2>What we do not collect</h2>
       <ul>
         <li>We do not ask you to create a password or user account.</li>
-        <li>
-          We do not run third-party advertising or analytics trackers (such as Google Analytics)
-          on the site as of this writing.
-        </li>
-        <li>We do not use marketing cookies. We only use browser storage for wizard progress.</li>
       </ul>
 
       <h2>How we use your information</h2>
@@ -85,6 +119,26 @@ export default function PrivacyPage() {
           <strong>Resend</strong> — sending report emails (when configured). See{" "}
           <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">
             Resend&apos;s privacy policy
+          </a>
+          .
+        </li>
+        <li>
+          <strong>Google Analytics</strong> — site usage and conversion measurement (when
+          configured). See{" "}
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+            Google&apos;s privacy policy
+          </a>
+          .
+        </li>
+        <li>
+          <strong>Meta</strong> — ad conversion measurement via the Meta Pixel (when configured).
+          See{" "}
+          <a
+            href="https://www.facebook.com/privacy/policy/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Meta&apos;s privacy policy
           </a>
           .
         </li>

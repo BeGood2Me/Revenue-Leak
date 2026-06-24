@@ -8,6 +8,7 @@ import { BUSINESS_TYPE_LABELS, LEAK_CATEGORIES } from "@/lib/types";
 import { getQuestionSteps } from "@/lib/questions";
 import { getStepLabel, getPersonalizedPreviewLine } from "@/lib/personalization";
 import { REPORT_PRICE_LABEL } from "@/lib/preview";
+import { trackBeginCheckout, trackGenerateLead } from "@/lib/track";
 import { computeLeakScores } from "@/lib/scoring";
 import { computeFunnelHealthScore, getHealthScoreLabel } from "@/lib/health-score";
 import { getStepMicroFeedback } from "@/lib/step-feedback";
@@ -573,6 +574,7 @@ export function DiagnosticWizard() {
 
       setPhase("preview");
       scrollToPreviewRef.current = true;
+      trackGenerateLead();
     } catch (e) {
       setError(e instanceof Error ? e.message : "Something went wrong");
     } finally {
@@ -603,6 +605,7 @@ export function DiagnosticWizard() {
         }
         throw new Error(data.error ?? "Failed to start checkout");
       }
+      trackBeginCheckout();
       if (data.url) {
         window.location.href = data.url;
       } else {

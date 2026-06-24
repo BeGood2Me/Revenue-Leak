@@ -5,6 +5,7 @@ import { LeakCard } from "@/components/LeakCard";
 import { CategoryInsightRow } from "@/components/CategoryInsightRow";
 import { ActionPlanSection, ReportExecutiveSummary } from "@/components/ReportSections";
 import { PrintReportButton } from "@/components/PrintReportButton";
+import { PurchaseConversion } from "@/components/PurchaseConversion";
 import { Button } from "@/components/Button";
 import { ReportAccessMessage } from "@/components/ReportAccessMessage";
 import { prisma } from "@/lib/prisma";
@@ -66,7 +67,9 @@ export default async function ResultPage({ params, searchParams }: PageProps) {
 
       if (!hasValidAccessToken(id, token)) {
         const reportToken = createReportAccessToken(id);
-        redirect(`/result/${id}?token=${encodeURIComponent(reportToken)}`);
+        redirect(
+          `/result/${id}?token=${encodeURIComponent(reportToken)}&session_id=${encodeURIComponent(sessionId)}`
+        );
       }
     }
   }
@@ -120,6 +123,7 @@ export default async function ResultPage({ params, searchParams }: PageProps) {
 
   return (
     <>
+      {sessionId ? <PurchaseConversion sessionId={sessionId} /> : null}
       <Header />
       <main className="mx-auto max-w-4xl px-4 py-12 sm:px-6 print:py-8">
         <div className="mb-8 print:mb-6">

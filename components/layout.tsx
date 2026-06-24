@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BrandMark } from "@/components/BrandMark";
-import { SITE_NAME } from "@/lib/site";
+import { getContactEmail, SITE_NAME } from "@/lib/site";
 
 export function Header() {
   return (
@@ -19,6 +19,8 @@ export function Header() {
 }
 
 export function Footer() {
+  const contactEmail = getContactEmail();
+
   return (
     <footer className="border-t border-slate-200 bg-white py-8">
       <div className="mx-auto max-w-5xl px-4 text-center text-sm text-slate-500 sm:px-6">
@@ -31,6 +33,14 @@ export function Footer() {
           <Link href="/terms" className="text-brand-600 hover:underline">
             Terms
           </Link>
+          {contactEmail ? (
+            <>
+              <span aria-hidden="true">·</span>
+              <a href={`mailto:${contactEmail}`} className="text-brand-600 hover:underline">
+                Support
+              </a>
+            </>
+          ) : null}
         </p>
       </div>
     </footer>
