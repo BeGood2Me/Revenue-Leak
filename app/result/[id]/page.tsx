@@ -25,8 +25,8 @@ import { formatCurrency } from "@/lib/utils";
 export const dynamic = "force-dynamic";
 
 interface PageProps {
-  params: { id: string };
-  searchParams: { session_id?: string; token?: string };
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ session_id?: string; token?: string }>;
 }
 
 function hasValidAccessToken(id: string, token?: string): boolean {
@@ -34,22 +34,23 @@ function hasValidAccessToken(id: string, token?: string): boolean {
 }
 
 export default async function ResultPage({ params, searchParams }: PageProps) {
+  const { id } = await params;
+  const { session_id: sessionId, token } = await searchParams;
+
   let diagnostic = await prisma.diagnostic.findUnique({
-    where: { id: params.id },
+    where: { id },
   });
 
   if (!diagnostic) {
     notFound();
   }
 
-  const sessionId = searchParams.session_id;
-
   if (sessionId) {
-    const session = await getPaidCheckoutSessionForDiagnostic(params.id, sessionId);
+    const session = await getPaidCheckoutSessionForDiagnostic(id, sessionId);
 
     if (session) {
       if (!diagnostic.isPaid) {
-        await fulfillPaidDiagnostic(params.id, {
+        await fulfillPaidDiagnostic(id, {
           email: checkoutSessionEmail(session),
           stripeSessionId: session.id,
           stripeCustomerId:
@@ -58,19 +59,19 @@ export default async function ResultPage({ params, searchParams }: PageProps) {
               : session.customer?.id ?? null,
         });
         diagnostic = await prisma.diagnostic.findUnique({
-          where: { id: params.id },
+          where: { id },
         });
         if (!diagnostic) notFound();
       }
 
-      if (!hasValidAccessToken(params.id, searchParams.token)) {
-        const token = createReportAccessToken(params.id);
-        redirect(`/result/${params.id}?token=${encodeURIComponent(token)}`);
+      if (!hasValidAccessToken(id, token)) {
+        const reportToken = createReportAccessToken(id);
+        redirect(`/result/${id}?token=${encodeURIComponent(reportToken)}`);
       }
     }
   }
 
-  const tokenAuthorized = hasValidAccessToken(params.id, searchParams.token);
+  const tokenAuthorized = hasValidAccessToken(id, token);
 
   if (!diagnostic.isPaid) {
     if (!tokenAuthorized) {
