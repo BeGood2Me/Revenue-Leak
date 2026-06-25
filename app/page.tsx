@@ -5,11 +5,13 @@ import { DiagnosticWizard } from "@/components/DiagnosticWizard";
 import { Button } from "@/components/Button";
 import { FAQ, CredibilityBand } from "@/components/FAQ";
 import { FaqJsonLd } from "@/components/FaqJsonLd";
+import { OrganizationJsonLd } from "@/components/OrganizationJsonLd";
 import { SITE_NAME } from "@/lib/site";
 
 export default function HomePage() {
   return (
     <>
+      <OrganizationJsonLd />
       <FaqJsonLd />
       <Header />
       <main>
