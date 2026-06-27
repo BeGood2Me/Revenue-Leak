@@ -78,7 +78,10 @@ export async function POST(request: Request) {
 
     await prisma.diagnostic.update({
       where: { id: diagnosticId },
-      data: { stripeSessionId: session.id },
+      data: {
+        stripeSessionId: session.id,
+        checkoutStartedAt: new Date(),
+      },
     });
 
     return NextResponse.json({ url: session.url });

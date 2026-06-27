@@ -33,7 +33,10 @@ describe("nurture cron integration", () => {
 
     await prisma.diagnostic.update({
       where: { id },
-      data: { emailCapturedAt: new Date(Date.now() - 60_000) },
+      data: {
+        emailCapturedAt: new Date(Date.now() - 60_000),
+        checkoutStartedAt: new Date(Date.now() - 3 * 60 * 60 * 1000),
+      },
     });
 
     const res = await nurtureGET(new Request("http://localhost/api/cron/nurture"));

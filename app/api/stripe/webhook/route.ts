@@ -9,6 +9,7 @@ import {
   isValidPaidCheckoutSession,
   resolveDiagnosticIdFromCharge,
 } from "@/lib/stripe-fulfillment";
+import { sendNurtureForDiagnostic } from "@/lib/nurture-dispatch";
 
 export const runtime = "nodejs";
 
@@ -75,6 +76,14 @@ export async function POST(request: Request) {
     } catch (error) {
       console.error("Failed to revoke access after refund:", error);
       return NextResponse.json({ error: "Refund handler failed" }, { status: 500 });
+    }
+  }
+
+  if (event.type === "checkout.session.expired") {
+    const session = event.data.object as Stripe.Checkout.Session;
+    const diagnosticId = session.metadata?.diagnosticId;
+    if (diagnosticId) {
+      await sendNurtureForDiagnostic(diagnosticId, { ignoreDelay: true });
     }
   }
 
