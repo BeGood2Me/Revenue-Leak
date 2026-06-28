@@ -21,6 +21,7 @@
     "stripe:setup": "node scripts/stripe-setup.mjs",
     "stripe:create-price": "node scripts/stripe-create-price.mjs",
     "stripe:listen": "node scripts/stripe-listen.mjs",
+    "indexnow:submit": "node scripts/submit-indexnow.mjs",
     "postinstall": "node scripts/postinstall.mjs",
     "predev": "node scripts/ensure-dev.mjs --quiet"
   },
