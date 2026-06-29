@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@/components/Analytics";
+import { CookieConsent } from "@/components/CookieConsent";
 import { getSiteUrl, SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
 
 const inter = Inter({
@@ -45,7 +45,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} font-sans min-h-screen`}>
         {children}
-        <Analytics />
+        <CookieConsent />
       </body>
     </html>
   );

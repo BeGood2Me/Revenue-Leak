@@ -16,6 +16,7 @@ import { BusinessTypeSelector } from "./BusinessTypeSelector";
 import { QuestionField, validateQuestion } from "./QuestionField";
 import { Button } from "./Button";
 import { SeverityBar } from "./SeverityBar";
+import { WizardSkeleton } from "@/components/WizardSkeleton";
 import {
   clearWizardProgress,
   isValidEmail,
@@ -638,11 +639,7 @@ export function DiagnosticWizard() {
   }
 
   if (restoring) {
-    return (
-      <div className="rounded-xl border border-slate-200 bg-white p-8 text-center text-slate-600">
-        Loading your diagnostic…
-      </div>
-    );
+    return <WizardSkeleton />;
   }
 
   if (phase === "preview" && preview) {

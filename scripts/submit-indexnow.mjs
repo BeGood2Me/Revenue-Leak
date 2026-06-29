@@ -21,6 +21,7 @@ const urlList = [
   appUrl,
   `${appUrl}/privacy`,
   `${appUrl}/terms`,
+  `${appUrl}/sample-report`,
 ];
 
 const res = await fetch("https://api.indexnow.org/indexnow", {
