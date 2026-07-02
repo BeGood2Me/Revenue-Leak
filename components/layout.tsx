@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { BrandMark } from "@/components/BrandMark";
-import { ProductHuntBadge } from "@/components/ProductHuntBadge";
 import { getContactEmail, SITE_NAME } from "@/lib/site";
 
 export function Header() {
@@ -25,7 +24,6 @@ export function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-white py-8">
       <div className="mx-auto max-w-5xl px-4 text-center text-sm text-slate-500 sm:px-6">
-        <ProductHuntBadge />
         <p>© {new Date().getFullYear()} {SITE_NAME}. Estimates are directional, not financial advice.</p>
         <p className="mt-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
           <Link href="/privacy" className="text-brand-600 hover:underline">
