@@ -99,4 +99,16 @@ test.describe("Revenue Leak funnel", () => {
     await expect(page.getByText(/Loading your diagnostic/i)).toHaveCount(0);
     await expect(page.locator("#preview-results")).toHaveCount(0);
   });
+
+  test("homepage visit does not restore a saved preview", async ({ page }) => {
+    await page.goto("/#start");
+    await completeSaasWizard(page);
+    await page.getByLabel(/Email address/i).fill("return-visit@example.com");
+    await page.getByRole("button", { name: "See my results" }).click();
+    await expect(page.locator("#preview-results")).toBeVisible();
+
+    await page.goto("/");
+    await expect(page.getByRole("heading", { name: /Find the top 3 places/i })).toBeVisible();
+    await expect(page.locator("#preview-results")).toHaveCount(0);
+  });
 });

@@ -42,9 +42,11 @@ export default function PrivacyPage() {
           <strong>not</strong> store your full card number on our servers.
         </li>
         <li>
-          <strong>Browser storage</strong> — we save wizard progress in your browser&apos;s{" "}
-          <code>localStorage</code> (under the key <code>rlr-wizard-progress</code>) so you can
-          continue where you left off on the same device.
+          <strong>Browser storage</strong> — we save in-progress wizard answers in your browser&apos;s{" "}
+          <code>localStorage</code> (key <code>rlr-wizard-progress</code>) so you can continue
+          questions on the same device. Preview results are kept only for the current browser tab
+          session (<code>sessionStorage</code>) or via email/checkout resume links — not auto-shown
+          when you open the homepage later.
         </li>
         <li>
           <strong>Access links</strong> — report and preview URLs include a signed token so only

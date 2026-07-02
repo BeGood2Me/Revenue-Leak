@@ -26,6 +26,7 @@ export function normalizeEmail(email: string): string {
 }
 
 const STORAGE_KEY = "rlr-wizard-progress";
+const PREVIEW_SESSION_KEY = "rlr-wizard-preview-session";
 
 export interface WizardProgress {
   businessType: string | null;
@@ -47,6 +48,16 @@ export function loadWizardProgress(): WizardProgress | null {
   }
 }
 
+export function loadPreviewSession(): WizardProgress | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = sessionStorage.getItem(PREVIEW_SESSION_KEY);
+    return raw ? (JSON.parse(raw) as WizardProgress) : null;
+  } catch {
+    return null;
+  }
+}
+
 export function saveWizardProgress(progress: WizardProgress): void {
   if (typeof window === "undefined") return;
   try {
@@ -56,7 +67,34 @@ export function saveWizardProgress(progress: WizardProgress): void {
   }
 }
 
+export function savePreviewSession(progress: WizardProgress): void {
+  if (typeof window === "undefined") return;
+  try {
+    sessionStorage.setItem(PREVIEW_SESSION_KEY, JSON.stringify(progress));
+  } catch {
+    // ignore quota errors
+  }
+}
+
 export function clearWizardProgress(): void {
   if (typeof window === "undefined") return;
   localStorage.removeItem(STORAGE_KEY);
+}
+
+export function clearPreviewSession(): void {
+  if (typeof window === "undefined") return;
+  sessionStorage.removeItem(PREVIEW_SESSION_KEY);
+}
+
+export function clearAllWizardStorage(): void {
+  clearWizardProgress();
+  clearPreviewSession();
+}
+
+export function getStoredDiagnosticToken(): string | undefined {
+  return (
+    loadPreviewSession()?.diagnosticToken ??
+    loadWizardProgress()?.diagnosticToken ??
+    undefined
+  );
 }

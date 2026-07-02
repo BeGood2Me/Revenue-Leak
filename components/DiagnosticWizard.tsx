@@ -18,10 +18,15 @@ import { Button } from "./Button";
 import { SeverityBar } from "./SeverityBar";
 import { WizardSkeleton } from "@/components/WizardSkeleton";
 import {
+  clearAllWizardStorage,
+  clearPreviewSession,
   clearWizardProgress,
+  getStoredDiagnosticToken,
   isValidEmail,
+  loadPreviewSession,
   loadWizardProgress,
   normalizeEmail,
+  savePreviewSession,
   saveWizardProgress,
 } from "@/lib/utils";
 
@@ -183,7 +188,7 @@ export function DiagnosticWizard() {
     skipNextPersistRef.current = true;
     skipStoredProgressRestoreRef.current = true;
     activeDiagnosticIdRef.current = null;
-    clearWizardProgress();
+    clearAllWizardStorage();
     setRestoring(false);
     setPhase("select");
     setBusinessType(null);
@@ -205,7 +210,7 @@ export function DiagnosticWizard() {
     skipNextPersistRef.current = true;
     skipStoredProgressRestoreRef.current = true;
     activeDiagnosticIdRef.current = null;
-    clearWizardProgress();
+    clearAllWizardStorage();
     setRestoring(false);
     setBusinessType(type);
     setAnswers({});
@@ -245,7 +250,7 @@ export function DiagnosticWizard() {
         }
         try {
           const token =
-            restoreToken ?? loadWizardProgress()?.diagnosticToken ?? null;
+            restoreToken ?? getStoredDiagnosticToken() ?? null;
           if (!token) {
             throw new Error("Missing access token");
           }
@@ -261,6 +266,9 @@ export function DiagnosticWizard() {
           }
 
           applyDiagnosticRestore(data);
+          if (restoreToken) {
+            setAccessToken(restoreToken);
+          }
           setPhase("preview");
           scrollToPreviewRef.current = true;
           window.history.replaceState(null, "", "/#start");
@@ -272,7 +280,7 @@ export function DiagnosticWizard() {
           setPhase("select");
           setBusinessType(null);
           setPreview(null);
-          clearWizardProgress();
+          clearAllWizardStorage();
           setError("We couldn't restore your preview. Please start a new diagnostic.");
         } finally {
           if (!isStaleRestore()) setRestoring(false);
@@ -291,44 +299,50 @@ export function DiagnosticWizard() {
         return;
       }
 
-      const saved = loadWizardProgress();
-      if (!saved?.businessType) {
-        return;
-      }
-
-      const savedPhase = (saved.phase as Phase) ?? "select";
-      const savedType = saved.businessType as BusinessType;
-      const savedAnswers = saved.answers ?? {};
+      const atWizardAnchor = window.location.hash === "#start";
+      const legacySaved = loadWizardProgress();
 
       if (
-        saved.diagnosticId &&
-        (savedPhase === "preview" || savedPhase === "email")
+        legacySaved?.phase === "preview" ||
+        legacySaved?.phase === "email"
+      ) {
+        clearWizardProgress();
+      }
+
+      if (!atWizardAnchor) {
+        clearPreviewSession();
+      }
+
+      const sessionSaved = atWizardAnchor ? loadPreviewSession() : null;
+      if (
+        sessionSaved?.diagnosticId &&
+        sessionSaved.businessType &&
+        (sessionSaved.phase === "preview" || sessionSaved.phase === "email")
       ) {
         setRestoring(true);
         try {
-          const token = saved.diagnosticToken ?? null;
+          const token = sessionSaved.diagnosticToken ?? null;
           if (!token) {
             throw new Error("Missing access token");
           }
 
-          const data = await loadDiagnosticFromApi(saved.diagnosticId, token);
+          const data = await loadDiagnosticFromApi(sessionSaved.diagnosticId, token);
           if (isStaleRestore()) return;
 
           if (data.isPaid) {
             const reportToken =
-              (data.reportAccessToken as string | undefined) ??
-              (saved.diagnosticToken ?? null);
-            if (reportToken) {
-              window.location.href = `/result/${saved.diagnosticId}?token=${encodeURIComponent(reportToken)}`;
-              return;
-            }
-            applyDiagnosticRestore(data, savedAnswers);
-            setPhase("preview");
+              (data.reportAccessToken as string | undefined) ?? token;
+            window.location.href = `/result/${sessionSaved.diagnosticId}?token=${encodeURIComponent(reportToken)}`;
             return;
           }
 
-          applyDiagnosticRestore(data, savedAnswers);
-          setPhase(savedPhase);
+          applyDiagnosticRestore(
+            data,
+            (sessionSaved.answers as Answers) ?? {}
+          );
+          setAccessToken(token);
+          setPhase(sessionSaved.phase as Phase);
+          scrollToPreviewRef.current = sessionSaved.phase === "preview";
         } catch {
           if (isStaleRestore()) return;
           activeDiagnosticIdRef.current = null;
@@ -339,12 +353,25 @@ export function DiagnosticWizard() {
           setStepIndex(0);
           setEmail("");
           setPreview(null);
-          clearWizardProgress();
+          clearPreviewSession();
         } finally {
           if (!isStaleRestore()) setRestoring(false);
         }
         return;
       }
+
+      const saved = loadWizardProgress();
+      if (!saved?.businessType) {
+        return;
+      }
+
+      const savedPhase = (saved.phase as Phase) ?? "select";
+      if (savedPhase !== "questions" && savedPhase !== "select") {
+        return;
+      }
+
+      const savedType = saved.businessType as BusinessType;
+      const savedAnswers = saved.answers ?? {};
 
       if (isStaleRestore()) return;
 
@@ -352,12 +379,7 @@ export function DiagnosticWizard() {
       setAnswers(savedAnswers);
       setStepIndex(saved.stepIndex ?? 0);
       setEmail(saved.email ?? "");
-
-      if (savedPhase === "preview" || savedPhase === "email") {
-        setPhase("select");
-      } else {
-        setPhase(savedPhase);
-      }
+      setPhase(savedPhase);
     }
 
     restoreProgress();
@@ -406,12 +428,27 @@ export function DiagnosticWizard() {
     }
 
     if (!businessType && phase === "select") {
+      clearAllWizardStorage();
+      return;
+    }
+
+    if (phase === "preview" || phase === "email") {
+      if (preview?.id && accessToken) {
+        savePreviewSession({
+          businessType,
+          answers,
+          stepIndex,
+          phase,
+          email,
+          diagnosticId: preview.id,
+          diagnosticToken: accessToken,
+        });
+      }
       clearWizardProgress();
       return;
     }
 
-    const shouldPersistDiagnostic =
-      (phase === "preview" || phase === "email") && Boolean(preview?.id);
+    clearPreviewSession();
 
     saveWizardProgress({
       businessType,
@@ -419,8 +456,6 @@ export function DiagnosticWizard() {
       stepIndex,
       phase,
       email,
-      diagnosticId: shouldPersistDiagnostic ? preview?.id : undefined,
-      diagnosticToken: shouldPersistDiagnostic ? accessToken ?? undefined : undefined,
     });
   }, [restoring, businessType, answers, stepIndex, phase, email, preview, accessToken]);
 
@@ -477,7 +512,7 @@ export function DiagnosticWizard() {
       skipNextPersistRef.current = true;
       skipStoredProgressRestoreRef.current = true;
       activeDiagnosticIdRef.current = null;
-      clearWizardProgress();
+      clearAllWizardStorage();
       setRestoring(false);
       setPhase("select");
       setBusinessType(null);
@@ -494,7 +529,7 @@ export function DiagnosticWizard() {
     try {
       const existingId = activeDiagnosticIdRef.current;
       const token =
-        accessToken ?? loadWizardProgress()?.diagnosticToken ?? undefined;
+        accessToken ?? getStoredDiagnosticToken();
       const res = await fetch("/api/diagnostic", {
         method: existingId ? "PUT" : "POST",
         headers: { "Content-Type": "application/json" },
@@ -536,7 +571,7 @@ export function DiagnosticWizard() {
 
     try {
       const token =
-        accessToken ?? loadWizardProgress()?.diagnosticToken ?? undefined;
+        accessToken ?? getStoredDiagnosticToken();
       const res = await fetch("/api/diagnostic", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
@@ -589,7 +624,7 @@ export function DiagnosticWizard() {
     setError(null);
     try {
       const token =
-        accessToken ?? loadWizardProgress()?.diagnosticToken ?? undefined;
+        accessToken ?? getStoredDiagnosticToken();
       if (!token) {
         throw new Error("Session expired — refresh and try again.");
       }
@@ -622,7 +657,7 @@ export function DiagnosticWizard() {
     if (!preview) return;
     setError(null);
 
-    const token = accessToken ?? loadWizardProgress()?.diagnosticToken ?? null;
+    const token = accessToken ?? getStoredDiagnosticToken() ?? null;
     if (!token) {
       setError("Check your email for the report link, or complete checkout again.");
       return;
