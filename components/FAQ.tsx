@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { FAQ_ITEMS } from "@/lib/faq";
 import { LEAK_CATEGORIES, LEAK_CATEGORY_LABELS } from "@/lib/types";
 
@@ -31,6 +32,16 @@ export function FAQ() {
             </div>
           ))}
         </div>
+        <p className="mt-6 text-center text-sm text-slate-500">
+          7-day refund policy and how we handle your data:{" "}
+          <Link href="/terms" className="text-brand-600 hover:underline">
+            Terms of Service
+          </Link>
+          {" · "}
+          <Link href="/privacy" className="text-brand-600 hover:underline">
+            Privacy Policy
+          </Link>
+        </p>
       </div>
     </section>
   );

@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/sample-report",
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function SampleReportPage() {

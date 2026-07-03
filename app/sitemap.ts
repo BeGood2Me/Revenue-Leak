@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
-import { getSiteUrl, LEGAL_LAST_UPDATED } from "@/lib/site";
+import { getSiteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getSiteUrl();
-  const lastModified = new Date(LEGAL_LAST_UPDATED);
+  const lastModified = new Date();
 
   return [
     {

@@ -26,12 +26,16 @@ export function Footer() {
       <div className="mx-auto max-w-5xl px-4 text-center text-sm text-slate-500 sm:px-6">
         <p>© {new Date().getFullYear()} {SITE_NAME}. Estimates are directional, not financial advice.</p>
         <p className="mt-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+          <Link href="/sample-report" className="text-brand-600 hover:underline">
+            Sample report
+          </Link>
+          <span aria-hidden="true">·</span>
           <Link href="/privacy" className="text-brand-600 hover:underline">
-            Privacy
+            Privacy Policy
           </Link>
           <span aria-hidden="true">·</span>
           <Link href="/terms" className="text-brand-600 hover:underline">
-            Terms
+            Terms of Service
           </Link>
           {contactEmail ? (
             <>
