@@ -3,14 +3,8 @@ import type { Metadata } from "next";
 import { ArticleJsonLd } from "@/components/ArticleJsonLd";
 import { GuidePage } from "@/components/GuidePage";
 import { Button } from "@/components/Button";
-import { getGuide } from "@/lib/guides";
+import { revenueLeakageAnalysisGuide as guide } from "@/lib/guides";
 import { SITE_NAME } from "@/lib/site";
-
-const guide = getGuide("revenue-leakage-analysis");
-
-if (!guide) {
-  throw new Error("Guide not found");
-}
 
 export const metadata: Metadata = {
   title: guide.title,

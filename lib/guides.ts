@@ -18,3 +18,7 @@ export const guides: Guide[] = [
 export function getGuide(slug: string): Guide | undefined {
   return guides.find((g) => g.slug === slug);
 }
+
+export const revenueLeakageAnalysisGuide = guides.find(
+  (g) => g.slug === "revenue-leakage-analysis"
+)!;
