@@ -30,6 +30,10 @@ export function Footer() {
             Sample report
           </Link>
           <span aria-hidden="true">·</span>
+          <Link href="/guides" className="text-brand-600 hover:underline">
+            Guides
+          </Link>
+          <span aria-hidden="true">·</span>
           <Link href="/privacy" className="text-brand-600 hover:underline">
             Privacy Policy
           </Link>
