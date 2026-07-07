@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { CookieConsent } from "@/components/CookieConsent";
 import { getSiteUrl, SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
@@ -46,6 +47,7 @@ export default function RootLayout({
       <body className={`${inter.variable} font-sans min-h-screen`}>
         {children}
         <CookieConsent />
+        <Analytics />
       </body>
     </html>
   );
