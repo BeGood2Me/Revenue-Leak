@@ -12,6 +12,7 @@ import {
 import { normalizeEmail, isValidEmail } from "@/lib/utils";
 import type { Answers, BusinessType, LeakCategory } from "@/lib/types";
 import { LEAK_CATEGORY_LABELS } from "@/lib/types";
+import { getHeroRecommendation } from "@/lib/insights";
 import { enforceRateLimit } from "@/lib/api-rate-limit";
 
 function unauthorizedTokenResponse() {
@@ -48,6 +49,7 @@ function buildPreviewPayload(
       ? LEAK_CATEGORY_LABELS[topLeak.category as LeakCategory]
       : null,
     topLeakSeverity: topLeak?.severity ?? 0,
+    topLeakRecommendation: getHeroRecommendation(topLeak),
     isPaid,
     accessToken: createPreviewAccessToken(id),
   };

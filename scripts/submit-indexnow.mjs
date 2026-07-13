@@ -26,6 +26,14 @@ const fallbackUrlList = [
   `${appUrl}/sample-report`,
   `${appUrl}/guides`,
   `${appUrl}/guides/revenue-leakage-analysis`,
+  `${appUrl}/guides/revenue-leakage-examples`,
+  `${appUrl}/guides/revenue-leakage-detection`,
+  `${appUrl}/guides/identify-profit-leaks`,
+  `${appUrl}/guides/failed-payment-recovery`,
+  `${appUrl}/for/saas`,
+  `${appUrl}/for/ecommerce`,
+  `${appUrl}/for/agencies`,
+  `${appUrl}/for/local-services`,
 ];
 
 async function getUrlList() {

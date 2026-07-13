@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { guides } from "@/lib/guides";
+import { nicheLandings } from "@/lib/niche-landings";
 import { getSiteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -42,6 +43,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(guide.published),
       changeFrequency: "monthly" as const,
       priority: 0.8,
+    })),
+    ...nicheLandings.map((landing) => ({
+      url: `${base}/for/${landing.slug}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
     })),
   ];
 }

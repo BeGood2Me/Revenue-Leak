@@ -58,6 +58,10 @@ function buildReportEmailHtml(params: ReportEmailParams): string {
                   Bookmark this link to return anytime:<br/>
                   <a href="${reportUrl}" style="color:#006fc7;">${reportUrl}</a>
                 </p>
+                <p style="margin:20px 0 0;padding:16px;background:#f8fafc;border-radius:8px;color:#475569;font-size:14px;line-height:1.5;">
+                  <strong>Quick question:</strong> Did this report help you see where to focus?
+                  Reply with one line — we read every response and use it to improve the product.
+                </p>
               </td>
             </tr>
           </table>
@@ -90,6 +94,8 @@ ${topLeaksText}
 
 View your full report:
 ${reportUrl}
+
+Quick question: Did this report help you see where to focus? Reply with one line — we read every response.
 `;
 }
 

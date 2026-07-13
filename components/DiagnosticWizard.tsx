@@ -12,6 +12,7 @@ import { trackBeginCheckout, trackGenerateLead } from "@/lib/track";
 import { computeLeakScores } from "@/lib/scoring";
 import { computeFunnelHealthScore, getHealthScoreLabel } from "@/lib/health-score";
 import { getStepMicroFeedback } from "@/lib/step-feedback";
+import { getNicheLanding } from "@/lib/niche-landings";
 import { BusinessTypeSelector } from "./BusinessTypeSelector";
 import { QuestionField, validateQuestion } from "./QuestionField";
 import { Button } from "./Button";
@@ -46,6 +47,7 @@ interface PreviewData {
   topLeakCategory: LeakCategory | null;
   topLeakLabel: string | null;
   topLeakSeverity: number;
+  topLeakRecommendation: string | null;
   isPaid: boolean;
 }
 
@@ -67,6 +69,9 @@ export function DiagnosticWizard() {
   const restoreToken = searchParams.get("token");
   const isCheckoutCancel = Boolean(cancelledDiagnosticId);
   const wantsFreshStart = searchParams.get("fresh") === "1";
+  const nicheParam = searchParams.get("niche");
+  const preselectBusinessType = getNicheLanding(nicheParam ?? "")?.businessType ?? null;
+  const nicheAutoStartRef = useRef(false);
 
   const [phase, setPhase] = useState<Phase>("select");
   const [businessType, setBusinessType] = useState<BusinessType | null>(null);
@@ -130,6 +135,7 @@ export function DiagnosticWizard() {
         topLeakCategory: (data.topLeakCategory as LeakCategory | null) ?? null,
         topLeakLabel: (data.topLeakLabel as string | null) ?? null,
         topLeakSeverity: (data.topLeakSeverity as number) ?? 0,
+        topLeakRecommendation: (data.topLeakRecommendation as string | null) ?? null,
         isPaid: Boolean(data.isPaid),
       });
 
@@ -391,6 +397,22 @@ export function DiagnosticWizard() {
   }, [restoreDiagnosticId, restoreToken, isCheckoutCancel, wantsFreshStart, applyDiagnosticRestore]);
 
   useEffect(() => {
+    if (restoring || restoreDiagnosticId || nicheAutoStartRef.current) return;
+    if (!preselectBusinessType || !wantsFreshStart) return;
+    if (phase !== "select" || businessType) return;
+
+    nicheAutoStartRef.current = true;
+    beginNewDiagnosticSession(preselectBusinessType);
+  }, [
+    restoring,
+    restoreDiagnosticId,
+    preselectBusinessType,
+    wantsFreshStart,
+    phase,
+    businessType,
+  ]);
+
+  useEffect(() => {
     if (phase !== "preview" || !preview || !scrollToPreviewRef.current) return;
     scrollToPreviewRef.current = false;
     requestAnimationFrame(() => {
@@ -600,6 +622,7 @@ export function DiagnosticWizard() {
         topLeakCategory: data.topLeakCategory,
         topLeakLabel: data.topLeakLabel,
         topLeakSeverity: data.topLeakSeverity,
+        topLeakRecommendation: data.topLeakRecommendation ?? null,
         isPaid: data.isPaid,
       });
       if (typeof data.reportAccessToken === "string") {
@@ -769,6 +792,18 @@ export function DiagnosticWizard() {
               <strong>{REPORT_PRICE_LABEL}</strong>, get the exact breakdown and what to fix first.
             </p>
 
+            {preview.topLeakRecommendation && (
+              <div className="mt-5 rounded-xl border border-slate-200 bg-white p-4">
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  #1 fix in your full report
+                </p>
+                <p className="mt-2 text-sm text-slate-700 blur-[3px] select-none">
+                  {preview.topLeakRecommendation}
+                </p>
+                <p className="mt-2 text-xs text-brand-600">Unlock to read the full recommendation</p>
+              </div>
+            )}
+
             <ul className="mt-5 space-y-2">
               {WHAT_YOU_GET.map((item) => (
                 <li key={item} className="flex gap-2 text-sm text-slate-700">
@@ -790,6 +825,9 @@ export function DiagnosticWizard() {
 
             <div className="mt-4 space-y-1 text-xs text-slate-500">
               <p>Secure payment via Stripe · Instant access · 7-day money-back guarantee</p>
+              <p>
+                Less than one hour of consulting — or keep losing {preview.lossRange.label}/month.
+              </p>
               <p>Report link will be emailed to {email}</p>
             </div>
           </div>
