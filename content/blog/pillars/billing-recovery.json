@@ -1,0 +1,25 @@
+{
+  "slug": "billing-recovery",
+  "title": "Billing & Recovery",
+  "description": "Stop losing recurring revenue to failed payments, dunning gaps, and billing errors — recovery playbooks for SaaS and subscriptions.",
+  "published": "2026-07-16",
+  "postSlugs": ["failed-payment-recovery", "subscription-billing-leaks"],
+  "keywords": [
+    "failed payment recovery",
+    "dunning",
+    "involuntary churn",
+    "billing leakage",
+    "subscription revenue leak"
+  ],
+  "faq": [
+    {
+      "q": "What is failed payment recovery?",
+      "a": "The process of retrying declined charges, emailing customers to update cards, and recovering revenue from involuntary churn — often the highest-ROI billing fix."
+    },
+    {
+      "q": "How quickly should you retry failed payments?",
+      "a": "Most teams use 3–4 retries over two weeks, plus dunning emails with a one-click update link. Smart retry timing improves recovery rates."
+    }
+  ],
+  "intro": "Billing leaks are silent: cards fail, invoices slip, and MRR drops without a cancellation survey. This cluster covers detection and recovery."
+}

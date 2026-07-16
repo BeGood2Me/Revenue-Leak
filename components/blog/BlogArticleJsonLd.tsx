@@ -1,25 +1,28 @@
-import { getSiteUrl, SITE_NAME } from "@/lib/site";
-import type { Guide } from "@/lib/guides";
+import { blogAuthor } from "@/lib/blog";
+import type { BlogPost } from "@/lib/blog/types";
+import { getSiteUrl } from "@/lib/site";
 
-export function ArticleJsonLd({ guide }: { guide: Guide }) {
+export function BlogArticleJsonLd({ post }: { post: BlogPost }) {
   const base = getSiteUrl();
-  const url = `${base}/guides/${guide.slug}`;
+  const url = `${base}/blog/${post.slug}`;
 
   const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: guide.title,
-    description: guide.description,
-    datePublished: guide.published,
-    dateModified: guide.published,
+    headline: post.title,
+    description: post.description,
+    datePublished: post.published,
+    dateModified: post.updated ?? post.published,
     author: {
       "@type": "Organization",
-      name: SITE_NAME,
+      name: blogAuthor.name,
       url: `${base}/about`,
+      description: blogAuthor.bio,
+      sameAs: blogAuthor.sameAs,
     },
     publisher: {
       "@type": "Organization",
-      name: SITE_NAME,
+      name: "Revenue Leak",
       url: base,
       logo: {
         "@type": "ImageObject",
@@ -31,6 +34,7 @@ export function ArticleJsonLd({ guide }: { guide: Guide }) {
       "@id": url,
     },
     url,
+    keywords: post.keywords.join(", "),
     inLanguage: "en-US",
   };
 

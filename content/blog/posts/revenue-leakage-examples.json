@@ -1,0 +1,80 @@
+{
+  "slug": "revenue-leakage-examples",
+  "title": "12 Revenue Leakage Examples (SaaS, Ecommerce, Agency & Service)",
+  "description": "Concrete revenue leakage examples with estimated impact — trial conversion, cart abandonment, proposal ghosting, failed payments, and more.",
+  "published": "2026-07-16",
+  "pillar": "revenue-leakage",
+  "keywords": ["revenue leakage examples", "examples of revenue leakage", "revenue leak examples"],
+  "relatedSlugs": ["what-is-revenue-leakage", "saas-revenue-leakage", "cart-abandonment-revenue-leak"],
+  "faq": [
+    {
+      "q": "What is an example of revenue leakage?",
+      "a": "A SaaS company with 500 trials/month converting at 4% instead of 12% — at $150 ARPU that is thousands per month left uncaptured."
+    },
+    {
+      "q": "What is the most common revenue leak?",
+      "a": "It varies by model: SaaS often leaks in conversion and billing; ecommerce in cart abandonment; agencies in follow-up and scope creep."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "These revenue leakage examples are patterns we see across niches — often two or three active at once. Use them to spot what sounds familiar, then quantify with your own numbers."
+    },
+    {
+      "type": "h2",
+      "text": "SaaS examples"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Trial-to-paid below benchmark with healthy top-of-funnel",
+        "8% monthly churn with no exit survey or save offer",
+        "Failed card charges with no dunning sequence",
+        "Single-plan customers never shown upgrade path"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Deep dive: [SaaS revenue leakage](/blog/saas-revenue-leakage) · [SaaS diagnostic](/for/saas)"
+    },
+    {
+      "type": "h2",
+      "text": "Ecommerce examples"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "70%+ cart abandonment without recovery emails",
+        "One-time buyers with no second-purchase campaign",
+        "Refund spikes on best-selling SKUs"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Related: [cart abandonment revenue leak](/blog/cart-abandonment-revenue-leak)"
+    },
+    {
+      "type": "h2",
+      "text": "Agency & service examples"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Proposals sent, never followed up within 48 hours",
+        "No-show appointments without reminders or deposits",
+        "Invoices sent weeks after work completed"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Related: [agency proposal leakage](/blog/agency-proposal-leakage)"
+    },
+    {
+      "type": "cta",
+      "headline": "Which examples match your business?",
+      "subline": "Rank your top 3 leaks by estimated monthly impact",
+      "href": "/?fresh=1#start"
+    }
+  ]
+}

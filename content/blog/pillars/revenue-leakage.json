@@ -1,0 +1,36 @@
+{
+  "slug": "revenue-leakage",
+  "title": "Revenue Leakage",
+  "description": "Everything about finding, measuring, and fixing revenue leakage — definitions, examples, detection methods, and recovery playbooks.",
+  "published": "2026-07-16",
+  "postSlugs": [
+    "what-is-revenue-leakage",
+    "revenue-leakage-meaning",
+    "revenue-leakage-examples",
+    "revenue-leakage-detection",
+    "revenue-leakage-analysis",
+    "saas-revenue-leakage"
+  ],
+  "keywords": [
+    "revenue leakage",
+    "revenue leak",
+    "revenue leakage meaning",
+    "revenue leakage examples",
+    "revenue leakage detection"
+  ],
+  "faq": [
+    {
+      "q": "What is revenue leakage?",
+      "a": "Revenue leakage is money your business should earn but does not — because of gaps in acquisition, conversion, retention, billing, or expansion — not because demand disappeared."
+    },
+    {
+      "q": "How much revenue do businesses typically leak?",
+      "a": "Estimates vary by model; many B2B and subscription businesses see single-digit percentages of revenue at risk from billing errors, churn, and funnel gaps. Directional diagnostics help prioritize fixes."
+    },
+    {
+      "q": "Is revenue leakage the same as churn?",
+      "a": "No. Churn is one source. Leakage also includes failed payments, slow follow-up, cart abandonment, unbilled usage, and missing upsells — often before a customer ever leaves."
+    }
+  ],
+  "intro": "Revenue leakage is the gap between what your funnel could produce and what you actually collect. This cluster covers definitions, real-world examples, and how to detect leaks before they compound."
+}

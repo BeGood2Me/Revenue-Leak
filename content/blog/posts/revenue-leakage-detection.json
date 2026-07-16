@@ -1,0 +1,61 @@
+{
+  "slug": "revenue-leakage-detection",
+  "title": "Revenue Leakage Detection: 5-Step Process to Find Hidden Losses",
+  "description": "How to detect revenue leakage with benchmarks, funnel mapping, and dollar estimates — without a full analytics stack.",
+  "published": "2026-07-16",
+  "pillar": "revenue-leakage",
+  "keywords": ["revenue leakage detection", "detect revenue leaks", "revenue leak identification strategies"],
+  "relatedSlugs": ["identify-profit-leaks", "revenue-leakage-analysis", "what-is-revenue-leakage"],
+  "faq": [
+    {
+      "q": "How do you detect revenue leakage?",
+      "a": "Map your funnel end to end, measure conversion at each step, compare to benchmarks, estimate monthly dollar impact, and fix the highest-impact stage first."
+    },
+    {
+      "q": "What tools detect revenue leakage?",
+      "a": "Stripe, your CRM, and analytics cover most gaps. Structure matters more than tooling — a diagnostic questionnaire can surface leaks in minutes."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "Revenue leakage detection is not about more dashboards. It is about asking: where does the funnel drop below benchmark, and what does that gap cost per month?"
+    },
+    {
+      "type": "h2",
+      "text": "Five-step detection process"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Draw the journey from stranger to repeat buyer — one owner per stage",
+        "Attach a metric to each transition (even rough ranges)",
+        "Color-code stages red/yellow/green vs niche benchmarks",
+        "Multiply lost conversions by average revenue per customer",
+        "Rank leaks by impact and effort; assign one owner per fix"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "For profit-focused framing, see [how to identify profit leaks](/blog/identify-profit-leaks). For billing-specific leaks, see [failed payment recovery](/blog/failed-payment-recovery)."
+    },
+    {
+      "type": "h2",
+      "text": "Signals leakage is happening"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Traffic or leads up, revenue flat",
+        "CAC rising without LTV improvement",
+        "Strong pipeline, weak close rate",
+        "Impressions up in search, clicks flat (intent mismatch)"
+      ]
+    },
+    {
+      "type": "cta",
+      "headline": "Run automated leakage detection in 5 minutes",
+      "href": "/?fresh=1#start"
+    }
+  ]
+}

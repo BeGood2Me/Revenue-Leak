@@ -1,0 +1,57 @@
+{
+  "slug": "revenue-leakage-analysis",
+  "title": "Revenue Leakage Analysis: Framework for Prioritizing Fixes",
+  "description": "A six-category revenue leakage analysis framework — acquisition, response, conversion, retention, billing, expansion — with prioritization matrix.",
+  "published": "2026-07-16",
+  "pillar": "revenue-leakage",
+  "keywords": ["revenue leakage analysis", "revenue leak analysis", "revenue leakage framework"],
+  "relatedSlugs": ["revenue-leakage-detection", "identify-profit-leaks", "revenue-leakage-meaning"],
+  "faq": [
+    {
+      "q": "What is revenue leakage analysis?",
+      "a": "A structured review of where money is lost across your customer journey, with dollar estimates so you fix high-impact leaks first."
+    },
+    {
+      "q": "How often should you run leakage analysis?",
+      "a": "Quarterly for most SMBs, or after major funnel changes (new pricing, checkout, sales process)."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "Revenue leakage analysis turns vague frustration (“we should be doing better”) into a ranked backlog. Score each category 1–5 for severity, then multiply by estimated monthly dollars at risk."
+    },
+    {
+      "type": "h2",
+      "text": "Six leak categories"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Acquisition — wrong traffic, weak positioning",
+        "Response — slow or missing follow-up",
+        "Conversion — trials, demos, carts that stall",
+        "Retention — churn and failed activation",
+        "Billing — failed payments and invoice delays",
+        "Expansion — missed upsells and annual plans"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Prioritization matrix"
+    },
+    {
+      "type": "p",
+      "text": "Plot each leak on impact (monthly $) vs effort (time to fix). Quick wins in the high-impact / low-effort quadrant go first — often response time, dunning emails, or cart recovery."
+    },
+    {
+      "type": "p",
+      "text": "Pair with [revenue leakage detection](/blog/revenue-leakage-detection) for measurement steps."
+    },
+    {
+      "type": "cta",
+      "headline": "Get a scored leakage report for your business",
+      "href": "/?fresh=1#start"
+    }
+  ]
+}

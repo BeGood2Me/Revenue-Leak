@@ -1,0 +1,48 @@
+{
+  "slug": "agency-proposal-leakage",
+  "title": "Agency Proposal Leakage: When Pipeline Dies After the Send",
+  "description": "Agency revenue leakage from proposal ghosting, slow follow-up, scope creep, and no-show discovery calls — with recovery tactics.",
+  "published": "2026-07-16",
+  "pillar": "funnel-profit-leaks",
+  "keywords": ["agency proposal leakage", "agency revenue leak", "proposal follow up revenue"],
+  "relatedSlugs": ["funnel-conversion-leaks", "identify-profit-leaks", "revenue-leakage-examples"],
+  "faq": [
+    {
+      "q": "Why do agency proposals leak revenue?",
+      "a": "Proposals sent without timed follow-up, unclear next steps, or pricing that does not match the buyer's decision process."
+    },
+    {
+      "q": "When should you follow up on a proposal?",
+      "a": "Within 24–48 hours of sending, then on a short cadence (day 3, 7, 14) with a specific ask — not 'just checking in.'"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "Agency proposal leakage is revenue you already earned in effort — discovery done, proposal crafted — but never closed because the post-send process failed."
+    },
+    {
+      "type": "h2",
+      "text": "Leak patterns for agencies & services"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Proposal sent Friday, no touch until next week",
+        "No deposit or calendar hold before scoping work",
+        "Scope creep on fixed-price deals",
+        "Invoices net-30 while payroll is weekly",
+        "No-show calls without SMS reminders"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Broader funnel view: [funnel conversion leaks](/blog/funnel-conversion-leaks). [Agency diagnostic](/for/agency?fresh=1#start)."
+    },
+    {
+      "type": "cta",
+      "headline": "Score your agency funnel leaks",
+      "href": "/for/agency?fresh=1#start"
+    }
+  ]
+}

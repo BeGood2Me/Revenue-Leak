@@ -1,0 +1,48 @@
+{
+  "slug": "failed-payment-recovery",
+  "title": "Failed Payment Recovery: Stop Involuntary Churn Revenue Leaks",
+  "description": "Recover revenue from failed card charges — dunning emails, Smart Retries, card updater, and benchmarks for subscription businesses.",
+  "published": "2026-07-16",
+  "pillar": "billing-recovery",
+  "keywords": ["failed payment recovery", "dunning emails", "involuntary churn", "recover failed payments"],
+  "relatedSlugs": ["subscription-billing-leaks", "saas-revenue-leakage", "revenue-leakage-examples"],
+  "faq": [
+    {
+      "q": "What is failed payment recovery?",
+      "a": "Automated retries and customer communication to collect revenue when a subscription charge fails — before the customer churns involuntarily."
+    },
+    {
+      "q": "How much revenue can dunning recover?",
+      "a": "Many SaaS businesses recover 20–40% of failed charges with proper retries and emails; results vary by audience and card mix."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "Failed payment recovery targets involuntary churn — customers who did not intend to leave. Without dunning, you leak MRR that a few emails and retries would save."
+    },
+    {
+      "type": "h2",
+      "text": "Recovery stack"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Enable processor Smart Retries (e.g. Stripe Billing)",
+        "Send branded dunning emails at day 0, 3, and 7",
+        "Link to a hosted update-payment page",
+        "Surface failed payments in a weekly ops review",
+        "Track recovery rate and revenue recaptured"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Related: [subscription billing leaks](/blog/subscription-billing-leaks) · [SaaS revenue leakage](/blog/saas-revenue-leakage)"
+    },
+    {
+      "type": "cta",
+      "headline": "Include billing leaks in your diagnostic",
+      "href": "/for/saas?fresh=1#start"
+    }
+  ]
+}

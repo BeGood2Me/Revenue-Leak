@@ -1,0 +1,27 @@
+{
+  "name": "Revenue Leak",
+  "tagline": "Practical revenue leakage research for operators and founders.",
+  "bio": "Revenue Leak publishes actionable guidance on revenue leakage, funnel performance, and billing recovery for SaaS, ecommerce, agency, and service businesses. Articles and the diagnostic use a structured six-category framework and published industry benchmarks—designed to help teams prioritize fixes quickly.",
+  "credentials": [
+    "Six-category leakage framework covering acquisition, response, conversion, retention, billing, and expansion",
+    "Benchmarks aligned with widely cited industry ranges and funnel performance metrics",
+    "Documented questionnaire-based methodology with transparent scoring assumptions",
+    "Content aligned with the Revenue Leak diagnostic for consistent guidance across the site"
+  ],
+  "methodology": [
+    {
+      "title": "Structured framework",
+      "text": "Every article maps to one or more stages of the customer journey—so readers can connect advice to measurable funnel steps."
+    },
+    {
+      "title": "Benchmark-driven",
+      "text": "Guidance references published ranges and operator best practices rather than anecdote, with clear steps to estimate dollar impact from your own numbers."
+    },
+    {
+      "title": "Action-first",
+      "text": "Recommendations are ranked by estimated impact and implementation effort, matching the prioritization logic in the Revenue Leak diagnostic."
+    }
+  ],
+  "disclaimer": "Revenue Leak provides directional estimates and educational content. It is not a substitute for formal financial, legal, tax, or audit advice. Always validate material decisions with qualified professionals.",
+  "sameAs": ["https://www.revenueleak.report"]
+}

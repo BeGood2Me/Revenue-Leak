@@ -41,6 +41,17 @@ export default function GuidesIndexPage() {
             </li>
           ))}
         </ul>
+        <p className="mt-10 text-sm text-slate-500">
+          New to the topic? Browse our{" "}
+          <Link href="/blog" className="text-brand-600 hover:underline">
+            blog clusters
+          </Link>{" "}
+          or{" "}
+          <Link href="/?fresh=1#start" className="text-brand-600 hover:underline">
+            run the free diagnostic
+          </Link>
+          .
+        </p>
       </main>
       <Footer />
     </>

@@ -1,0 +1,52 @@
+{
+  "slug": "saas-revenue-leakage",
+  "title": "SaaS Revenue Leakage: Trial, Churn & Billing Leaks Explained",
+  "description": "Where SaaS companies leak revenue — trial conversion, activation, churn, failed payments, and expansion — with benchmarks and fixes.",
+  "published": "2026-07-16",
+  "pillar": "revenue-leakage",
+  "keywords": ["saas revenue leakage", "saas revenue leak", "subscription revenue leakage"],
+  "relatedSlugs": ["subscription-billing-leaks", "failed-payment-recovery", "revenue-leakage-examples"],
+  "faq": [
+    {
+      "q": "Where do SaaS companies leak the most revenue?",
+      "a": "Typically trial-to-paid conversion, early churn before activation, and involuntary churn from failed card charges."
+    },
+    {
+      "q": "What is a good SaaS trial conversion rate?",
+      "a": "Varies by model; self-serve often targets 10–25% trial-to-paid. Below 5% with healthy signups usually signals a leak."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "SaaS revenue leakage rarely shows up as one broken metric. It is usually a stack: trials that never activate, cards that fail silently, and customers who would upgrade but never see the right plan."
+    },
+    {
+      "type": "h2",
+      "text": "Top SaaS leak points"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Trial signup without onboarding to first value",
+        "Pricing page mismatch vs actual buyer persona",
+        "Monthly churn above 5–7% without save flows",
+        "Failed payments with no Smart Retries or dunning",
+        "Annual plans under-promoted vs monthly"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Billing deep dive: [subscription billing leaks](/blog/subscription-billing-leaks) and [failed payment recovery](/blog/failed-payment-recovery)."
+    },
+    {
+      "type": "p",
+      "text": "Run the [SaaS revenue leak diagnostic](/for/saas) with pre-filled benchmarks."
+    },
+    {
+      "type": "cta",
+      "headline": "SaaS founders: find your top 3 leaks",
+      "href": "/for/saas?fresh=1#start"
+    }
+  ]
+}

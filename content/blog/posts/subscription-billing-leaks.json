@@ -1,0 +1,48 @@
+{
+  "slug": "subscription-billing-leaks",
+  "title": "Subscription Billing Leaks: Pricing, Dunning & Renewal Gaps",
+  "description": "Subscription billing leaks beyond failed payments — annual plan gaps, proration errors, trial billing surprises, and leakage math.",
+  "published": "2026-07-16",
+  "pillar": "billing-recovery",
+  "keywords": ["subscription billing leaks", "billing revenue leakage", "subscription revenue recovery"],
+  "relatedSlugs": ["failed-payment-recovery", "saas-revenue-leakage", "revenue-leakage-analysis"],
+  "faq": [
+    {
+      "q": "What are subscription billing leaks?",
+      "a": "Revenue lost in the billing layer: failed charges, wrong plan assignments, missing annual upsells, and customers on legacy pricing."
+    },
+    {
+      "q": "How do I audit subscription billing?",
+      "a": "Export active subs, segment by plan and tenure, check failed payment rate, and compare MRR to expected from list price."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "Subscription billing leaks sit between product and finance. Customers stay subscribed but pay less than they should, or churn silently when cards fail."
+    },
+    {
+      "type": "h2",
+      "text": "Billing leak types"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Involuntary churn from failed payments",
+        "Grandfathered pricing never migrated",
+        "Trials that convert to wrong plan tier",
+        "No annual discount — monthly bleed",
+        "Tax or currency misconfiguration on invoices"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Fix failed charges first: [failed payment recovery](/blog/failed-payment-recovery)."
+    },
+    {
+      "type": "cta",
+      "headline": "Score billing + funnel leaks together",
+      "href": "/for/saas?fresh=1#start"
+    }
+  ]
+}

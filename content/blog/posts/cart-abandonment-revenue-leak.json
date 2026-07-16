@@ -1,0 +1,48 @@
+{
+  "slug": "cart-abandonment-revenue-leak",
+  "title": "Cart Abandonment Revenue Leak: Recover Lost Ecommerce Sales",
+  "description": "How cart abandonment creates revenue leakage — benchmarks, recovery emails, checkout fixes, and dollar impact estimates.",
+  "published": "2026-07-16",
+  "pillar": "funnel-profit-leaks",
+  "keywords": ["cart abandonment revenue leak", "cart abandonment revenue loss", "ecommerce revenue leakage"],
+  "relatedSlugs": ["funnel-conversion-leaks", "revenue-leakage-examples", "revenue-leakage-detection"],
+  "faq": [
+    {
+      "q": "How much revenue is lost to cart abandonment?",
+      "a": "Industry averages often cite 60–80% abandonment. On $50k monthly GMV, recovering even 5% of abandoned carts can mean thousands per month."
+    },
+    {
+      "q": "What reduces cart abandonment fastest?",
+      "a": "Guest checkout, transparent shipping costs early, trust badges, and a 3-email recovery sequence within 72 hours."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "Cart abandonment is one of the clearest revenue leaks in ecommerce: intent was real, payment did not happen. The fix is usually recovery plus checkout friction — not more traffic."
+    },
+    {
+      "type": "h2",
+      "text": "Common abandonment causes"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Shipping or tax surprise at checkout",
+        "Forced account creation",
+        "Slow mobile checkout",
+        "No abandoned-cart email sequence",
+        "Stock or variant confusion on PDP"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "See more patterns in [revenue leakage examples](/blog/revenue-leakage-examples). Run the [ecommerce diagnostic](/for/ecommerce?fresh=1#start)."
+    },
+    {
+      "type": "cta",
+      "headline": "Quantify your cart and retention leaks",
+      "href": "/for/ecommerce?fresh=1#start"
+    }
+  ]
+}

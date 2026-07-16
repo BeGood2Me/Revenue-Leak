@@ -1,3 +1,4 @@
+import { blogPillars, blogPosts } from "@/lib/blog";
 import { FAQ_ITEMS } from "@/lib/faq";
 import {
   getContactEmail,
@@ -18,6 +19,7 @@ export function buildLlmsTxt(): string {
     "## Product",
     "",
     `- [Start diagnostic](${base}/): Free 5-minute questionnaire for SaaS, ecommerce, agency, and service businesses`,
+    `- [About](${base}/about): Methodology and standards for ${SITE_NAME} content`,
     `- [Privacy Policy](${base}/privacy): How we collect, use, and protect your data`,
     `- [Terms of Service](${base}/terms): Pricing ($29 one-time report), refunds, and service terms`,
     "",
@@ -26,6 +28,17 @@ export function buildLlmsTxt(): string {
     "- Scans six leak categories: acquisition, response, conversion, retention, billing/recovery, and expansion",
     "- Shows a free preview with estimated monthly revenue loss",
     "- Unlocks a full written report after one-time Stripe checkout",
+    "",
+    "## Blog & content pillars",
+    "",
+    `- [Blog index](${base}/blog): Articles on revenue leakage, funnel leaks, and billing recovery`,
+    ...blogPillars.map(
+      (pillar) =>
+        `- [${pillar.title}](${base}/blog/pillar/${pillar.slug}): ${pillar.description}`
+    ),
+    ...blogPosts.map(
+      (post) => `- [${post.title}](${base}/blog/${post.slug}): ${post.description}`
+    ),
     "",
     "## Common questions",
     "",

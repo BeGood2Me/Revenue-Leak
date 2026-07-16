@@ -1,0 +1,48 @@
+{
+  "slug": "identify-profit-leaks",
+  "title": "How to Identify Profit Leaks in Your Business (Not Just Revenue)",
+  "description": "Identify profit leaks by connecting funnel gaps to margin — discount creep, scope creep, CAC waste, and recovery opportunities.",
+  "published": "2026-07-16",
+  "pillar": "funnel-profit-leaks",
+  "keywords": ["identify profit leaks", "profit leak identification", "profit leaks in business"],
+  "relatedSlugs": ["revenue-leakage-detection", "funnel-conversion-leaks", "revenue-leakage-analysis"],
+  "faq": [
+    {
+      "q": "What is a profit leak?",
+      "a": "Revenue you lose or margin you give away through operational gaps — not just top-line shortfalls."
+    },
+    {
+      "q": "How is a profit leak different from revenue leakage?",
+      "a": "Revenue leakage focuses on uncaptured sales. Profit leaks include margin erosion: discounts, refunds, unpaid scope, and inefficient acquisition."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "To identify profit leaks, follow dollars past the sale. A lead that never converts wastes CAC. A client who gets free scope erodes margin. A failed renewal kills LTV. Same funnel, different accounting lens."
+    },
+    {
+      "type": "h2",
+      "text": "Profit leak checklist"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Discounts that never expire or auto-renew at promo rates",
+        "Refund rate spikes on specific products or cohorts",
+        "Sales cycle length growing while close rate falls",
+        "Support load from customers who never activated",
+        "Invoices paid late — cash timing hurts runway"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Measure funnel leaks first with [revenue leakage detection](/blog/revenue-leakage-detection), then layer unit economics."
+    },
+    {
+      "type": "cta",
+      "headline": "Rank leaks by estimated monthly impact",
+      "href": "/?fresh=1#start"
+    }
+  ]
+}

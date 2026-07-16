@@ -1,0 +1,47 @@
+{
+  "slug": "funnel-conversion-leaks",
+  "title": "Funnel Conversion Leaks: Where Visitors Become Lost Revenue",
+  "description": "Find funnel conversion leaks at each stage — awareness, interest, decision, action — with benchmarks and fix patterns.",
+  "published": "2026-07-16",
+  "pillar": "funnel-profit-leaks",
+  "keywords": ["funnel conversion leaks", "conversion funnel leaks", "sales funnel revenue leak"],
+  "relatedSlugs": ["cart-abandonment-revenue-leak", "revenue-leakage-detection", "identify-profit-leaks"],
+  "faq": [
+    {
+      "q": "What causes funnel conversion leaks?",
+      "a": "Friction, slow response, unclear value prop, trust gaps, and missing recovery flows at each transition."
+    },
+    {
+      "q": "Which funnel stage leaks the most?",
+      "a": "Depends on business: B2B often leaks at demo-to-close; ecommerce at cart-to-purchase; SaaS at trial-to-paid."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "Funnel conversion leaks are drop-offs between stages that should connect. You do not need perfect analytics — compare each transition to a benchmark and estimate dollars left on the table."
+    },
+    {
+      "type": "h2",
+      "text": "Stage-by-stage leaks"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Awareness → interest: wrong audience or weak hook",
+        "Interest → intent: no clear next step or social proof",
+        "Intent → purchase: checkout friction, pricing shock",
+        "Purchase → repeat: no onboarding to second order"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Ecommerce-specific: [cart abandonment revenue leak](/blog/cart-abandonment-revenue-leak). Agency-specific: [proposal leakage](/blog/agency-proposal-leakage)."
+    },
+    {
+      "type": "cta",
+      "headline": "Map your funnel and score each stage",
+      "href": "/?fresh=1#start"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "funnel-profit-leaks",
+  "title": "Funnel & Profit Leaks",
+  "description": "Identify profit leaks across your customer journey — conversion gaps, response delays, and funnel stages that bleed margin.",
+  "published": "2026-07-16",
+  "postSlugs": [
+    "identify-profit-leaks",
+    "funnel-conversion-leaks",
+    "cart-abandonment-revenue-leak",
+    "agency-proposal-leakage"
+  ],
+  "keywords": [
+    "profit leaks",
+    "identify profit leaks",
+    "funnel leakage",
+    "conversion leak",
+    "revenue leak identification"
+  ],
+  "faq": [
+    {
+      "q": "What is a profit leak?",
+      "a": "A profit leak is revenue you almost captured but lost due to a broken funnel stage — slow response, weak conversion, or customers who never buy again."
+    },
+    {
+      "q": "Where should I look first for funnel leaks?",
+      "a": "Measure conversion between each step (visit → lead → sale → repeat). The largest gap vs benchmark is usually your highest-impact leak."
+    }
+  ],
+  "intro": "Profit leaks hide between funnel stages. These articles show how to find them with rough math and benchmarks — no finance team required."
+}

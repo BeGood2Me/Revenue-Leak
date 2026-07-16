@@ -7,6 +7,8 @@ import {
 
 ensureDatabaseUrl();
 
+execSync("node scripts/generate-blog.mjs", { stdio: "inherit", env: process.env });
+
 execSync("npx prisma generate", { stdio: "inherit", env: process.env });
 
 const migrateUrl = pickDatabaseUrlForMigrate();

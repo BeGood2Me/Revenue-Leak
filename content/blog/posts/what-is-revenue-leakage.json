@@ -1,0 +1,62 @@
+{
+  "slug": "what-is-revenue-leakage",
+  "title": "What Is Revenue Leakage? Definition, Causes & How to Fix It",
+  "description": "Revenue leakage explained: what it means, common causes across SaaS and ecommerce, and how to find leaks before they compound.",
+  "published": "2026-07-16",
+  "pillar": "revenue-leakage",
+  "keywords": ["what is revenue leakage", "revenue leakage definition", "revenue leak meaning"],
+  "relatedSlugs": ["revenue-leakage-meaning", "revenue-leakage-examples", "revenue-leakage-detection"],
+  "faq": [
+    {
+      "q": "What is revenue leakage in simple terms?",
+      "a": "Money you should have earned but did not — because something in your funnel (traffic, sales, billing, retention) failed, not because customers disappeared."
+    },
+    {
+      "q": "Is revenue leakage illegal or fraud?",
+      "a": "Usually no. It is operational — slow follow-up, failed payments, cart abandonment, pricing errors — not theft."
+    },
+    {
+      "q": "How is revenue leakage different from low revenue?",
+      "a": "Low revenue can mean weak demand. Leakage means demand or customers exist, but process gaps prevent you from capturing full value."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "Revenue leakage is the gap between revenue you could collect and revenue you actually collect. The customer may still be interested, the product may still deliver value, but a broken step — slow demo follow-up, a declined card, an abandoned cart — lets money escape."
+    },
+    {
+      "type": "h2",
+      "text": "Common causes of revenue leakage"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Acquisition: traffic that never becomes a qualified lead",
+        "Response: leads that go cold before anyone replies",
+        "Conversion: trials, demos, or carts that stall before payment",
+        "Retention: customers who churn early or never activate",
+        "Billing: failed payments, invoice delays, pricing drift",
+        "Expansion: customers who would upgrade but never see an offer"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "See [revenue leakage examples](/blog/revenue-leakage-examples) for worked patterns by business type."
+    },
+    {
+      "type": "h2",
+      "text": "How to find revenue leakage"
+    },
+    {
+      "type": "p",
+      "text": "Map your funnel, measure conversion between steps, benchmark each rate, and estimate dollar impact. Our [revenue leakage detection](/blog/revenue-leakage-detection) guide walks through the process step by step."
+    },
+    {
+      "type": "cta",
+      "headline": "Find your top 3 revenue leaks in 5 minutes",
+      "subline": "Free directional diagnostic — no spreadsheet required",
+      "href": "/?fresh=1#start"
+    }
+  ]
+}

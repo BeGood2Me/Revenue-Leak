@@ -1,0 +1,47 @@
+{
+  "slug": "revenue-leakage-meaning",
+  "title": "Revenue Leakage Meaning: What People Actually Mean (and Confuse)",
+  "description": "Revenue leakage meaning vs churn, shrinkage, and margin erosion — plain-language definitions for founders and operators.",
+  "published": "2026-07-16",
+  "pillar": "revenue-leakage",
+  "keywords": ["revenue leakage meaning", "revenue leak meaning", "revenue leakage synonyms"],
+  "relatedSlugs": ["what-is-revenue-leakage", "revenue-leakage-analysis", "identify-profit-leaks"],
+  "faq": [
+    {
+      "q": "What does revenue leakage mean?",
+      "a": "It means earned or almost-earned revenue is lost due to process failures — billing, funnel, or operations — rather than lack of market demand."
+    },
+    {
+      "q": "Is revenue leakage the same as revenue shrinkage?",
+      "a": "Shrinkage often refers to inventory or retail loss. Revenue leakage usually describes funnel and billing gaps in digital and service businesses."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "When people search revenue leakage meaning, they usually want a plain definition — not a finance textbook. Here it is: leakage is money slipping out of your business because a step in the journey failed, not because the market vanished."
+    },
+    {
+      "type": "h2",
+      "text": "Terms people confuse with revenue leakage"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Churn: customers who leave — one source of leakage, not the whole picture",
+        "Margin erosion: often caused by discounts that never expire or scope creep",
+        "Leakage vs attrition: attrition is loss of customers; leakage includes never converting them at all",
+        "Revenue recognition errors: accounting timing — related but not identical"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "For a full framework across six leak categories, read [revenue leakage analysis](/blog/revenue-leakage-analysis)."
+    },
+    {
+      "type": "cta",
+      "headline": "See what leakage looks like for your business type",
+      "href": "/?fresh=1#start"
+    }
+  ]
+}
