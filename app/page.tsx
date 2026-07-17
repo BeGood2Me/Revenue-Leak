@@ -17,64 +17,69 @@ export default function HomePage() {
       <FaqJsonLd />
       <Header />
       <main>
-        <section className="border-b border-slate-200 bg-gradient-to-b from-white to-slate-50">
-          <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24">
+        <section className="surface-radar border-b border-surface-muted">
+          <div className="mx-auto flex min-h-[min(85vh,720px)] max-w-5xl flex-col justify-center px-4 py-16 sm:px-6 sm:py-20">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
-                Free 5-minute diagnostic · Works on any device
+              <p className="animate-fade-up font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl md:text-6xl">
+                {SITE_NAME}
               </p>
-              <h1 className="mt-4 text-balance text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+              <h1 className="animate-fade-up-delay mt-6 text-balance text-2xl font-semibold tracking-tight text-ink sm:text-3xl md:text-4xl">
                 Find the top 3 places your business is leaking revenue — and what to fix first
               </h1>
-              <p className="mt-6 text-lg text-slate-600">
-                {SITE_NAME} scans your customer journey — from first visit to repeat purchase —
-                and estimates where money is slipping away each month. Tailored to your business
-                type: SaaS, ecommerce, agency, or local service.
+              <p className="animate-fade-up-delay-2 mt-5 text-lg text-ink-muted">
+                Scan your customer journey in five minutes. Get a ranked leak map tailored to SaaS,
+                ecommerce, agency, or local service.
               </p>
-              <div className="mt-8">
+              <div className="animate-fade-up-delay-2 mt-9 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
                 <Link href="/?fresh=1#start">
                   <Button size="lg">Start diagnostic — it&apos;s free</Button>
                 </Link>
-              </div>
-              <p className="mt-3 text-sm text-slate-500">
-                No signup required to start · Takes ~5 minutes · Full report {REPORT_PRICE_LABEL}{" "}
-                · 7-day money-back guarantee
-              </p>
-              <p className="mt-2 text-sm">
-                <Link href="/sample-report" className="text-brand-600 hover:underline">
+                <Link
+                  href="/sample-report"
+                  className="text-sm font-medium text-brand-700 underline-offset-4 hover:text-brand-800 hover:underline"
+                >
                   See a sample report
                 </Link>
+              </div>
+              <p className="mt-4 text-sm text-ink-soft">
+                No signup to start · ~5 minutes · Full report {REPORT_PRICE_LABEL} · 7-day
+                money-back
               </p>
             </div>
+          </div>
+        </section>
 
-            <div className="mx-auto mt-16 grid max-w-3xl gap-6 sm:grid-cols-3">
+        <section className="border-b border-surface-muted bg-surface-raised/70 py-14">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6">
+            <ol className="space-y-6">
               {[
                 {
-                  step: "1",
+                  step: "01",
                   title: "Choose your niche",
-                  desc: "SaaS, ecommerce, agency, or service — visual cards, ~1 minute",
+                  desc: "SaaS, ecommerce, agency, or service — about one minute",
                 },
                 {
-                  step: "2",
+                  step: "02",
                   title: "Answer quick questions",
-                  desc: "Ranges & estimates — progress bar shows time left",
+                  desc: "Ranges and estimates — a progress bar shows time left",
                 },
                 {
-                  step: "3",
+                  step: "03",
                   title: "See your leak map",
                   desc: `Free preview, then unlock the full report for ${REPORT_PRICE_LABEL}`,
                 },
               ].map((item) => (
-                <div key={item.step} className="rounded-xl border border-slate-200 bg-white p-5 text-center">
-                  <div className="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-700">
+                <li key={item.step} className="flex gap-5 border-b border-surface-muted pb-6 last:border-0 last:pb-0">
+                  <span className="font-display text-2xl font-semibold tabular-nums text-brand-600">
                     {item.step}
+                  </span>
+                  <div>
+                    <h2 className="text-lg font-semibold text-ink">{item.title}</h2>
+                    <p className="mt-1 text-sm text-ink-muted">{item.desc}</p>
                   </div>
-                  <h3 className="mt-3 font-semibold text-slate-900">{item.title}</h3>
-                  <p className="mt-1 text-sm text-slate-600">{item.desc}</p>
-                </div>
+                </li>
               ))}
-            </div>
-
+            </ol>
             <CredibilityBand />
           </div>
         </section>

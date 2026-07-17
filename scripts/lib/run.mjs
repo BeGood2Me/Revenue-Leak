@@ -5,7 +5,7 @@ function quoteArg(arg) {
   return `"${arg.replace(/"/g, '\\"')}"`;
 }
 
-function runCommand(command, args, { stdio = "inherit" } = {}) {
+function runCommand(command, args, { stdio = "inherit", env } = {}) {
   if (process.platform === "win32") {
     const line = [command, ...args].map(quoteArg).join(" ");
     const result = spawnSync("cmd.exe", ["/d", "/s", "/c", line], {
@@ -13,6 +13,7 @@ function runCommand(command, args, { stdio = "inherit" } = {}) {
       stdio,
       shell: false,
       windowsHide: true,
+      ...(env ? { env } : {}),
     });
 
     if (result.error) throw result.error;
@@ -31,6 +32,7 @@ function runCommand(command, args, { stdio = "inherit" } = {}) {
     stdio,
     shell: false,
     windowsHide: true,
+    ...(env ? { env } : {}),
   });
 
   if (result.error) throw result.error;

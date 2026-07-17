@@ -17,11 +17,11 @@ export function Button({
 }: ButtonProps) {
   const variants = {
     primary:
-      "bg-brand-600 text-white hover:bg-brand-700 shadow-sm focus-visible:ring-brand-500",
+      "bg-brand-600 text-white hover:bg-brand-700 shadow-sm focus-visible:ring-brand-500 hover:-translate-y-px",
     secondary:
-      "bg-accent-500 text-white hover:bg-accent-600 shadow-sm focus-visible:ring-accent-500",
+      "bg-accent-600 text-white hover:bg-accent-700 shadow-sm focus-visible:ring-accent-500 hover:-translate-y-px",
     outline:
-      "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 focus-visible:ring-brand-500",
+      "border border-surface-muted bg-surface-raised text-ink hover:bg-surface focus-visible:ring-brand-500",
   };
 
   const sizes = {
@@ -33,7 +33,7 @@ export function Button({
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60",
+        "inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0",
         variants[variant],
         sizes[size],
         className

@@ -38,7 +38,7 @@ function buildReportEmailHtml(params: ReportEmailParams): string {
         <td align="center">
           <table width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;">
             <tr>
-              <td style="background:#006fc7;padding:24px 28px;">
+              <td style="background:#0d9488;padding:24px 28px;">
                 <h1 style="margin:0;color:#ffffff;font-size:22px;">Your Revenue Leak Report is ready</h1>
               </td>
             </tr>
@@ -48,15 +48,15 @@ function buildReportEmailHtml(params: ReportEmailParams): string {
                   Thanks for your purchase. Your full <strong>${businessLabel}</strong> diagnostic report is ready to view.
                 </p>
                 <p style="margin:0 0 8px;color:#64748b;font-size:14px;">Total estimated monthly revenue loss</p>
-                <p style="margin:0 0 24px;color:#dc2626;font-size:28px;font-weight:700;">${formatCurrency(params.totalEstimatedLoss)}</p>
-                ${hero ? `<p style="margin:0 0 16px;padding:12px 16px;background:#f0f9ff;border-radius:8px;color:#334155;font-size:14px;line-height:1.5;"><strong>Start here:</strong> ${hero}</p>` : ""}
+                <p style="margin:0 0 24px;color:#c2410c;font-size:28px;font-weight:700;">${formatCurrency(params.totalEstimatedLoss)}</p>
+                ${hero ? `<p style="margin:0 0 16px;padding:12px 16px;background:#f0fdfa;border-radius:8px;color:#334155;font-size:14px;line-height:1.5;"><strong>Start here:</strong> ${hero}</p>` : ""}
                 <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">${topLeaksHtml}</table>
                 <a href="${reportUrl}" style="display:inline-block;background:#ea580c;color:#ffffff;text-decoration:none;font-weight:600;padding:14px 24px;border-radius:10px;">
                   View your full report
                 </a>
                 <p style="margin:24px 0 0;color:#94a3b8;font-size:13px;line-height:1.5;">
                   Bookmark this link to return anytime:<br/>
-                  <a href="${reportUrl}" style="color:#006fc7;">${reportUrl}</a>
+                  <a href="${reportUrl}" style="color:#0d9488;">${reportUrl}</a>
                 </p>
                 <p style="margin:20px 0 0;padding:16px;background:#f8fafc;border-radius:8px;color:#475569;font-size:14px;line-height:1.5;">
                   <strong>Quick question:</strong> Did this report help you see where to focus?

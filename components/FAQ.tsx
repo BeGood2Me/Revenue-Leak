@@ -9,36 +9,36 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="border-t border-slate-200 bg-white py-16">
+    <section className="border-t border-surface-muted bg-surface-raised/80 py-16">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <h2 className="text-center text-2xl font-bold text-slate-900">
+        <h2 className="text-center font-display text-2xl font-semibold text-ink">
           Common questions
         </h2>
-        <div className="mt-8 divide-y divide-slate-200 rounded-xl border border-slate-200 bg-slate-50">
+        <div className="mt-8 divide-y divide-surface-muted rounded-xl border border-surface-muted bg-surface">
           {FAQ_ITEMS.map((item, i) => (
             <div key={item.q}>
               <button
                 type="button"
-                className="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-medium text-slate-900 hover:bg-white"
+                className="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-medium text-ink hover:bg-surface-raised"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 aria-expanded={openIndex === i}
               >
                 {item.q}
-                <span className="ml-4 text-slate-400">{openIndex === i ? "−" : "+"}</span>
+                <span className="ml-4 text-ink-soft">{openIndex === i ? "−" : "+"}</span>
               </button>
               {openIndex === i && (
-                <p className="px-5 pb-4 text-sm leading-relaxed text-slate-600">{item.a}</p>
+                <p className="px-5 pb-4 text-sm leading-relaxed text-ink-muted">{item.a}</p>
               )}
             </div>
           ))}
         </div>
-        <p className="mt-6 text-center text-sm text-slate-500">
+        <p className="mt-6 text-center text-sm text-ink-soft">
           7-day refund policy and how we handle your data:{" "}
-          <Link href="/terms" className="text-brand-600 hover:underline">
+          <Link href="/terms" className="text-brand-700 hover:underline">
             Terms of Service
           </Link>
           {" · "}
-          <Link href="/privacy" className="text-brand-600 hover:underline">
+          <Link href="/privacy" className="text-brand-700 hover:underline">
             Privacy Policy
           </Link>
         </p>
@@ -49,23 +49,25 @@ export function FAQ() {
 
 export function CredibilityBand() {
   return (
-    <div className="mt-12 border-t border-slate-200 pt-10">
-      <p className="text-center text-sm font-medium text-slate-500">
+    <div className="mt-12 border-t border-surface-muted pt-10">
+      <p className="text-center text-sm font-medium text-ink-soft">
         Built for founders across SaaS, ecommerce, agencies, and local services
       </p>
-      <h2 className="mt-6 text-center text-lg font-semibold text-slate-900">
+      <h2 className="mt-6 text-center font-display text-lg font-semibold text-ink">
         We scan 6 universal leak categories
       </h2>
-      <div className="mx-auto mt-4 grid max-w-3xl gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {LEAK_CATEGORIES.map((cat) => (
-          <div
-            key={cat}
-            className="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700"
-          >
-            <span className="font-medium text-slate-900">{LEAK_CATEGORY_LABELS[cat]}</span>
-          </div>
+      <ul className="mx-auto mt-5 flex max-w-3xl flex-wrap justify-center gap-x-4 gap-y-2 text-sm text-ink-muted">
+        {LEAK_CATEGORIES.map((cat, i) => (
+          <li key={cat} className="inline-flex items-center gap-4">
+            {i > 0 ? (
+              <span className="text-surface-muted" aria-hidden="true">
+                ·
+              </span>
+            ) : null}
+            <span className="font-medium text-ink">{LEAK_CATEGORY_LABELS[cat]}</span>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }

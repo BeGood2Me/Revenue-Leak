@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: revenue_leak_dev
+    volumes:
+      - revenue_leak_pg:/var/lib/postgresql/data
+
+volumes:
+  revenue_leak_pg:

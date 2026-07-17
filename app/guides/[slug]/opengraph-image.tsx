@@ -30,7 +30,7 @@ export default async function GuideOpenGraphImage({ params }: ImageProps) {
           width: "100%",
           height: "100%",
           padding: "72px",
-          background: "linear-gradient(135deg, #006FC7 0%, #004a8a 100%)",
+          background: "linear-gradient(145deg, #0d9488 0%, #134e4a 55%, #12161c 100%)",
           color: "white",
           fontFamily: "system-ui, sans-serif",
         }}

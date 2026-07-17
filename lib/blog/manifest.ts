@@ -872,5 +872,5 @@ export const blogManifest: BlogManifest = {
       ]
     }
   ],
-  "generatedAt": "2026-07-16T14:48:38.806Z"
+  "generatedAt": "2026-07-17T18:01:38.550Z"
 } as const;

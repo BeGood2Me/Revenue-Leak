@@ -4,7 +4,18 @@ import { join } from "path";
 
 export const ROOT = process.cwd();
 export const ENV_LOCAL = join(ROOT, ".env.local");
+export const ENV_FILE = join(ROOT, ".env");
 export const ENV_EXAMPLE = join(ROOT, ".env.example");
+
+/** Local Postgres default used when DATABASE_URL is missing or invalid (e.g. leftover SQLite file: URLs). */
+export const LOCAL_DATABASE_URL =
+  "postgresql://postgres:postgres@127.0.0.1:5432/revenue_leak_dev";
+
+export function isValidPostgresUrl(value) {
+  if (!value) return false;
+  const v = value.trim().toLowerCase();
+  return v.startsWith("postgresql://") || v.startsWith("postgres://");
+}
 
 export function readEnvFile(path) {
   if (!existsSync(path)) return "";
@@ -52,12 +63,9 @@ export function ensureEnvLocal() {
 
 export function ensureBaselineEnv(content) {
   let next = content;
-  if (!getEnvValue(next, "DATABASE_URL")) {
-    next = upsertEnvValue(
-      next,
-      "DATABASE_URL",
-      '"postgresql://postgres:postgres@127.0.0.1:5432/revenue_leak_dev"'
-    );
+  const databaseUrl = getEnvValue(next, "DATABASE_URL");
+  if (!isValidPostgresUrl(databaseUrl)) {
+    next = upsertEnvValue(next, "DATABASE_URL", `"${LOCAL_DATABASE_URL}"`);
   }
   if (!getEnvValue(next, "NEXT_PUBLIC_APP_URL")) {
     next = upsertEnvValue(next, "NEXT_PUBLIC_APP_URL", "http://localhost:3000");
@@ -93,4 +101,8 @@ export function saveWebhookSecret(secret) {
 
 export function writeEnvLocal(content) {
   writeFileSync(ENV_LOCAL, content);
+}
+
+export function writeEnvFile(content) {
+  writeFileSync(ENV_FILE, content);
 }

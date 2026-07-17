@@ -1,9 +1,11 @@
 import {
   ENV_LOCAL,
+  LOCAL_DATABASE_URL,
   ensureAccessSecret,
   ensureBaselineEnv,
   ensureEnvLocal,
   getEnvValue,
+  isValidPostgresUrl,
   isPlaceholderValue,
   readEnvFile,
   upsertEnvValue,
@@ -76,7 +78,10 @@ async function main() {
     console.log(`Using existing price: ${priceId}`);
   }
 
-  envContent = upsertEnvValue(envContent, "DATABASE_URL", '"file:./dev.db"');
+  // Keep a valid Postgres URL; do not overwrite a working DATABASE_URL with SQLite.
+  if (!isValidPostgresUrl(getEnvValue(envContent, "DATABASE_URL"))) {
+    envContent = upsertEnvValue(envContent, "DATABASE_URL", `"${LOCAL_DATABASE_URL}"`);
+  }
   envContent = upsertEnvValue(envContent, "STRIPE_SECRET_KEY", secretKey);
   envContent = upsertEnvValue(envContent, "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY", publishableKey);
   envContent = upsertEnvValue(envContent, "STRIPE_PRICE_ID_DIAGNOSTIC", priceId);
