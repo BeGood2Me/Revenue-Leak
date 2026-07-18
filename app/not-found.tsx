@@ -6,16 +6,21 @@ export default function NotFound() {
     <>
       <Header />
       <main className="mx-auto max-w-lg px-4 py-24 text-center">
-        <h1 className="text-2xl font-bold text-slate-900">Report not found</h1>
-        <p className="mt-2 text-slate-600">
-          This diagnostic doesn&apos;t exist or the link may have expired.
+        <h1 className="font-display text-2xl font-semibold text-ink">Page not found</h1>
+        <p className="mt-2 text-ink-muted">
+          That page doesn&apos;t exist. Try the diagnostic, or browse guides and blog posts.
         </p>
-        <Link
-          href="/"
-          className="mt-6 inline-block text-brand-600 hover:underline"
-        >
-          Start a new diagnostic
-        </Link>
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm">
+          <Link href="/?fresh=1#start" className="text-brand-700 hover:underline">
+            Start diagnostic
+          </Link>
+          <Link href="/guides" className="text-brand-700 hover:underline">
+            Guides
+          </Link>
+          <Link href="/blog" className="text-brand-700 hover:underline">
+            Blog
+          </Link>
+        </div>
       </main>
       <Footer />
     </>

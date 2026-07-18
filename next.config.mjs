@@ -8,6 +8,15 @@ const nextConfig = {
   // Parent folder has a package-lock.json; pin tracing to this app root.
   outputFileTracingRoot: path.join(__dirname),
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: "/for/agency",
+        destination: "/for/agencies",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

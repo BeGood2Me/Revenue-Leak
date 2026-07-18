@@ -263,12 +263,12 @@ export const blogManifest: BlogManifest = {
         },
         {
           "type": "p",
-          "text": "Broader funnel view: [funnel conversion leaks](/blog/funnel-conversion-leaks). [Agency diagnostic](/for/agency?fresh=1#start)."
+          "text": "Broader funnel view: [funnel conversion leaks](/blog/funnel-conversion-leaks). [Agency diagnostic](/for/agencies?fresh=1#start)."
         },
         {
           "type": "cta",
           "headline": "Score your agency funnel leaks",
-          "href": "/for/agency?fresh=1#start"
+          "href": "/for/agencies?fresh=1#start"
         }
       ]
     },
@@ -872,5 +872,5 @@ export const blogManifest: BlogManifest = {
       ]
     }
   ],
-  "generatedAt": "2026-07-17T18:01:38.550Z"
+  "generatedAt": "2026-07-18T08:22:41.732Z"
 } as const;
