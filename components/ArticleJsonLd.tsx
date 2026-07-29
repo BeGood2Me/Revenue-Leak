@@ -11,7 +11,7 @@ export function ArticleJsonLd({ guide }: { guide: Guide }) {
     headline: guide.title,
     description: guide.description,
     datePublished: guide.published,
-    dateModified: guide.published,
+    dateModified: guide.updated ?? guide.published,
     author: {
       "@type": "Organization",
       name: SITE_NAME,

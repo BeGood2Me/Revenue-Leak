@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArticleJsonLd } from "@/components/ArticleJsonLd";
+import { BlogFaqJsonLd } from "@/components/blog/BlogFaqJsonLd";
 import { GuidePage } from "@/components/GuidePage";
 import { guideContentBySlug } from "@/components/guide-content";
 import { getGuide, guides } from "@/lib/guides";
@@ -36,6 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: guide.description,
       type: "article",
       publishedTime: guide.published,
+      modifiedTime: guide.updated ?? guide.published,
       url,
     },
     twitter: {
@@ -58,6 +60,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
   return (
     <>
       <ArticleJsonLd guide={guide} />
+      {guide.faq?.length ? <BlogFaqJsonLd faq={guide.faq} /> : null}
       <GuidePage guide={guide}>
         <Content />
       </GuidePage>

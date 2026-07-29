@@ -376,7 +376,7 @@ export const blogManifest: BlogManifest = {
         },
         {
           "type": "p",
-          "text": "Related: [subscription billing leaks](/blog/subscription-billing-leaks) · [SaaS revenue leakage](/blog/saas-revenue-leakage)"
+          "text": "Related: [subscription billing leaks](/blog/subscription-billing-leaks) · [SaaS revenue leakage](/blog/saas-revenue-leakage) · full guide: [failed payment recovery](/guides/failed-payment-recovery)"
         },
         {
           "type": "cta",
@@ -487,7 +487,7 @@ export const blogManifest: BlogManifest = {
         },
         {
           "type": "p",
-          "text": "Measure funnel leaks first with [revenue leakage detection](/blog/revenue-leakage-detection), then layer unit economics."
+          "text": "Measure funnel leaks first with [revenue leakage detection](/blog/revenue-leakage-detection), then layer unit economics. For the full playbook, read [how to identify profit leaks](/guides/identify-profit-leaks)."
         },
         {
           "type": "cta",
@@ -552,7 +552,7 @@ export const blogManifest: BlogManifest = {
         },
         {
           "type": "p",
-          "text": "Pair with [revenue leakage detection](/blog/revenue-leakage-detection) for measurement steps."
+          "text": "Pair with [revenue leakage detection](/blog/revenue-leakage-detection) for measurement steps, or the full [revenue leakage analysis guide](/guides/revenue-leakage-analysis)."
         },
         {
           "type": "cta",
@@ -872,5 +872,5 @@ export const blogManifest: BlogManifest = {
       ]
     }
   ],
-  "generatedAt": "2026-07-18T08:22:41.732Z"
+  "generatedAt": "2026-07-29T22:03:11.156Z"
 } as const;

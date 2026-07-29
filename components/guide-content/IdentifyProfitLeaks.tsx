@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { GuideCta } from "@/components/GuideCta";
 import { GuideRelated } from "@/components/GuideRelated";
+import { BlogFaqSection } from "@/components/blog/BlogFaqSection";
 import { getGuide } from "@/lib/guides";
 
 const guide = getGuide("identify-profit-leaks")!;
@@ -8,22 +9,32 @@ const guide = getGuide("identify-profit-leaks")!;
 export function IdentifyProfitLeaksContent() {
   return (
     <>
+      <p className="rounded-lg border border-brand-200 bg-brand-50 p-4 text-slate-800">
+        <strong>Quick answer:</strong> To identify profit leaks, compare what should happen at
+        each stage of your customer journey with what actually happens, put a monthly dollar
+        estimate on the gap, and fix the largest leak first. You do not need audited financials —
+        ranges and benchmarks are enough to prioritize.
+      </p>
+
       <p>
-        To <strong>identify profit leaks</strong>, you do not need audited financials or a data
-        team. You need to compare what should happen at each stage of your customer journey with
-        what actually happens — then put a dollar estimate on the gap. Profit leaks are revenue
-        leaks that survive past gross margin: money you almost earned but did not keep.
+        <strong>Profit leaks</strong> are places where you almost earn (or keep) money but do not.
+        That includes lost conversions, slow follow-up, early churn,{" "}
+        <Link href="/guides/failed-payment-recovery">failed payments</Link>, unnecessary discounts,
+        and missing upsells. Founders often feel the problem as “growth should be easier” before
+        they can name the leak.
       </p>
 
       <h2>Profit leak vs. revenue leak</h2>
       <p>
-        Revenue leakage is top-line: lost sales, churn, failed payments. Profit leakage adds
-        cost-side waste — discounts you did not need to give, refunds from bad-fit customers,
-        agency scope creep, ad spend on audiences that never convert. This guide focuses on
-        revenue-side profit leaks founders can spot without a P&amp;L deep dive.
+        Revenue leakage is top-line: sales that never close, customers who churn, charges that
+        fail. Profit leaks include that plus margin waste — discounts you did not need to give,
+        refunds from bad-fit customers, agency scope creep, or ad spend on audiences that never
+        convert. This guide focuses on revenue-side profit leaks you can spot without a full
+        P&amp;L review. For the broader framework, see{" "}
+        <Link href="/guides/revenue-leakage-analysis">revenue leakage analysis</Link>.
       </p>
 
-      <h2>Five questions that surface profit leaks</h2>
+      <h2>Five questions that identify profit leaks</h2>
       <ol>
         <li>
           <strong>What is our visitor-to-customer rate?</strong> If unknown, that itself is a leak
@@ -39,7 +50,7 @@ export function IdentifyProfitLeaksContent() {
         </li>
         <li>
           <strong>What share of card charges fail each month?</strong> See our{" "}
-          <Link href="/guides/failed-payment-recovery">failed payment recovery</Link> guide.
+          <Link href="/guides/failed-payment-recovery">failed payment recovery</Link> playbook.
         </li>
         <li>
           <strong>When did we last ask happy customers to spend more?</strong> Missing expansion
@@ -54,6 +65,28 @@ export function IdentifyProfitLeaksContent() {
         at the conversion stage alone. Repeat for each funnel step. The total directional loss
         tells you where to focus — even if each input is a range.
       </p>
+      <p>
+        Prefer a structured walkthrough? Use{" "}
+        <Link href="/guides/revenue-leakage-detection">revenue leakage detection</Link> or the
+        free diagnostic below.
+      </p>
+
+      <h2>Profit leaks by business type</h2>
+      <ul>
+        <li>
+          <Link href="/for/saas">SaaS</Link> — trial conversion, involuntary churn, expansion.
+        </li>
+        <li>
+          <Link href="/for/ecommerce">Ecommerce</Link> — cart abandonment, one-time buyers, refunds.
+        </li>
+        <li>
+          <Link href="/for/agencies">Agencies</Link> — proposal ghosting, slow follow-up, scope creep.
+        </li>
+        <li>
+          <Link href="/for/local-services">Local services</Link> — no-shows, unpaid invoices, weak
+          reactivation.
+        </li>
+      </ul>
 
       <h2>Common mistakes when hunting profit leaks</h2>
       <ul>
@@ -64,11 +97,13 @@ export function IdentifyProfitLeaksContent() {
       </ul>
 
       <p>
-        For worked examples by business type, read{" "}
-        <Link href="/guides/revenue-leakage-examples">revenue leakage examples</Link>.
+        For worked patterns, read{" "}
+        <Link href="/guides/revenue-leakage-examples">revenue leakage examples</Link> or the{" "}
+        <Link href="/blog/identify-profit-leaks">profit leaks blog brief</Link>.
       </p>
 
       <GuideCta headline="Identify your top 3 profit leaks in 5 minutes" />
+      {guide.faq ? <BlogFaqSection faq={guide.faq} /> : null}
       <GuideRelated slugs={guide.relatedSlugs} currentSlug={guide.slug} />
     </>
   );
