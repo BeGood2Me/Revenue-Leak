@@ -95,11 +95,11 @@ export const guides: Guide[] = [
   },
   {
     slug: "failed-payment-recovery",
-    title: "Failed Payment Recovery: Fix Declines & Recurring Revenue Leaks",
+    title: "Failed Payment Recovery: Stop Revenue Leakage from Declined Charges",
     description:
-      "Failed payment recovery playbook for SaaS and subscriptions — dunning, smart retries, card updates, and how to recover recurring revenue from declines.",
+      "How to stop revenue leakage from failed payments — dunning, smart retries, card updates, and a playbook to recover recurring revenue.",
     published: "2026-07-13",
-    updated: "2026-07-29",
+    updated: "2026-08-05",
     relatedSlugs: [
       "identify-profit-leaks",
       "revenue-leakage-examples",
@@ -109,6 +109,10 @@ export const guides: Guide[] = [
       {
         q: "What is failed payment recovery?",
         a: "The process of retrying declined charges, emailing customers to update cards, and recovering revenue from involuntary churn — before those customers are lost forever.",
+      },
+      {
+        q: "How to stop revenue leakage from failed payments?",
+        a: "Enable smart retries, send dunning emails with a one-click payment update link at each decline, pre-notify before card expiry, and outreach high-ARPU accounts that still fail.",
       },
       {
         q: "How do you recover failed recurring payments?",

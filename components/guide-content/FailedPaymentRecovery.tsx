@@ -10,9 +10,10 @@ export function FailedPaymentRecoveryContent() {
   return (
     <>
       <p className="rounded-lg border border-brand-200 bg-brand-50 p-4 text-slate-800">
-        <strong>Quick answer:</strong> Failed payment recovery uses automated retries, dunning
-        emails, and card-update links to collect revenue when a recurring charge declines —
-        before involuntary churn. Strong programs often recover 50–70% of failed dollars.
+        <strong>Quick answer:</strong> To stop revenue leakage from failed payments, use
+        automated retries, branded dunning emails, and one-click card updates so declined
+        charges become recovered revenue — not silent involuntary churn. Strong programs often
+        recover 50–70% of failed dollars.
       </p>
 
       <p>

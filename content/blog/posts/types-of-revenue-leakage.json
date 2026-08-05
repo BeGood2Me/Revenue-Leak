@@ -1,0 +1,96 @@
+{
+  "slug": "types-of-revenue-leakage",
+  "title": "Types of Revenue Leakage: 6 Categories That Cost Growing Businesses",
+  "description": "Types of revenue leakage across acquisition, response, conversion, retention, billing, and expansion — with examples and what to fix first.",
+  "published": "2026-08-05",
+  "pillar": "revenue-leakage",
+  "keywords": [
+    "types of revenue leakage",
+    "revenue leakage types",
+    "kinds of revenue leakage",
+    "revenue leak categories"
+  ],
+  "relatedSlugs": [
+    "what-is-revenue-leakage",
+    "revenue-leakage-examples",
+    "revenue-leakage-analysis",
+    "failed-payment-recovery"
+  ],
+  "faq": [
+    {
+      "q": "What are the main types of revenue leakage?",
+      "a": "Most businesses leak in six places: acquisition, response, conversion, retention, billing/recovery, and expansion. Each type needs a different fix."
+    },
+    {
+      "q": "Which type of revenue leakage is most common?",
+      "a": "It depends on the model. SaaS often leaks in conversion and billing; ecommerce in cart abandonment; agencies in follow-up and proposals."
+    },
+    {
+      "q": "How do you prioritize types of revenue leakage?",
+      "a": "Estimate monthly dollars at risk for each category, then fix the highest-impact leak that you can improve within a few weeks."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "Types of revenue leakage map cleanly to stages of the customer journey. Naming the type matters because “we need more leads” is the wrong fix if billing or retention is where the money escapes."
+    },
+    {
+      "type": "h2",
+      "text": "1. Acquisition leakage"
+    },
+    {
+      "type": "p",
+      "text": "Traffic that never becomes a qualified lead — wrong audience, weak offer, or unclear landing pages. Fix positioning and intent match before buying more ads."
+    },
+    {
+      "type": "h2",
+      "text": "2. Response leakage"
+    },
+    {
+      "type": "p",
+      "text": "Leads go cold because follow-up is slow. Demo and pricing requests answered in days instead of hours are a classic agency and B2B leak. Related: [agency proposal leakage](/blog/agency-proposal-leakage)."
+    },
+    {
+      "type": "h2",
+      "text": "3. Conversion leakage"
+    },
+    {
+      "type": "p",
+      "text": "Trials, demos, or carts that stall before payment. See [funnel conversion leaks](/blog/funnel-conversion-leaks) and [cart abandonment revenue leak](/blog/cart-abandonment-revenue-leak)."
+    },
+    {
+      "type": "h2",
+      "text": "4. Retention leakage"
+    },
+    {
+      "type": "p",
+      "text": "Customers churn early or never activate. Exit surveys and onboarding to first value usually beat discounting as a first move."
+    },
+    {
+      "type": "h2",
+      "text": "5. Billing / recovery leakage"
+    },
+    {
+      "type": "p",
+      "text": "Failed payments, invoice delays, and silent involuntary churn. Start with [failed payment recovery](/blog/failed-payment-recovery) and the full [failed payment recovery guide](/guides/failed-payment-recovery)."
+    },
+    {
+      "type": "h2",
+      "text": "6. Expansion leakage"
+    },
+    {
+      "type": "p",
+      "text": "Happy customers who would upgrade but never see a plan, usage trigger, or annual offer. Often the largest silent leak in SaaS."
+    },
+    {
+      "type": "p",
+      "text": "For worked examples of each type, read [revenue leakage examples](/blog/revenue-leakage-examples). To score your own mix, use [revenue leakage analysis](/guides/revenue-leakage-analysis) or the free diagnostic."
+    },
+    {
+      "type": "cta",
+      "headline": "See which type of leak is costing you most",
+      "href": "/?fresh=1#start"
+    }
+  ]
+}

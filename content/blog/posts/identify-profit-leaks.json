@@ -5,7 +5,7 @@
   "published": "2026-07-16",
   "pillar": "funnel-profit-leaks",
   "keywords": ["identify profit leaks", "profit leak identification", "profit leaks in business"],
-  "relatedSlugs": ["revenue-leakage-detection", "funnel-conversion-leaks", "revenue-leakage-analysis"],
+  "relatedSlugs": ["profit-leakage-recovery", "funnel-conversion-leaks", "revenue-leakage-analysis"],
   "faq": [
     {
       "q": "What is a profit leak?",
@@ -37,7 +37,7 @@
     },
     {
       "type": "p",
-      "text": "Measure funnel leaks first with [revenue leakage detection](/blog/revenue-leakage-detection), then layer unit economics. For the full playbook, read [how to identify profit leaks](/guides/identify-profit-leaks)."
+      "text": "Measure funnel leaks first with [revenue leakage detection](/blog/revenue-leakage-detection), then layer unit economics. Full playbooks: [identify profit leaks](/guides/identify-profit-leaks) and [profit leakage recovery](/blog/profit-leakage-recovery)."
     },
     {
       "type": "cta",

@@ -1,15 +1,31 @@
 {
   "slug": "what-is-revenue-leakage",
   "title": "What Is Revenue Leakage? Definition, Causes & How to Fix It",
-  "description": "Revenue leakage explained: what it means, common causes across SaaS and ecommerce, and how to find leaks before they compound.",
+  "description": "What is revenue leakage? Plain definition, common causes, types by funnel stage, and how to find your biggest leaks in minutes.",
   "published": "2026-07-16",
+  "updated": "2026-08-05",
   "pillar": "revenue-leakage",
-  "keywords": ["what is revenue leakage", "revenue leakage definition", "revenue leak meaning"],
-  "relatedSlugs": ["revenue-leakage-meaning", "revenue-leakage-examples", "revenue-leakage-detection"],
+  "keywords": [
+    "what is revenue leakage",
+    "what is revenue leak",
+    "revenue leakage definition",
+    "revenue leak",
+    "define revenue leakage"
+  ],
+  "relatedSlugs": [
+    "revenue-leakage-meaning",
+    "types-of-revenue-leakage",
+    "revenue-leakage-examples",
+    "revenue-leakage-detection"
+  ],
   "faq": [
     {
       "q": "What is revenue leakage in simple terms?",
       "a": "Money you should have earned but did not — because something in your funnel (traffic, sales, billing, retention) failed, not because customers disappeared."
+    },
+    {
+      "q": "What is a revenue leak?",
+      "a": "A revenue leak is a specific gap — for example failed card charges, abandoned carts, or slow demo follow-up — that systematically reduces what you collect each month."
     },
     {
       "q": "Is revenue leakage illegal or fraud?",
@@ -23,7 +39,11 @@
   "blocks": [
     {
       "type": "p",
-      "text": "Revenue leakage is the gap between revenue you could collect and revenue you actually collect. The customer may still be interested, the product may still deliver value, but a broken step — slow demo follow-up, a declined card, an abandoned cart — lets money escape."
+      "text": "What is revenue leakage? It is the gap between revenue you could collect and revenue you actually collect. The customer may still be interested and the product may still deliver value, but a broken step — slow demo follow-up, a declined card, an abandoned cart — lets money escape."
+    },
+    {
+      "type": "p",
+      "text": "If you searched define revenue leakage or what is revenue leak, that is the working definition operators use: process failure, not missing demand. For synonyms and related terms, see [revenue leakage meaning](/blog/revenue-leakage-meaning)."
     },
     {
       "type": "h2",
@@ -42,7 +62,7 @@
     },
     {
       "type": "p",
-      "text": "See [revenue leakage examples](/blog/revenue-leakage-examples) for worked patterns by business type."
+      "text": "See [types of revenue leakage](/blog/types-of-revenue-leakage) for a full breakdown, and [revenue leakage examples](/blog/revenue-leakage-examples) for patterns by business type."
     },
     {
       "type": "h2",
@@ -50,7 +70,19 @@
     },
     {
       "type": "p",
-      "text": "Map your funnel, measure conversion between steps, benchmark each rate, and estimate dollar impact. Our [revenue leakage detection](/blog/revenue-leakage-detection) guide walks through the process step by step."
+      "text": "Map your funnel, measure conversion between steps, benchmark each rate, and estimate dollar impact. Our [revenue leakage detection](/blog/revenue-leakage-detection) brief and the longer [detection guide](/guides/revenue-leakage-detection) walk through the process. Prefer a scored framework? Use [revenue leakage analysis](/guides/revenue-leakage-analysis)."
+    },
+    {
+      "type": "h2",
+      "text": "How to fix it (priority order)"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Rank leaks by estimated monthly dollars, not by which problem is loudest",
+        "Fix high-impact / low-effort items first — often response time or failed payment recovery",
+        "Re-measure in 30 days so you know the leak actually shrank"
+      ]
     },
     {
       "type": "cta",

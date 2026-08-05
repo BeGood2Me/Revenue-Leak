@@ -1,0 +1,83 @@
+{
+  "slug": "profit-leakage-recovery",
+  "title": "Profit Leakage Recovery: How to Stop Margin and Funnel Leaks",
+  "description": "Profit leakage recovery playbook — find profit leaks, estimate monthly impact, and recover margin from conversion, billing, and discount gaps.",
+  "published": "2026-08-05",
+  "pillar": "funnel-profit-leaks",
+  "keywords": [
+    "profit leakage recovery",
+    "profit leakage",
+    "profit leaks",
+    "profit leak",
+    "recover profit leaks"
+  ],
+  "relatedSlugs": [
+    "identify-profit-leaks",
+    "funnel-conversion-leaks",
+    "failed-payment-recovery",
+    "revenue-leakage-analysis"
+  ],
+  "faq": [
+    {
+      "q": "What is profit leakage?",
+      "a": "Profit leakage is money you almost earn or keep but lose through funnel gaps and margin waste — including discounts, refunds, failed conversions, and failed payments."
+    },
+    {
+      "q": "How do you recover from profit leakage?",
+      "a": "Measure each leak in monthly dollars, fix the highest-impact operational gap first (often response, conversion, or dunning), then cut structural margin drains like evergreen discounts."
+    },
+    {
+      "q": "Is profit leakage the same as revenue leakage?",
+      "a": "Related but broader. Revenue leakage focuses on uncaptured sales. Profit leakage also includes keeping less margin on the sales you do win."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "p",
+      "text": "Profit leakage recovery starts with clarity: which gaps cost the most each month, and which can you close this quarter? Profit leaks include classic revenue leakage plus margin drains — discounts that never expire, refunds, and unpaid scope."
+    },
+    {
+      "type": "h2",
+      "text": "Find the leak before you recover it"
+    },
+    {
+      "type": "p",
+      "text": "Use the five-question checklist in [how to identify profit leaks](/blog/identify-profit-leaks) or the full [identify profit leaks guide](/guides/identify-profit-leaks). Rough ranges beat perfect accounting when you need a fix-first priority."
+    },
+    {
+      "type": "h2",
+      "text": "Profit leakage recovery playbook"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Rank leaks by estimated monthly $ impact",
+        "Close operational gaps first — response SLAs, cart recovery, [failed payment recovery](/blog/failed-payment-recovery)",
+        "Then attack margin waste — promo rates that auto-renew, scope creep, high-refund SKUs",
+        "Re-measure in 30 days and repeat"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Where profit leaks usually hide"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Conversion stalls — see [funnel conversion leaks](/blog/funnel-conversion-leaks)",
+        "Billing declines that become involuntary churn",
+        "Agency proposal ghosting — [agency proposal leakage](/blog/agency-proposal-leakage)",
+        "Missing expansion offers on healthy accounts"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "For the six-category map, read [types of revenue leakage](/blog/types-of-revenue-leakage) and [revenue leakage analysis](/guides/revenue-leakage-analysis)."
+    },
+    {
+      "type": "cta",
+      "headline": "Rank your profit leaks by monthly impact",
+      "href": "/?fresh=1#start"
+    }
+  ]
+}

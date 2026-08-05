@@ -67,16 +67,18 @@ export const blogManifest: BlogManifest = {
       "published": "2026-07-16",
       "postSlugs": [
         "identify-profit-leaks",
+        "profit-leakage-recovery",
         "funnel-conversion-leaks",
         "cart-abandonment-revenue-leak",
         "agency-proposal-leakage"
       ],
       "keywords": [
         "profit leaks",
+        "profit leakage",
+        "profit leakage recovery",
         "identify profit leaks",
         "funnel leakage",
-        "conversion leak",
-        "revenue leak identification"
+        "conversion leak"
       ],
       "faq": [
         {
@@ -98,6 +100,7 @@ export const blogManifest: BlogManifest = {
       "postSlugs": [
         "what-is-revenue-leakage",
         "revenue-leakage-meaning",
+        "types-of-revenue-leakage",
         "revenue-leakage-examples",
         "revenue-leakage-detection",
         "revenue-leakage-analysis",
@@ -107,6 +110,7 @@ export const blogManifest: BlogManifest = {
         "revenue leakage",
         "revenue leak",
         "revenue leakage meaning",
+        "types of revenue leakage",
         "revenue leakage examples",
         "revenue leakage detection"
       ],
@@ -128,6 +132,185 @@ export const blogManifest: BlogManifest = {
     }
   ],
   "posts": [
+    {
+      "slug": "profit-leakage-recovery",
+      "title": "Profit Leakage Recovery: How to Stop Margin and Funnel Leaks",
+      "description": "Profit leakage recovery playbook — find profit leaks, estimate monthly impact, and recover margin from conversion, billing, and discount gaps.",
+      "published": "2026-08-05",
+      "pillar": "funnel-profit-leaks",
+      "keywords": [
+        "profit leakage recovery",
+        "profit leakage",
+        "profit leaks",
+        "profit leak",
+        "recover profit leaks"
+      ],
+      "relatedSlugs": [
+        "identify-profit-leaks",
+        "funnel-conversion-leaks",
+        "failed-payment-recovery",
+        "revenue-leakage-analysis"
+      ],
+      "faq": [
+        {
+          "q": "What is profit leakage?",
+          "a": "Profit leakage is money you almost earn or keep but lose through funnel gaps and margin waste — including discounts, refunds, failed conversions, and failed payments."
+        },
+        {
+          "q": "How do you recover from profit leakage?",
+          "a": "Measure each leak in monthly dollars, fix the highest-impact operational gap first (often response, conversion, or dunning), then cut structural margin drains like evergreen discounts."
+        },
+        {
+          "q": "Is profit leakage the same as revenue leakage?",
+          "a": "Related but broader. Revenue leakage focuses on uncaptured sales. Profit leakage also includes keeping less margin on the sales you do win."
+        }
+      ],
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Profit leakage recovery starts with clarity: which gaps cost the most each month, and which can you close this quarter? Profit leaks include classic revenue leakage plus margin drains — discounts that never expire, refunds, and unpaid scope."
+        },
+        {
+          "type": "h2",
+          "text": "Find the leak before you recover it"
+        },
+        {
+          "type": "p",
+          "text": "Use the five-question checklist in [how to identify profit leaks](/blog/identify-profit-leaks) or the full [identify profit leaks guide](/guides/identify-profit-leaks). Rough ranges beat perfect accounting when you need a fix-first priority."
+        },
+        {
+          "type": "h2",
+          "text": "Profit leakage recovery playbook"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Rank leaks by estimated monthly $ impact",
+            "Close operational gaps first — response SLAs, cart recovery, [failed payment recovery](/blog/failed-payment-recovery)",
+            "Then attack margin waste — promo rates that auto-renew, scope creep, high-refund SKUs",
+            "Re-measure in 30 days and repeat"
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "Where profit leaks usually hide"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Conversion stalls — see [funnel conversion leaks](/blog/funnel-conversion-leaks)",
+            "Billing declines that become involuntary churn",
+            "Agency proposal ghosting — [agency proposal leakage](/blog/agency-proposal-leakage)",
+            "Missing expansion offers on healthy accounts"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "For the six-category map, read [types of revenue leakage](/blog/types-of-revenue-leakage) and [revenue leakage analysis](/guides/revenue-leakage-analysis)."
+        },
+        {
+          "type": "cta",
+          "headline": "Rank your profit leaks by monthly impact",
+          "href": "/?fresh=1#start"
+        }
+      ]
+    },
+    {
+      "slug": "types-of-revenue-leakage",
+      "title": "Types of Revenue Leakage: 6 Categories That Cost Growing Businesses",
+      "description": "Types of revenue leakage across acquisition, response, conversion, retention, billing, and expansion — with examples and what to fix first.",
+      "published": "2026-08-05",
+      "pillar": "revenue-leakage",
+      "keywords": [
+        "types of revenue leakage",
+        "revenue leakage types",
+        "kinds of revenue leakage",
+        "revenue leak categories"
+      ],
+      "relatedSlugs": [
+        "what-is-revenue-leakage",
+        "revenue-leakage-examples",
+        "revenue-leakage-analysis",
+        "failed-payment-recovery"
+      ],
+      "faq": [
+        {
+          "q": "What are the main types of revenue leakage?",
+          "a": "Most businesses leak in six places: acquisition, response, conversion, retention, billing/recovery, and expansion. Each type needs a different fix."
+        },
+        {
+          "q": "Which type of revenue leakage is most common?",
+          "a": "It depends on the model. SaaS often leaks in conversion and billing; ecommerce in cart abandonment; agencies in follow-up and proposals."
+        },
+        {
+          "q": "How do you prioritize types of revenue leakage?",
+          "a": "Estimate monthly dollars at risk for each category, then fix the highest-impact leak that you can improve within a few weeks."
+        }
+      ],
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Types of revenue leakage map cleanly to stages of the customer journey. Naming the type matters because “we need more leads” is the wrong fix if billing or retention is where the money escapes."
+        },
+        {
+          "type": "h2",
+          "text": "1. Acquisition leakage"
+        },
+        {
+          "type": "p",
+          "text": "Traffic that never becomes a qualified lead — wrong audience, weak offer, or unclear landing pages. Fix positioning and intent match before buying more ads."
+        },
+        {
+          "type": "h2",
+          "text": "2. Response leakage"
+        },
+        {
+          "type": "p",
+          "text": "Leads go cold because follow-up is slow. Demo and pricing requests answered in days instead of hours are a classic agency and B2B leak. Related: [agency proposal leakage](/blog/agency-proposal-leakage)."
+        },
+        {
+          "type": "h2",
+          "text": "3. Conversion leakage"
+        },
+        {
+          "type": "p",
+          "text": "Trials, demos, or carts that stall before payment. See [funnel conversion leaks](/blog/funnel-conversion-leaks) and [cart abandonment revenue leak](/blog/cart-abandonment-revenue-leak)."
+        },
+        {
+          "type": "h2",
+          "text": "4. Retention leakage"
+        },
+        {
+          "type": "p",
+          "text": "Customers churn early or never activate. Exit surveys and onboarding to first value usually beat discounting as a first move."
+        },
+        {
+          "type": "h2",
+          "text": "5. Billing / recovery leakage"
+        },
+        {
+          "type": "p",
+          "text": "Failed payments, invoice delays, and silent involuntary churn. Start with [failed payment recovery](/blog/failed-payment-recovery) and the full [failed payment recovery guide](/guides/failed-payment-recovery)."
+        },
+        {
+          "type": "h2",
+          "text": "6. Expansion leakage"
+        },
+        {
+          "type": "p",
+          "text": "Happy customers who would upgrade but never see a plan, usage trigger, or annual offer. Often the largest silent leak in SaaS."
+        },
+        {
+          "type": "p",
+          "text": "For worked examples of each type, read [revenue leakage examples](/blog/revenue-leakage-examples). To score your own mix, use [revenue leakage analysis](/guides/revenue-leakage-analysis) or the free diagnostic."
+        },
+        {
+          "type": "cta",
+          "headline": "See which type of leak is costing you most",
+          "href": "/?fresh=1#start"
+        }
+      ]
+    },
     {
       "slug": "revenue-leakage-examples",
       "title": "12 Revenue Leakage Examples (SaaS, Ecommerce, Agency & Service)",
@@ -452,7 +635,7 @@ export const blogManifest: BlogManifest = {
         "profit leaks in business"
       ],
       "relatedSlugs": [
-        "revenue-leakage-detection",
+        "profit-leakage-recovery",
         "funnel-conversion-leaks",
         "revenue-leakage-analysis"
       ],
@@ -487,7 +670,7 @@ export const blogManifest: BlogManifest = {
         },
         {
           "type": "p",
-          "text": "Measure funnel leaks first with [revenue leakage detection](/blog/revenue-leakage-detection), then layer unit economics. For the full playbook, read [how to identify profit leaks](/guides/identify-profit-leaks)."
+          "text": "Measure funnel leaks first with [revenue leakage detection](/blog/revenue-leakage-detection), then layer unit economics. Full playbooks: [identify profit leaks](/guides/identify-profit-leaks) and [profit leakage recovery](/blog/profit-leakage-recovery)."
         },
         {
           "type": "cta",
@@ -632,17 +815,22 @@ export const blogManifest: BlogManifest = {
     },
     {
       "slug": "revenue-leakage-meaning",
-      "title": "Revenue Leakage Meaning: What People Actually Mean (and Confuse)",
-      "description": "Revenue leakage meaning vs churn, shrinkage, and margin erosion — plain-language definitions for founders and operators.",
+      "title": "Revenue Leakage Meaning (and Synonyms People Actually Search)",
+      "description": "Revenue leakage meaning in plain English — plus synonyms like sales leakage, profit leakage, and income leakage, and how they differ from churn.",
       "published": "2026-07-16",
+      "updated": "2026-08-05",
       "pillar": "revenue-leakage",
       "keywords": [
         "revenue leakage meaning",
-        "revenue leak meaning",
-        "revenue leakage synonyms"
+        "revenue leakage synonyms",
+        "revenue leakage synonym",
+        "income leakage meaning",
+        "sales leakage",
+        "define revenue leakage"
       ],
       "relatedSlugs": [
         "what-is-revenue-leakage",
+        "types-of-revenue-leakage",
         "revenue-leakage-analysis",
         "identify-profit-leaks"
       ],
@@ -652,14 +840,40 @@ export const blogManifest: BlogManifest = {
           "a": "It means earned or almost-earned revenue is lost due to process failures — billing, funnel, or operations — rather than lack of market demand."
         },
         {
+          "q": "What are synonyms for revenue leakage?",
+          "a": "Common near-synonyms include revenue leak, sales leakage, profit leakage, income leakage, and margin leak. They are related but not identical — profit leakage often includes discount and cost-side waste."
+        },
+        {
           "q": "Is revenue leakage the same as revenue shrinkage?",
           "a": "Shrinkage often refers to inventory or retail loss. Revenue leakage usually describes funnel and billing gaps in digital and service businesses."
+        },
+        {
+          "q": "Is sales leakage the same as revenue leakage?",
+          "a": "Sales leakage usually emphasizes pipeline and close-rate gaps. Revenue leakage is broader — it also covers retention, billing, and expansion after the sale."
         }
       ],
       "blocks": [
         {
           "type": "p",
           "text": "When people search revenue leakage meaning, they usually want a plain definition — not a finance textbook. Here it is: leakage is money slipping out of your business because a step in the journey failed, not because the market vanished."
+        },
+        {
+          "type": "h2",
+          "text": "Revenue leakage synonyms (and near-matches)"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Revenue leak — informal synonym for the same problem",
+            "Sales leakage — often means pipeline/close gaps before payment",
+            "Profit leakage / profit leaks — includes margin waste as well as uncaptured sales; see [identify profit leaks](/blog/identify-profit-leaks)",
+            "Income leakage — everyday wording for the same idea",
+            "Margin leak — discounts, refunds, and scope creep that shrink contribution"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "For a full definition with causes and fixes, read [what is revenue leakage](/blog/what-is-revenue-leakage). For categories, see [types of revenue leakage](/blog/types-of-revenue-leakage)."
         },
         {
           "type": "h2",
@@ -676,7 +890,7 @@ export const blogManifest: BlogManifest = {
         },
         {
           "type": "p",
-          "text": "For a full framework across six leak categories, read [revenue leakage analysis](/blog/revenue-leakage-analysis)."
+          "text": "For a full framework across six leak categories, read [revenue leakage analysis](/blog/revenue-leakage-analysis) or the longer [analysis guide](/guides/revenue-leakage-analysis)."
         },
         {
           "type": "cta",
@@ -804,16 +1018,20 @@ export const blogManifest: BlogManifest = {
     {
       "slug": "what-is-revenue-leakage",
       "title": "What Is Revenue Leakage? Definition, Causes & How to Fix It",
-      "description": "Revenue leakage explained: what it means, common causes across SaaS and ecommerce, and how to find leaks before they compound.",
+      "description": "What is revenue leakage? Plain definition, common causes, types by funnel stage, and how to find your biggest leaks in minutes.",
       "published": "2026-07-16",
+      "updated": "2026-08-05",
       "pillar": "revenue-leakage",
       "keywords": [
         "what is revenue leakage",
+        "what is revenue leak",
         "revenue leakage definition",
-        "revenue leak meaning"
+        "revenue leak",
+        "define revenue leakage"
       ],
       "relatedSlugs": [
         "revenue-leakage-meaning",
+        "types-of-revenue-leakage",
         "revenue-leakage-examples",
         "revenue-leakage-detection"
       ],
@@ -821,6 +1039,10 @@ export const blogManifest: BlogManifest = {
         {
           "q": "What is revenue leakage in simple terms?",
           "a": "Money you should have earned but did not — because something in your funnel (traffic, sales, billing, retention) failed, not because customers disappeared."
+        },
+        {
+          "q": "What is a revenue leak?",
+          "a": "A revenue leak is a specific gap — for example failed card charges, abandoned carts, or slow demo follow-up — that systematically reduces what you collect each month."
         },
         {
           "q": "Is revenue leakage illegal or fraud?",
@@ -834,7 +1056,11 @@ export const blogManifest: BlogManifest = {
       "blocks": [
         {
           "type": "p",
-          "text": "Revenue leakage is the gap between revenue you could collect and revenue you actually collect. The customer may still be interested, the product may still deliver value, but a broken step — slow demo follow-up, a declined card, an abandoned cart — lets money escape."
+          "text": "What is revenue leakage? It is the gap between revenue you could collect and revenue you actually collect. The customer may still be interested and the product may still deliver value, but a broken step — slow demo follow-up, a declined card, an abandoned cart — lets money escape."
+        },
+        {
+          "type": "p",
+          "text": "If you searched define revenue leakage or what is revenue leak, that is the working definition operators use: process failure, not missing demand. For synonyms and related terms, see [revenue leakage meaning](/blog/revenue-leakage-meaning)."
         },
         {
           "type": "h2",
@@ -853,7 +1079,7 @@ export const blogManifest: BlogManifest = {
         },
         {
           "type": "p",
-          "text": "See [revenue leakage examples](/blog/revenue-leakage-examples) for worked patterns by business type."
+          "text": "See [types of revenue leakage](/blog/types-of-revenue-leakage) for a full breakdown, and [revenue leakage examples](/blog/revenue-leakage-examples) for patterns by business type."
         },
         {
           "type": "h2",
@@ -861,7 +1087,19 @@ export const blogManifest: BlogManifest = {
         },
         {
           "type": "p",
-          "text": "Map your funnel, measure conversion between steps, benchmark each rate, and estimate dollar impact. Our [revenue leakage detection](/blog/revenue-leakage-detection) guide walks through the process step by step."
+          "text": "Map your funnel, measure conversion between steps, benchmark each rate, and estimate dollar impact. Our [revenue leakage detection](/blog/revenue-leakage-detection) brief and the longer [detection guide](/guides/revenue-leakage-detection) walk through the process. Prefer a scored framework? Use [revenue leakage analysis](/guides/revenue-leakage-analysis)."
+        },
+        {
+          "type": "h2",
+          "text": "How to fix it (priority order)"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Rank leaks by estimated monthly dollars, not by which problem is loudest",
+            "Fix high-impact / low-effort items first — often response time or failed payment recovery",
+            "Re-measure in 30 days so you know the leak actually shrank"
+          ]
         },
         {
           "type": "cta",
@@ -872,5 +1110,5 @@ export const blogManifest: BlogManifest = {
       ]
     }
   ],
-  "generatedAt": "2026-07-29T22:03:11.156Z"
+  "generatedAt": "2026-08-05T12:39:06.695Z"
 } as const;

@@ -1,25 +1,64 @@
 {
   "slug": "revenue-leakage-meaning",
-  "title": "Revenue Leakage Meaning: What People Actually Mean (and Confuse)",
-  "description": "Revenue leakage meaning vs churn, shrinkage, and margin erosion — plain-language definitions for founders and operators.",
+  "title": "Revenue Leakage Meaning (and Synonyms People Actually Search)",
+  "description": "Revenue leakage meaning in plain English — plus synonyms like sales leakage, profit leakage, and income leakage, and how they differ from churn.",
   "published": "2026-07-16",
+  "updated": "2026-08-05",
   "pillar": "revenue-leakage",
-  "keywords": ["revenue leakage meaning", "revenue leak meaning", "revenue leakage synonyms"],
-  "relatedSlugs": ["what-is-revenue-leakage", "revenue-leakage-analysis", "identify-profit-leaks"],
+  "keywords": [
+    "revenue leakage meaning",
+    "revenue leakage synonyms",
+    "revenue leakage synonym",
+    "income leakage meaning",
+    "sales leakage",
+    "define revenue leakage"
+  ],
+  "relatedSlugs": [
+    "what-is-revenue-leakage",
+    "types-of-revenue-leakage",
+    "revenue-leakage-analysis",
+    "identify-profit-leaks"
+  ],
   "faq": [
     {
       "q": "What does revenue leakage mean?",
       "a": "It means earned or almost-earned revenue is lost due to process failures — billing, funnel, or operations — rather than lack of market demand."
     },
     {
+      "q": "What are synonyms for revenue leakage?",
+      "a": "Common near-synonyms include revenue leak, sales leakage, profit leakage, income leakage, and margin leak. They are related but not identical — profit leakage often includes discount and cost-side waste."
+    },
+    {
       "q": "Is revenue leakage the same as revenue shrinkage?",
       "a": "Shrinkage often refers to inventory or retail loss. Revenue leakage usually describes funnel and billing gaps in digital and service businesses."
+    },
+    {
+      "q": "Is sales leakage the same as revenue leakage?",
+      "a": "Sales leakage usually emphasizes pipeline and close-rate gaps. Revenue leakage is broader — it also covers retention, billing, and expansion after the sale."
     }
   ],
   "blocks": [
     {
       "type": "p",
       "text": "When people search revenue leakage meaning, they usually want a plain definition — not a finance textbook. Here it is: leakage is money slipping out of your business because a step in the journey failed, not because the market vanished."
+    },
+    {
+      "type": "h2",
+      "text": "Revenue leakage synonyms (and near-matches)"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Revenue leak — informal synonym for the same problem",
+        "Sales leakage — often means pipeline/close gaps before payment",
+        "Profit leakage / profit leaks — includes margin waste as well as uncaptured sales; see [identify profit leaks](/blog/identify-profit-leaks)",
+        "Income leakage — everyday wording for the same idea",
+        "Margin leak — discounts, refunds, and scope creep that shrink contribution"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "For a full definition with causes and fixes, read [what is revenue leakage](/blog/what-is-revenue-leakage). For categories, see [types of revenue leakage](/blog/types-of-revenue-leakage)."
     },
     {
       "type": "h2",
@@ -36,7 +75,7 @@
     },
     {
       "type": "p",
-      "text": "For a full framework across six leak categories, read [revenue leakage analysis](/blog/revenue-leakage-analysis)."
+      "text": "For a full framework across six leak categories, read [revenue leakage analysis](/blog/revenue-leakage-analysis) or the longer [analysis guide](/guides/revenue-leakage-analysis)."
     },
     {
       "type": "cta",
