@@ -15,6 +15,12 @@ const nextConfig = {
         destination: "/for/agencies",
         permanent: true,
       },
+      // Guard against accidental double /blog prefix (relative-link mistakes, typed URLs).
+      {
+        source: "/blog/blog/:path*",
+        destination: "/blog/:path*",
+        permanent: true,
+      },
     ];
   },
   async headers() {
