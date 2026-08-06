@@ -3,13 +3,32 @@
   "title": "How to Identify Profit Leaks in Your Business (Not Just Revenue)",
   "description": "Identify profit leaks by connecting funnel gaps to margin — discount creep, scope creep, CAC waste, and recovery opportunities.",
   "published": "2026-07-16",
+  "updated": "2026-08-06",
   "pillar": "funnel-profit-leaks",
-  "keywords": ["identify profit leaks", "profit leak identification", "profit leaks in business"],
-  "relatedSlugs": ["profit-leakage-recovery", "funnel-conversion-leaks", "revenue-leakage-analysis"],
+  "keywords": [
+    "identify profit leaks",
+    "profit leak identification",
+    "profit leaks in business",
+    "profit leaks"
+  ],
+  "relatedSlugs": [
+    "profit-leakage-recovery",
+    "funnel-conversion-leaks",
+    "revenue-leakage-analysis",
+    "what-is-revenue-leakage"
+  ],
   "faq": [
     {
       "q": "What is a profit leak?",
       "a": "Revenue you lose or margin you give away through operational gaps — not just top-line shortfalls."
+    },
+    {
+      "q": "How do you identify profit leaks in a business?",
+      "a": "Map each funnel stage, estimate the monthly dollar gap versus a realistic benchmark, then fix the largest leak you can improve in a few weeks."
+    },
+    {
+      "q": "What are common profit leaks?",
+      "a": "Never-expiring discounts, refund spikes, slow sales cycles, support load from inactive customers, late invoices, and failed payment recovery gaps."
     },
     {
       "q": "How is a profit leak different from revenue leakage?",
@@ -23,6 +42,14 @@
     },
     {
       "type": "h2",
+      "text": "Profit leaks vs revenue leakage"
+    },
+    {
+      "type": "p",
+      "text": "Revenue leakage is top-line money that never gets booked. Profit leaks include that plus margin waste — discounts, refunds, bad-fit customers, and unpaid scope. If you only track “revenue leak,” you will miss margin drains that still wreck contribution profit. Full definition: [what is revenue leakage](/blog/what-is-revenue-leakage)."
+    },
+    {
+      "type": "h2",
       "text": "Profit leak checklist"
     },
     {
@@ -32,12 +59,13 @@
         "Refund rate spikes on specific products or cohorts",
         "Sales cycle length growing while close rate falls",
         "Support load from customers who never activated",
-        "Invoices paid late — cash timing hurts runway"
+        "Invoices paid late — cash timing hurts runway",
+        "Failed card charges with weak [failed payment recovery](/guides/failed-payment-recovery)"
       ]
     },
     {
       "type": "p",
-      "text": "Measure funnel leaks first with [revenue leakage detection](/blog/revenue-leakage-detection), then layer unit economics. Full playbooks: [identify profit leaks](/guides/identify-profit-leaks) and [profit leakage recovery](/blog/profit-leakage-recovery)."
+      "text": "Measure funnel leaks first with [revenue leakage detection](/blog/revenue-leakage-detection), then layer unit economics. Full playbooks: [identify profit leaks guide](/guides/identify-profit-leaks) and [profit leakage recovery](/blog/profit-leakage-recovery)."
     },
     {
       "type": "cta",

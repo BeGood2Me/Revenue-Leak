@@ -3,18 +3,20 @@
   "title": "What Is Revenue Leakage? Definition, Causes & How to Fix It",
   "description": "What is revenue leakage? Plain definition, common causes, types by funnel stage, and how to find your biggest leaks in minutes.",
   "published": "2026-07-16",
-  "updated": "2026-08-05",
+  "updated": "2026-08-06",
   "pillar": "revenue-leakage",
   "keywords": [
     "what is revenue leakage",
     "what is revenue leak",
     "revenue leakage definition",
     "revenue leak",
-    "define revenue leakage"
+    "define revenue leakage",
+    "what is sales leakage"
   ],
   "relatedSlugs": [
     "revenue-leakage-meaning",
     "types-of-revenue-leakage",
+    "identify-profit-leaks",
     "revenue-leakage-examples",
     "revenue-leakage-detection"
   ],
@@ -28,12 +30,20 @@
       "a": "A revenue leak is a specific gap — for example failed card charges, abandoned carts, or slow demo follow-up — that systematically reduces what you collect each month."
     },
     {
+      "q": "What is sales leakage?",
+      "a": "Sales leakage is revenue leakage focused on the sales process — leads that go cold, proposals that stall, or deals that die after a strong demo because follow-up or pricing friction intervened."
+    },
+    {
       "q": "Is revenue leakage illegal or fraud?",
       "a": "Usually no. It is operational — slow follow-up, failed payments, cart abandonment, pricing errors — not theft."
     },
     {
       "q": "How is revenue leakage different from low revenue?",
       "a": "Low revenue can mean weak demand. Leakage means demand or customers exist, but process gaps prevent you from capturing full value."
+    },
+    {
+      "q": "Revenue leakage vs profit leakage?",
+      "a": "Revenue leakage is uncaptured top-line sales. Profit leakage (or profit leaks) also includes margin waste such as discounts, refunds, and unpaid scope. See how to identify profit leaks for that lens."
     }
   ],
   "blocks": [
@@ -42,8 +52,12 @@
       "text": "What is revenue leakage? It is the gap between revenue you could collect and revenue you actually collect. The customer may still be interested and the product may still deliver value, but a broken step — slow demo follow-up, a declined card, an abandoned cart — lets money escape."
     },
     {
+      "type": "h2",
+      "text": "What is a revenue leak?"
+    },
+    {
       "type": "p",
-      "text": "If you searched define revenue leakage or what is revenue leak, that is the working definition operators use: process failure, not missing demand. For synonyms and related terms, see [revenue leakage meaning](/blog/revenue-leakage-meaning)."
+      "text": "If you searched what is revenue leak or define revenue leakage, operators use the same working definition: process failure, not missing demand. A revenue leak is one concrete gap (for example silent involuntary churn from declined cards). For synonyms and related terms, see [revenue leakage meaning](/blog/revenue-leakage-meaning)."
     },
     {
       "type": "h2",
@@ -56,13 +70,13 @@
         "Response: leads that go cold before anyone replies",
         "Conversion: trials, demos, or carts that stall before payment",
         "Retention: customers who churn early or never activate",
-        "Billing: failed payments, invoice delays, pricing drift",
+        "Billing: failed payments, invoice delays, pricing drift — start with [failed payment recovery](/guides/failed-payment-recovery)",
         "Expansion: customers who would upgrade but never see an offer"
       ]
     },
     {
       "type": "p",
-      "text": "See [types of revenue leakage](/blog/types-of-revenue-leakage) for a full breakdown, and [revenue leakage examples](/blog/revenue-leakage-examples) for patterns by business type."
+      "text": "See [types of revenue leakage](/blog/types-of-revenue-leakage) for a full breakdown, and [revenue leakage examples](/blog/revenue-leakage-examples) for patterns by business type. Prefer a margin lens? Read [identify profit leaks](/blog/identify-profit-leaks)."
     },
     {
       "type": "h2",
@@ -80,7 +94,7 @@
       "type": "ol",
       "items": [
         "Rank leaks by estimated monthly dollars, not by which problem is loudest",
-        "Fix high-impact / low-effort items first — often response time or failed payment recovery",
+        "Fix high-impact / low-effort items first — often response time or [failed payment recovery](/guides/failed-payment-recovery)",
         "Re-measure in 30 days so you know the leak actually shrank"
       ]
     },

@@ -72,7 +72,7 @@ export const guides: Guide[] = [
     description:
       "Identify profit leaks across acquisition, conversion, retention, and billing with five questions and rough math — no finance team required.",
     published: "2026-07-13",
-    updated: "2026-07-29",
+    updated: "2026-08-06",
     relatedSlugs: [
       "revenue-leakage-detection",
       "failed-payment-recovery",
@@ -84,8 +84,16 @@ export const guides: Guide[] = [
         a: "Profit leaks are places where you almost earn (or keep) money but do not — lost conversions, slow follow-up, churn, failed payments, unnecessary discounts, or missing upsells. They show up as a gap between what your funnel should produce and what you actually collect.",
       },
       {
+        q: "What is profit leakage?",
+        a: "Profit leakage is the ongoing loss of margin or collectible revenue from operational gaps — the same idea as profit leaks, usually phrased as a process problem rather than a one-off miss.",
+      },
+      {
         q: "How do you identify profit leaks without a finance team?",
         a: "Ask five measurement questions (visitor-to-customer rate, response speed, repeat purchase rate, failed payment share, and expansion asks), put a rough monthly dollar estimate on each gap, and fix the largest leak first.",
+      },
+      {
+        q: "How do you fix profit leakage?",
+        a: "Rank leaks by estimated monthly dollars, fix the highest-impact operational gap you can improve in a few weeks (often response time, conversion friction, or failed payment recovery), then re-measure in 30 days.",
       },
       {
         q: "What is the difference between profit leaks and revenue leakage?",
@@ -99,7 +107,7 @@ export const guides: Guide[] = [
     description:
       "How to stop revenue leakage from failed payments — dunning, smart retries, card updates, and a playbook to recover recurring revenue.",
     published: "2026-07-13",
-    updated: "2026-08-05",
+    updated: "2026-08-06",
     relatedSlugs: [
       "identify-profit-leaks",
       "revenue-leakage-examples",
@@ -117,6 +125,18 @@ export const guides: Guide[] = [
       {
         q: "How do you recover failed recurring payments?",
         a: "Enable 3–4 automated retries over two weeks (including payday timing), send branded dunning emails with a one-click update link at each failure, and manually outreach high-ARPU accounts that still fail.",
+      },
+      {
+        q: "What is failed payments recovery for subscriptions?",
+        a: "Failed payments recovery for subscriptions is the same playbook applied to recurring charges: retries, dunning, card-update links, and outreach so a declined renewal does not become silent churn.",
+      },
+      {
+        q: "What is recurring billing recovery?",
+        a: "Recurring billing recovery is the timed sequence of retries and customer outreach used to collect failed subscription invoices before access is canceled.",
+      },
+      {
+        q: "Do I need dedicated failed payment recovery software?",
+        a: "Not first. Turn on processor retries and dunning emails. Buy dedicated recovery software when failed dollars are large enough that a few extra recovery points clearly pay for the tool.",
       },
       {
         q: "What recovery rate should subscription businesses aim for?",

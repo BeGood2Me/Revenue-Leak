@@ -88,6 +88,18 @@ export function IdentifyProfitLeaksContent() {
         </li>
       </ul>
 
+      <h2>Profit leakage recovery steps</h2>
+      <ol>
+        <li>List the five gaps above with a rough monthly dollar range.</li>
+        <li>Pick the largest leak you can improve in under two weeks.</li>
+        <li>
+          If billing is in the top three, run{" "}
+          <Link href="/guides/failed-payment-recovery">failed payment recovery</Link> before
+          buying more traffic.
+        </li>
+        <li>Re-check the same metrics in 30 days to confirm the leak shrank.</li>
+      </ol>
+
       <h2>Common mistakes when hunting profit leaks</h2>
       <ul>
         <li>Adding ad spend before fixing conversion or response leaks.</li>
@@ -97,9 +109,10 @@ export function IdentifyProfitLeaksContent() {
       </ul>
 
       <p>
-        For worked patterns, read{" "}
-        <Link href="/guides/revenue-leakage-examples">revenue leakage examples</Link> or the{" "}
-        <Link href="/blog/identify-profit-leaks">profit leaks blog brief</Link>.
+        Want the short checklist version of how to{" "}
+        <Link href="/blog/identify-profit-leaks">identify profit leaks</Link>? Start there, then
+        return here for the longer math. For worked patterns, read{" "}
+        <Link href="/guides/revenue-leakage-examples">revenue leakage examples</Link>.
       </p>
 
       <GuideCta headline="Identify your top 3 profit leaks in 5 minutes" />

@@ -17,10 +17,11 @@ export function FailedPaymentRecoveryContent() {
       </p>
 
       <p>
-        <strong>Failed payment recovery</strong> is one of the highest-ROI fixes in subscription
-        businesses. Card expirations, insufficient funds, and bank declines silently remove paying
-        customers every month. Unlike acquisition leaks, you have already won these customers;
-        recovering a failed recurring payment is cheaper than replacing the account.
+        <strong>Failed payment recovery</strong> (also called failed payments recovery or
+        recurring billing recovery) is one of the highest-ROI fixes in subscription businesses.
+        Card expirations, insufficient funds, and bank declines silently remove paying customers
+        every month. Unlike acquisition leaks, you have already won these customers; recovering a
+        failed recurring payment is cheaper than replacing the account.
       </p>
 
       <h2>How big is the failed payment leak?</h2>
@@ -57,6 +58,52 @@ export function FailedPaymentRecoveryContent() {
         </li>
       </ol>
 
+      <h2>Failed payments recovery checklist</h2>
+      <p>
+        Use this short list when you want failed payments recovery without buying new software
+        first:
+      </p>
+      <ul>
+        <li>Confirm your processor retries declines (and that retries are not disabled).</li>
+        <li>Turn on customer emails for payment failure with a hosted update-card link.</li>
+        <li>Schedule pre-expiry reminders for cards ending in the next 30 days.</li>
+        <li>Export accounts that failed 2+ times and call or email the highest-ARPU ones.</li>
+        <li>Track recovered dollars / failed dollars as a weekly metric.</li>
+      </ul>
+
+      <h2>Recurring billing recovery cadence</h2>
+      <p>
+        Recurring billing recovery works best as a timed sequence, not a one-off email:
+      </p>
+      <ol>
+        <li>
+          <strong>Day 0:</strong> Soft decline → automatic retry + first dunning email.
+        </li>
+        <li>
+          <strong>Day 2–3:</strong> Second retry; reminder with urgency but no shame language.
+        </li>
+        <li>
+          <strong>Day 7:</strong> Third retry around payday when NSF is common.
+        </li>
+        <li>
+          <strong>Day 10–14:</strong> Final notice; pause access only after you have offered an
+          easy update path.
+        </li>
+        <li>
+          <strong>High ARPU:</strong> Human outreach in parallel after the second failure.
+        </li>
+      </ol>
+
+      <h2>DIY failed payment recovery vs recovery software</h2>
+      <p>
+        Most teams should start with what they already pay for — Stripe Billing, Chargebee, or
+        Paddle retry + email settings cover a large share of failed recurring payment recovery.
+        Dedicated recovery software (smarter retry logic, account updater networks, multi-channel
+        dunning) helps when failed dollars are large enough that a few extra recovery points pay
+        for the tool. If you are still on a single decline = cancel policy, fix that before
+        evaluating vendors.
+      </p>
+
       <h2>Why payments fail (and first fixes)</h2>
       <ul>
         <li>
@@ -90,7 +137,8 @@ export function FailedPaymentRecoveryContent() {
         Billing is one of six leak categories in our{" "}
         <Link href="/guides/revenue-leakage-analysis">revenue leakage analysis</Link> framework.
         Pair this playbook with{" "}
-        <Link href="/guides/identify-profit-leaks">how to identify profit leaks</Link> if you are
+        <Link href="/guides/identify-profit-leaks">how to identify profit leaks</Link> or the short{" "}
+        <Link href="/blog/identify-profit-leaks">identify profit leaks</Link> brief if you are
         unsure whether billing is your largest gap. SaaS teams can start from the{" "}
         <Link href="/for/saas">SaaS diagnostic</Link>.
       </p>

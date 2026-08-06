@@ -107,6 +107,21 @@ export default async function NicheLandingPage({ params }: PageProps) {
             ))}
           </ul>
 
+          {landing.relatedGuides && landing.relatedGuides.length > 0 ? (
+            <div className="mt-10">
+              <h2 className="text-2xl font-bold text-slate-900">Related playbooks</h2>
+              <ul className="mt-4 space-y-2">
+                {landing.relatedGuides.map((guide) => (
+                  <li key={guide.href}>
+                    <Link href={guide.href} className="text-brand-600 hover:underline">
+                      {guide.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
           <div className="mt-12 rounded-2xl border border-brand-200 bg-brand-50 p-8 text-center">
             <h2 className="text-xl font-bold text-slate-900">
               Rank your top 3 leaks by estimated monthly impact

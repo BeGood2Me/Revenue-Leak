@@ -15,6 +15,7 @@ export interface NicheLanding {
   subheadline: string;
   topLeaks: LeakCategory[];
   painPoints: string[];
+  relatedGuides?: { href: string; label: string }[];
 }
 
 export const nicheLandings: NicheLanding[] = [
@@ -33,6 +34,11 @@ export const nicheLandings: NicheLanding[] = [
       "Monthly churn above 5% with no exit survey or save flow",
       "Failed card charges with no dunning or retry sequence",
       "No upsell path for customers already on your lowest tier",
+    ],
+    relatedGuides: [
+      { href: "/guides/failed-payment-recovery", label: "Failed payment recovery playbook" },
+      { href: "/blog/identify-profit-leaks", label: "How to identify profit leaks" },
+      { href: "/guides/identify-profit-leaks", label: "Identify profit leaks (full guide)" },
     ],
   },
   {
