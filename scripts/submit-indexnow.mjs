@@ -1,18 +1,73 @@
 /**
  * Notify IndexNow (Bing, etc.) of public URLs.
- * Usage: node scripts/submit-indexnow.mjs
- * Requires INDEXNOW_KEY and NEXT_PUBLIC_APP_URL (or defaults for production).
+ * Usage: npm run indexnow:submit
+ *
+ * Resolves INDEXNOW_KEY from (in order):
+ *   1. process.env.INDEXNOW_KEY
+ *   2. .env.local / .env
+ *   3. public/<key>.txt (IndexNow verification file)
+ *
+ * NEXT_PUBLIC_APP_URL defaults to production.
  *
  * Fetches URLs from the live sitemap when available; falls back to a static list.
  */
-const key = process.env.INDEXNOW_KEY?.trim();
-const appUrl = (process.env.NEXT_PUBLIC_APP_URL ?? "https://www.revenueleak.report").replace(
-  /\/$/,
-  ""
-);
+import { readdirSync, readFileSync } from "fs";
+import { join } from "path";
+import {
+  ENV_FILE,
+  ENV_LOCAL,
+  getEnvValue,
+  isPlaceholderValue,
+  readEnvFile,
+  ROOT,
+} from "./lib/env-file.mjs";
+
+function resolveIndexNowKey() {
+  const fromEnv = process.env.INDEXNOW_KEY?.trim();
+  if (fromEnv && !isPlaceholderValue(fromEnv)) return fromEnv;
+
+  for (const path of [ENV_LOCAL, ENV_FILE]) {
+    const fromFile = getEnvValue(readEnvFile(path), "INDEXNOW_KEY");
+    if (fromFile && !isPlaceholderValue(fromFile)) return fromFile;
+  }
+
+  const publicDir = join(ROOT, "public");
+  try {
+    for (const name of readdirSync(publicDir)) {
+      if (!/^[a-f0-9]{32}\.txt$/i.test(name)) continue;
+      const key = name.slice(0, -4);
+      const body = readFileSync(join(publicDir, name), "utf8").trim();
+      if (body === key || body === "") return key;
+    }
+  } catch {
+    // public/ missing or unreadable
+  }
+
+  return null;
+}
+
+function resolveAppUrl() {
+  const fromEnv = process.env.NEXT_PUBLIC_APP_URL?.trim();
+  if (fromEnv) return fromEnv.replace(/\/$/, "");
+
+  for (const path of [ENV_LOCAL, ENV_FILE]) {
+    const fromFile = getEnvValue(readEnvFile(path), "NEXT_PUBLIC_APP_URL");
+    // Localhost is fine for Next, but IndexNow must submit the public host.
+    if (fromFile && !fromFile.includes("localhost")) {
+      return fromFile.replace(/\/$/, "");
+    }
+  }
+
+  return "https://www.revenueleak.report";
+}
+
+const key = resolveIndexNowKey();
+const appUrl = resolveAppUrl();
 
 if (!key) {
-  console.error("Set INDEXNOW_KEY in the environment.");
+  console.error(
+    "Could not find INDEXNOW_KEY. Set it in .env.local, or add public/<32-char-hex-key>.txt"
+  );
   process.exit(1);
 }
 
