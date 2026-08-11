@@ -36,12 +36,10 @@ export function CookieConsent() {
         >
           <div className="mx-auto flex max-w-5xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm leading-relaxed text-slate-600">
-              We use analytics cookies (Google Analytics and/or Meta Pixel) to measure traffic and
-              ad performance. See our{" "}
+              We use cookies to understand how the site is used.{" "}
               <Link href="/privacy" className="text-brand-600 hover:underline">
                 Privacy Policy
               </Link>
-              .
             </p>
             <div className="flex shrink-0 flex-wrap gap-2">
               <button
@@ -49,14 +47,14 @@ export function CookieConsent() {
                 onClick={() => handleChoice("declined")}
                 className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
               >
-                Essential only
+                Reject
               </button>
               <button
                 type="button"
                 onClick={() => handleChoice("accepted")}
                 className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-medium text-white hover:bg-brand-700"
               >
-                Accept analytics
+                Accept
               </button>
             </div>
           </div>
