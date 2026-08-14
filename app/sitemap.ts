@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { blogPillars, blogPosts } from "@/lib/blog";
-import { guides } from "@/lib/guides";
+import { getGuide, guides } from "@/lib/guides";
 import { nicheLandings } from "@/lib/niche-landings";
 import { getSiteUrl } from "@/lib/site";
 
@@ -61,13 +61,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${base}/blog/${post.slug}`,
       lastModified: new Date(post.updated ?? post.published),
       changeFrequency: "monthly" as const,
-      priority: 0.8,
+      priority: getGuide(post.slug) ? 0.4 : 0.8,
     })),
     ...guides.map((guide) => ({
       url: `${base}/guides/${guide.slug}`,
-      lastModified: new Date(guide.published),
+      lastModified: new Date(guide.updated ?? guide.published),
       changeFrequency: "monthly" as const,
-      priority: 0.8,
+      priority: 0.85,
     })),
     ...nicheLandings.map((landing) => ({
       url: `${base}/for/${landing.slug}`,

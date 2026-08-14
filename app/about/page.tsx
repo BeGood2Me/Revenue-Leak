@@ -65,7 +65,9 @@ export default function AboutPage() {
         </section>
 
         <section className="mt-12 space-y-6 text-slate-700">
-          <h2 className="text-xl font-semibold text-slate-900">Methodology</h2>
+          <h2 id="methodology" className="text-xl font-semibold text-slate-900">
+            How the score works
+          </h2>
           <div className="space-y-6">
             {blogAuthor.methodology.map((item) => (
               <div key={item.title}>

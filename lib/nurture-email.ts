@@ -11,6 +11,15 @@ interface NurtureEmailParams {
   businessType: BusinessType;
   totalEstimatedLoss: number;
   lossRangeLabel: string;
+  topLeakLabel?: string | null;
+}
+
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 function buildNurtureHtml(params: NurtureEmailParams): string {
@@ -39,7 +48,7 @@ function buildNurtureHtml(params: NurtureEmailParams): string {
                   View my preview &amp; unlock report
                 </a>
                 <p style="margin:24px 0 0;color:#94a3b8;font-size:13px;line-height:1.5;">
-                  Not interested? Ignore this email — we won&apos;t send another reminder for this diagnostic.
+                  Not ready yet? We may send one more reminder. Ignore this if you&apos;re not interested.
                 </p>
               </td>
             </tr>
@@ -62,8 +71,93 @@ You started a ${businessLabel} diagnostic. Your preview estimated ${params.lossR
 Unlock the full report (top 3 leaks + fix-first steps) for ${REPORT_PRICE_LABEL}:
 ${resumeUrl}
 
-Not interested? Ignore this — no further reminders for this diagnostic.
+Not interested? Ignore this — we may send one more reminder for this diagnostic.
 `;
+}
+
+function buildFollowupHtml(params: NurtureEmailParams): string {
+  const resumeUrl = createPreviewResumeUrl(params.diagnosticId);
+  const leakLine = params.topLeakLabel
+    ? `Your #1 leak was <strong>${escapeHtml(params.topLeakLabel)}</strong>. Unlock the other 5 categories and a 30-day plan for a one-time <strong>${REPORT_PRICE_LABEL}</strong>.`
+    : `Unlock the other 5 leak categories and a 30-day plan for a one-time <strong>${REPORT_PRICE_LABEL}</strong>.`;
+
+  return `<!DOCTYPE html>
+<html>
+  <body style="margin:0;padding:0;background:#f8fafc;font-family:system-ui,-apple-system,sans-serif;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background:#f8fafc;padding:32px 16px;">
+      <tr>
+        <td align="center">
+          <table width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;">
+            <tr>
+              <td style="padding:28px;">
+                <p style="margin:0 0 16px;color:#334155;line-height:1.6;">
+                  Your preview still estimates <strong style="color:#dc2626;">${params.lossRangeLabel}/month</strong> leaking.
+                </p>
+                <p style="margin:0 0 24px;color:#334155;line-height:1.6;">
+                  ${leakLine}
+                </p>
+                <a href="${resumeUrl}" style="display:inline-block;background:#ea580c;color:#ffffff;text-decoration:none;font-weight:600;padding:14px 24px;border-radius:10px;">
+                  Unlock the other 5 for ${REPORT_PRICE_LABEL}
+                </a>
+                <p style="margin:24px 0 0;color:#94a3b8;font-size:13px;line-height:1.5;">
+                  This is the last reminder for this diagnostic.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+}
+
+function buildFollowupText(params: NurtureEmailParams): string {
+  const resumeUrl = createPreviewResumeUrl(params.diagnosticId);
+  const leakLine = params.topLeakLabel
+    ? `Your #1 leak was ${params.topLeakLabel}. Unlock the other 5 categories for ${REPORT_PRICE_LABEL}.`
+    : `Unlock the other 5 leak categories for ${REPORT_PRICE_LABEL}.`;
+
+  return `Your revenue leak preview is still available
+
+Estimated ${params.lossRangeLabel}/month leaking.
+${leakLine}
+
+${resumeUrl}
+
+This is the last reminder for this diagnostic.
+`;
+}
+
+export async function sendNurtureFollowupEmail(params: NurtureEmailParams): Promise<void> {
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = process.env.EMAIL_FROM;
+
+  if (!apiKey || !from) {
+    if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
+      console.log("\n--- Nurture follow-up email (set RESEND_API_KEY + EMAIL_FROM to send) ---");
+      console.log(`To: ${params.to}`);
+      console.log(buildFollowupText(params));
+      console.log("---\n");
+      return;
+    }
+    throw new Error("Email not configured. Set RESEND_API_KEY and EMAIL_FROM.");
+  }
+
+  const resend = new Resend(apiKey);
+  const { error } = await resend.emails.send({
+    from,
+    to: params.to,
+    subject: params.topLeakLabel
+      ? `Your #1 leak: ${params.topLeakLabel} — unlock the other 5`
+      : `Unlock the other 5 leaks for ${REPORT_PRICE_LABEL}`,
+    html: buildFollowupHtml(params),
+    text: buildFollowupText(params),
+  });
+
+  if (error) {
+    throw new Error(error.message);
+  }
 }
 
 export async function sendNurtureEmail(params: NurtureEmailParams): Promise<void> {
@@ -98,5 +192,11 @@ export async function sendNurtureEmail(params: NurtureEmailParams): Promise<void
 export function getNurtureDelayMs(): number {
   const hours = Number(process.env.NURTURE_DELAY_HOURS ?? 24);
   if (!Number.isFinite(hours) || hours < 0) return 24 * 60 * 60 * 1000;
+  return hours * 60 * 60 * 1000;
+}
+
+export function getNurtureFollowupDelayMs(): number {
+  const hours = Number(process.env.NURTURE_FOLLOWUP_DELAY_HOURS ?? 48);
+  if (!Number.isFinite(hours) || hours < 0) return 48 * 60 * 60 * 1000;
   return hours * 60 * 60 * 1000;
 }

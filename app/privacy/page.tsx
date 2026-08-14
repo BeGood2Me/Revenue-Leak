@@ -28,8 +28,8 @@ export default function PrivacyPage() {
       <h2>What we collect</h2>
       <ul>
         <li>
-          <strong>Email address</strong> — when you enter it to see your preview and receive a
-          report link.
+          <strong>Email address</strong> — optional, if you ask us to save or send a preview
+          link, and when Stripe collects it at checkout.
         </li>
         <li>
           <strong>Questionnaire answers</strong> — your business type (SaaS, ecommerce, agency,
@@ -165,10 +165,11 @@ export default function PrivacyPage() {
 
       <h2>Email messages</h2>
       <p>
-        If you pay for a report, we may email you a link to access it. If you complete the free
-        preview but do not purchase, we may send <strong>one</strong> reminder email with a link
-        back to your preview (typically about 24 hours later). We do not send a regular newsletter.
-        You can ask us to stop non-essential emails by contacting us.
+        If you pay for a report, we may email you a link to access it. Email is optional to see
+        your free preview. If you save a preview with your email but do not purchase, we may send
+        up to <strong>two</strong> reminder emails with a link back to your preview (typically
+        about 24 hours, then 48 hours). We do not send a regular newsletter. You can ask us to
+        stop non-essential emails by contacting us.
       </p>
 
       <h2>Your choices</h2>

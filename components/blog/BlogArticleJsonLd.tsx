@@ -2,9 +2,15 @@ import { blogAuthor } from "@/lib/blog";
 import type { BlogPost } from "@/lib/blog/types";
 import { getSiteUrl } from "@/lib/site";
 
-export function BlogArticleJsonLd({ post }: { post: BlogPost }) {
+export function BlogArticleJsonLd({
+  post,
+  canonicalPath,
+}: {
+  post: BlogPost;
+  canonicalPath?: string;
+}) {
   const base = getSiteUrl();
-  const url = `${base}/blog/${post.slug}`;
+  const url = `${base}${canonicalPath ?? `/blog/${post.slug}`}`;
 
   const schema = {
     "@context": "https://schema.org",

@@ -2,14 +2,16 @@ import Link from "next/link";
 import { BlogAuthorBox } from "@/components/blog/BlogAuthorBox";
 import { Header, Footer } from "@/components/layout";
 import type { BlogPillar, BlogPost } from "@/lib/blog/types";
+import type { Guide } from "@/lib/guides";
 
 interface BlogPostLayoutProps {
   post: BlogPost;
   pillar?: BlogPillar;
+  guideTwin?: Guide;
   children: React.ReactNode;
 }
 
-export function BlogPostLayout({ post, pillar, children }: BlogPostLayoutProps) {
+export function BlogPostLayout({ post, pillar, guideTwin, children }: BlogPostLayoutProps) {
   const published = new Date(post.published).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -39,6 +41,14 @@ export function BlogPostLayout({ post, pillar, children }: BlogPostLayoutProps) 
           {post.title}
         </h1>
         <p className="mt-4 text-lg text-slate-600">{post.description}</p>
+        {guideTwin ? (
+          <p className="mt-6 rounded-lg border border-brand-200 bg-brand-50 px-4 py-3 text-sm text-slate-700">
+            Full playbook:{" "}
+            <Link href={`/guides/${guideTwin.slug}`} className="font-medium text-brand-700 hover:underline">
+              {guideTwin.title}
+            </Link>
+          </p>
+        ) : null}
         <article className="mt-10 space-y-6 text-slate-700 [&_h2]:mt-10 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-slate-900 [&_h3]:mt-6 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-slate-900 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-6">
           {children}
         </article>

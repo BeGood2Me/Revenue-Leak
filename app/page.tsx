@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { Header, Footer } from "@/components/layout";
 import { DiagnosticWizard } from "@/components/DiagnosticWizard";
-import { Button } from "@/components/Button";
 import { FAQ, CredibilityBand } from "@/components/FAQ";
 import { FaqJsonLd } from "@/components/FaqJsonLd";
 import { OrganizationJsonLd } from "@/components/OrganizationJsonLd";
@@ -17,8 +16,8 @@ export default function HomePage() {
       <FaqJsonLd />
       <Header />
       <main>
-        <section className="surface-radar border-b border-surface-muted">
-          <div className="mx-auto flex min-h-[min(85vh,720px)] max-w-5xl flex-col justify-center px-4 py-16 sm:px-6 sm:py-20">
+        <section id="start" className="surface-radar scroll-mt-24 border-b border-surface-muted">
+          <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
             <div className="mx-auto max-w-3xl text-center">
               <p className="animate-fade-up font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl md:text-6xl">
                 {SITE_NAME}
@@ -30,21 +29,15 @@ export default function HomePage() {
                 Scan your customer journey in five minutes. Get a ranked leak map tailored to SaaS,
                 ecommerce, agency, or local service.
               </p>
-              <div className="animate-fade-up-delay-2 mt-9 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-                <Link href="/?fresh=1#start">
-                  <Button size="lg">Start diagnostic — it&apos;s free</Button>
-                </Link>
-                <Link
-                  href="/sample-report"
-                  className="text-sm font-medium text-brand-700 underline-offset-4 hover:text-brand-800 hover:underline"
-                >
-                  See a sample report
-                </Link>
-              </div>
               <p className="mt-4 text-sm text-ink-soft">
                 No signup to start · ~5 minutes · Full report {REPORT_PRICE_LABEL} · 7-day
                 money-back
               </p>
+            </div>
+            <div className="mx-auto mt-10 max-w-3xl">
+              <Suspense fallback={<WizardSkeleton />}>
+                <DiagnosticWizard />
+              </Suspense>
             </div>
           </div>
         </section>
@@ -82,12 +75,6 @@ export default function HomePage() {
             </ol>
             <CredibilityBand />
           </div>
-        </section>
-
-        <section id="start" className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-          <Suspense fallback={<WizardSkeleton />}>
-            <DiagnosticWizard />
-          </Suspense>
         </section>
 
         <FAQ />

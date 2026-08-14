@@ -18,6 +18,7 @@ import { QuestionField, validateQuestion } from "./QuestionField";
 import { Button } from "./Button";
 import { SeverityBar } from "./SeverityBar";
 import { WizardSkeleton } from "@/components/WizardSkeleton";
+import { PreviewShareCard } from "@/components/PreviewShareCard";
 import {
   clearAllWizardStorage,
   clearPreviewSession,
@@ -347,8 +348,8 @@ export function DiagnosticWizard() {
             (sessionSaved.answers as Answers) ?? {}
           );
           setAccessToken(token);
-          setPhase(sessionSaved.phase as Phase);
-          scrollToPreviewRef.current = sessionSaved.phase === "preview";
+          setPhase("preview");
+          scrollToPreviewRef.current = true;
         } catch {
           if (isStaleRestore()) return;
           activeDiagnosticIdRef.current = null;
@@ -571,7 +572,8 @@ export function DiagnosticWizard() {
       }
 
       applyPreviewData(data, businessType, answers);
-      setPhase("email");
+      setPhase("preview");
+      scrollToPreviewRef.current = true;
       document.getElementById("start")?.scrollIntoView({ behavior: "smooth" });
     } catch (e) {
       setError(e instanceof Error ? e.message : "Something went wrong");
@@ -747,6 +749,40 @@ export function DiagnosticWizard() {
           )}
         </div>
 
+        <PreviewShareCard
+          lossRangeLabel={preview.lossRange.label}
+          topLeakLabel={preview.topLeakLabel}
+          diagnosticId={preview.id}
+          token={accessToken}
+        />
+
+        {!email && !preview.isPaid ? (
+          <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
+            <h3 className="text-base font-semibold text-slate-900">Save this preview</h3>
+            <p className="mt-1 text-sm text-slate-600">
+              Optional — we&apos;ll email you a link so you can come back later.
+            </p>
+            <div className="mt-3 flex flex-col gap-2 sm:flex-row">
+              <input
+                id="lead-email"
+                type="email"
+                autoComplete="email"
+                placeholder="you@company.com"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setEmailError(null);
+                }}
+                className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
+              />
+              <Button onClick={handleEmailSubmit} loading={loading}>
+                Email me the link
+              </Button>
+            </div>
+            {emailError && <p className="mt-2 text-sm text-red-600">{emailError}</p>}
+          </div>
+        ) : null}
+
         <div className="space-y-3">
           <p className="text-sm font-medium text-slate-700">All leak categories</p>
           {LEAK_CATEGORIES.map((cat) => (
@@ -828,7 +864,7 @@ export function DiagnosticWizard() {
               <p>
                 Less than one hour of consulting — or keep losing {preview.lossRange.label}/month.
               </p>
-              <p>Report link will be emailed to {email}</p>
+              {email ? <p>Report link will be emailed to {email}</p> : null}
             </div>
           </div>
         )}

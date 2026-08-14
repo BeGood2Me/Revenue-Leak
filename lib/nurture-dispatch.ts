@@ -1,8 +1,14 @@
 import { prisma } from "@/lib/prisma";
 import { runDiagnostic } from "@/lib/diagnostic";
 import { bandTotalLoss } from "@/lib/preview";
-import { sendNurtureEmail, getNurtureDelayMs } from "@/lib/nurture-email";
-import type { BusinessType } from "@/lib/types";
+import {
+  sendNurtureEmail,
+  sendNurtureFollowupEmail,
+  getNurtureDelayMs,
+  getNurtureFollowupDelayMs,
+} from "@/lib/nurture-email";
+import { LEAK_CATEGORY_LABELS } from "@/lib/types";
+import type { BusinessType, LeakCategory } from "@/lib/types";
 import type { Diagnostic } from "@prisma/client";
 
 export function getCheckoutAbandonDelayMs(): number {
@@ -43,6 +49,45 @@ export function isEligibleForNurture(
   return anchor.getTime() <= Date.now() - delayMs;
 }
 
+export function isEligibleForNurtureFollowup(
+  diagnostic: Diagnostic,
+  options?: { ignoreDelay?: boolean }
+): boolean {
+  if (
+    diagnostic.isPaid ||
+    !diagnostic.email ||
+    !diagnostic.nurtureEmailSentAt ||
+    diagnostic.nurtureFollowupSentAt
+  ) {
+    return false;
+  }
+
+  const captured = diagnostic.emailCapturedAt;
+  if (!captured) return false;
+  if (options?.ignoreDelay) return true;
+
+  return captured.getTime() <= Date.now() - getNurtureFollowupDelayMs();
+}
+
+function previewParams(diagnostic: Diagnostic) {
+  const answers = JSON.parse(diagnostic.answers);
+  const businessType = diagnostic.businessType as BusinessType;
+  const result = runDiagnostic(businessType, answers);
+  const lossRange = bandTotalLoss(result.totalEstimatedLoss);
+  const topLeak = result.topLeaks[0];
+
+  return {
+    to: diagnostic.email!,
+    diagnosticId: diagnostic.id,
+    businessType,
+    totalEstimatedLoss: diagnostic.totalEstimatedLoss,
+    lossRangeLabel: lossRange.label,
+    topLeakLabel: topLeak
+      ? LEAK_CATEGORY_LABELS[topLeak.category as LeakCategory]
+      : null,
+  };
+}
+
 export async function sendNurtureForDiagnostic(
   diagnosticId: string,
   options?: { ignoreDelay?: boolean }
@@ -59,19 +104,8 @@ export async function sendNurtureForDiagnostic(
 
   if (claimed.count === 0) return "skipped";
 
-  const answers = JSON.parse(diagnostic.answers);
-  const businessType = diagnostic.businessType as BusinessType;
-  const result = runDiagnostic(businessType, answers);
-  const lossRange = bandTotalLoss(result.totalEstimatedLoss);
-
   try {
-    await sendNurtureEmail({
-      to: diagnostic.email!,
-      diagnosticId: diagnostic.id,
-      businessType,
-      totalEstimatedLoss: diagnostic.totalEstimatedLoss,
-      lossRangeLabel: lossRange.label,
-    });
+    await sendNurtureEmail(previewParams(diagnostic));
     return "sent";
   } catch {
     await prisma.diagnostic.update({
@@ -82,12 +116,45 @@ export async function sendNurtureForDiagnostic(
   }
 }
 
+export async function sendNurtureFollowupForDiagnostic(
+  diagnosticId: string,
+  options?: { ignoreDelay?: boolean }
+): Promise<"sent" | "skipped" | "failed"> {
+  const diagnostic = await prisma.diagnostic.findUnique({ where: { id: diagnosticId } });
+  if (!diagnostic || !isEligibleForNurtureFollowup(diagnostic, options)) {
+    return "skipped";
+  }
+
+  const claimed = await prisma.diagnostic.updateMany({
+    where: {
+      id: diagnosticId,
+      nurtureFollowupSentAt: null,
+      isPaid: false,
+      nurtureEmailSentAt: { not: null },
+    },
+    data: { nurtureFollowupSentAt: new Date() },
+  });
+
+  if (claimed.count === 0) return "skipped";
+
+  try {
+    await sendNurtureFollowupEmail(previewParams(diagnostic));
+    return "sent";
+  } catch {
+    await prisma.diagnostic.update({
+      where: { id: diagnosticId },
+      data: { nurtureFollowupSentAt: null },
+    });
+    return "failed";
+  }
+}
+
 export async function processNurtureBatch(batchLimit = 50): Promise<{
   scanned: number;
   sent: number;
   errors: string[];
 }> {
-  const candidates = await prisma.diagnostic.findMany({
+  const firstPass = await prisma.diagnostic.findMany({
     where: {
       isPaid: false,
       email: { not: null },
@@ -98,10 +165,22 @@ export async function processNurtureBatch(batchLimit = 50): Promise<{
     orderBy: { emailCapturedAt: "asc" },
   });
 
+  const followupPass = await prisma.diagnostic.findMany({
+    where: {
+      isPaid: false,
+      email: { not: null },
+      nurtureEmailSentAt: { not: null },
+      nurtureFollowupSentAt: null,
+      emailCapturedAt: { not: null },
+    },
+    take: batchLimit,
+    orderBy: { emailCapturedAt: "asc" },
+  });
+
   let sent = 0;
   const errors: string[] = [];
 
-  for (const diagnostic of candidates) {
+  for (const diagnostic of firstPass) {
     if (!isEligibleForNurture(diagnostic)) continue;
 
     const result = await sendNurtureForDiagnostic(diagnostic.id);
@@ -112,5 +191,20 @@ export async function processNurtureBatch(batchLimit = 50): Promise<{
     }
   }
 
-  return { scanned: candidates.length, sent, errors };
+  for (const diagnostic of followupPass) {
+    if (!isEligibleForNurtureFollowup(diagnostic)) continue;
+
+    const result = await sendNurtureFollowupForDiagnostic(diagnostic.id);
+    if (result === "sent") {
+      sent += 1;
+    } else if (result === "failed") {
+      errors.push(`${diagnostic.id}: follow-up send failed`);
+    }
+  }
+
+  return {
+    scanned: firstPass.length + followupPass.length,
+    sent,
+    errors,
+  };
 }

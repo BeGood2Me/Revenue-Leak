@@ -3,6 +3,7 @@ import {
   getCheckoutAbandonDelayMs,
   getNurtureDelayMsForDiagnostic,
   isEligibleForNurture,
+  isEligibleForNurtureFollowup,
 } from "@/lib/nurture-dispatch";
 import type { Diagnostic } from "@prisma/client";
 
@@ -23,6 +24,7 @@ function diagnostic(partial: Partial<Diagnostic>): Diagnostic {
     emailCapturedAt: new Date(Date.now() - 25 * 60 * 60 * 1000),
     checkoutStartedAt: null,
     nurtureEmailSentAt: null,
+    nurtureFollowupSentAt: null,
     ...partial,
   };
 }
@@ -41,5 +43,20 @@ describe("nurture-dispatch", () => {
     const row = diagnostic({ emailCapturedAt: captured, checkoutStartedAt: null });
 
     expect(isEligibleForNurture(row)).toBe(false);
+  });
+
+  it("sends the 48h follow-up after the first nurture", () => {
+    const captured = new Date(Date.now() - 49 * 60 * 60 * 1000);
+    const tooSoon = diagnostic({
+      emailCapturedAt: new Date(Date.now() - 10 * 60 * 60 * 1000),
+      nurtureEmailSentAt: new Date(Date.now() - 8 * 60 * 60 * 1000),
+    });
+    const ready = diagnostic({
+      emailCapturedAt: captured,
+      nurtureEmailSentAt: new Date(Date.now() - 25 * 60 * 60 * 1000),
+    });
+
+    expect(isEligibleForNurtureFollowup(tooSoon)).toBe(false);
+    expect(isEligibleForNurtureFollowup(ready)).toBe(true);
   });
 });

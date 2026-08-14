@@ -6,7 +6,7 @@ import { CategoryInsightRow } from "@/components/CategoryInsightRow";
 import { ActionPlanSection, ReportExecutiveSummary } from "@/components/ReportSections";
 import { Button } from "@/components/Button";
 import { runDiagnostic } from "@/lib/diagnostic";
-import { SAAS_BUSINESS_TYPE, SAAS_LEAKY_ANSWERS } from "@/lib/fixtures";
+import { getSampleReportProfile, SAMPLE_REPORT_PROFILES } from "@/lib/fixtures";
 import { REPORT_PRICE_LABEL } from "@/lib/preview";
 import { SITE_NAME } from "@/lib/site";
 import { BUSINESS_TYPE_LABELS } from "@/lib/types";
@@ -14,7 +14,7 @@ import { formatCurrency } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Sample Report",
-  description: `See what a full ${SITE_NAME} revenue leak report looks like — example output for a SaaS business.`,
+  description: `See what a full ${SITE_NAME} revenue leak report looks like — example output by niche.`,
   alternates: {
     canonical: "/sample-report",
   },
@@ -24,8 +24,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SampleReportPage() {
-  const full = runDiagnostic(SAAS_BUSINESS_TYPE, SAAS_LEAKY_ANSWERS);
+interface PageProps {
+  searchParams: Promise<{ niche?: string }>;
+}
+
+export default async function SampleReportPage({ searchParams }: PageProps) {
+  const { niche } = await searchParams;
+  const profile = getSampleReportProfile(niche);
+  const full = runDiagnostic(profile.businessType, profile.answers);
   const topCategories = new Set(full.topLeaks.map((l) => l.category));
   const otherLeaks = full.allLeaks.filter((l) => !topCategories.has(l.category));
 
@@ -34,16 +40,36 @@ export default function SampleReportPage() {
       <Header />
       <main className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
         <div className="mb-8 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
-          <strong>Sample report.</strong> This is a redacted example for a fictional SaaS company
-          (Acme Analytics). Your report is generated from your answers and business type.
+          <strong>Sample report.</strong> This is a redacted example for a fictional{" "}
+          {BUSINESS_TYPE_LABELS[profile.businessType].toLowerCase()} company ({profile.company}).
+          Your report is generated from your answers and business type.
+        </div>
+
+        <div className="mb-6 flex flex-wrap gap-2">
+          {SAMPLE_REPORT_PROFILES.map((item) => {
+            const active = item.niche === profile.niche;
+            return (
+              <Link
+                key={item.niche}
+                href={`/sample-report?niche=${item.niche}`}
+                className={
+                  active
+                    ? "rounded-full bg-brand-600 px-3 py-1.5 text-sm font-medium text-white"
+                    : "rounded-full border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                }
+              >
+                {BUSINESS_TYPE_LABELS[item.businessType]}
+              </Link>
+            );
+          })}
         </div>
 
         <div className="mb-8">
           <p className="text-sm font-medium text-brand-600">
-            {BUSINESS_TYPE_LABELS[SAAS_BUSINESS_TYPE]} diagnostic · Example
+            {BUSINESS_TYPE_LABELS[profile.businessType]} diagnostic · Example
           </p>
           <h1 className="mt-2 text-3xl font-bold text-slate-900">Revenue Leak Report</h1>
-          <p className="mt-2 text-slate-600">Acme Analytics · Sample generated report</p>
+          <p className="mt-2 text-slate-600">{profile.company} · Sample generated report</p>
         </div>
 
         <ReportExecutiveSummary

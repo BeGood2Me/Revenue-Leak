@@ -9,6 +9,7 @@ import { BlogRelatedPosts } from "@/components/blog/BlogRelatedPosts";
 import {
   blogPosts,
   getBlogPost,
+  getCanonicalGuideForPost,
   getPillarForPost,
   getRelatedPosts,
 } from "@/lib/blog";
@@ -27,14 +28,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = getBlogPost(slug);
   if (!post) return {};
 
-  const url = `${getSiteUrl()}/blog/${post.slug}`;
+  const guideTwin = getCanonicalGuideForPost(post.slug);
+  const canonicalPath = guideTwin ? `/guides/${guideTwin.slug}` : `/blog/${post.slug}`;
+  const url = `${getSiteUrl()}${canonicalPath}`;
 
   return {
     title: post.title,
     description: post.description,
     keywords: post.keywords,
     alternates: {
-      canonical: `/blog/${post.slug}`,
+      canonical: canonicalPath,
     },
     robots: {
       index: true,
@@ -66,12 +69,13 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const pillar = getPillarForPost(post);
   const related = getRelatedPosts(post);
+  const guideTwin = getCanonicalGuideForPost(post.slug);
 
   return (
     <>
-      <BlogArticleJsonLd post={post} />
+      <BlogArticleJsonLd post={post} canonicalPath={guideTwin ? `/guides/${guideTwin.slug}` : undefined} />
       <BlogFaqJsonLd faq={post.faq} />
-      <BlogPostLayout post={post} pillar={pillar}>
+      <BlogPostLayout post={post} pillar={pillar} guideTwin={guideTwin}>
         <BlogBlockRenderer blocks={post.blocks} />
         <BlogFaqSection faq={post.faq} />
         <BlogRelatedPosts posts={related} pillarTitle={pillar?.title} />

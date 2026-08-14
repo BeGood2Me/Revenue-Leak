@@ -1,3 +1,4 @@
+import { getGuide, type Guide } from "@/lib/guides";
 import { blogManifest } from "./manifest";
 import type { BlogPillar, BlogPost } from "./types";
 
@@ -32,4 +33,9 @@ export function getRelatedPosts(post: BlogPost): BlogPost[] {
 
 export function getPillarForPost(post: BlogPost): BlogPillar | undefined {
   return getBlogPillar(post.pillar);
+}
+
+/** Longer guide twin that should own the query when a matching slug exists. */
+export function getCanonicalGuideForPost(slug: string): Guide | undefined {
+  return getGuide(slug);
 }

@@ -68,6 +68,28 @@ export function CredibilityBand() {
           </li>
         ))}
       </ul>
+      <p className="mt-6 text-center text-sm text-ink-muted">
+        See a sample for{" "}
+        <Link href="/sample-report?niche=saas" className="text-brand-700 hover:underline">
+          SaaS
+        </Link>
+        {", "}
+        <Link href="/sample-report?niche=ecommerce" className="text-brand-700 hover:underline">
+          ecommerce
+        </Link>
+        {", "}
+        <Link href="/sample-report?niche=agencies" className="text-brand-700 hover:underline">
+          agencies
+        </Link>
+        {", or "}
+        <Link href="/sample-report?niche=local-services" className="text-brand-700 hover:underline">
+          local services
+        </Link>
+        .{" "}
+        <Link href="/about#methodology" className="text-brand-700 hover:underline">
+          How the score works
+        </Link>
+      </p>
     </div>
   );
 }

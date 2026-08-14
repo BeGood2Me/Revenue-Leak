@@ -24,6 +24,7 @@ model Diagnostic {
   emailCapturedAt  DateTime?
   checkoutStartedAt DateTime?
   nurtureEmailSentAt DateTime?
+  nurtureFollowupSentAt DateTime?
 
   @@index([stripeSessionId])
   @@index([isPaid, emailCapturedAt, nurtureEmailSentAt])

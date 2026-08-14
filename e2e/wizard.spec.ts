@@ -38,26 +38,22 @@ test.describe("Revenue Leak funnel", () => {
     await expect(page.getByRole("link", { name: "Privacy" })).toBeVisible();
   });
 
-  test("SaaS wizard reaches preview after email", async ({ page }) => {
+  test("SaaS wizard reaches preview without email", async ({ page }) => {
     await page.goto("/#start");
     await completeSaasWizard(page);
-
-    await expect(page.getByRole("heading", { name: /Almost there/i })).toBeVisible();
-    await page.getByLabel(/Email address/i).fill("e2e@example.com");
-    await page.getByRole("button", { name: "See my results" }).click();
 
     const preview = page.locator("#preview-results");
     await expect(preview).toBeVisible();
     await expect(preview.getByText(/Estimated monthly revenue loss/i)).toBeVisible();
     await expect(page.getByRole("button", { name: /Unlock full report —/i })).toBeVisible();
     await expect(preview.getByText(/Funnel health/i)).toBeVisible();
+    await expect(page.getByText(/Estimated .+\/month leaking/i)).toBeVisible();
+    await expect(page.getByRole("button", { name: "Copy link" })).toBeVisible();
   });
 
   test("unlock button redirects to Stripe when configured", async ({ page }) => {
     await page.goto("/#start");
     await completeSaasWizard(page);
-    await page.getByLabel(/Email address/i).fill("checkout-e2e@example.com");
-    await page.getByRole("button", { name: "See my results" }).click();
     await expect(page.locator("#preview-results")).toBeVisible();
 
     await Promise.all([
@@ -70,8 +66,6 @@ test.describe("Revenue Leak funnel", () => {
     test(`new ${niche.id} diagnostic hides prior preview`, async ({ page }) => {
       await page.goto("/#start");
       await completeSaasWizard(page);
-      await page.getByLabel(/Email address/i).fill(`restart-${niche.id}@example.com`);
-      await page.getByRole("button", { name: "See my results" }).click();
       await expect(page.locator("#preview-results")).toBeVisible();
 
       await page.getByRole("button", { name: /Start over with a new diagnostic/i }).click();
@@ -90,8 +84,6 @@ test.describe("Revenue Leak funnel", () => {
   test("header start diagnostic clears saved preview", async ({ page }) => {
     await page.goto("/#start");
     await completeSaasWizard(page);
-    await page.getByLabel(/Email address/i).fill("fresh-start@example.com");
-    await page.getByRole("button", { name: "See my results" }).click();
     await expect(page.locator("#preview-results")).toBeVisible();
 
     await page.getByRole("link", { name: "Start diagnostic" }).click();
@@ -103,8 +95,6 @@ test.describe("Revenue Leak funnel", () => {
   test("homepage visit does not restore a saved preview", async ({ page }) => {
     await page.goto("/#start");
     await completeSaasWizard(page);
-    await page.getByLabel(/Email address/i).fill("return-visit@example.com");
-    await page.getByRole("button", { name: "See my results" }).click();
     await expect(page.locator("#preview-results")).toBeVisible();
 
     await page.goto("/");
