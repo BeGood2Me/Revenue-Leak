@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { normalizeInternalHref } from "@/lib/normalize-internal-href";
 
 const LINK_RE = /\[([^\]]+)\]\(([^)]+)\)/g;
 
@@ -13,9 +14,9 @@ export function BlogInlineText({ text }: { text: string }) {
     if (match.index > last) {
       parts.push(text.slice(last, match.index));
     }
-    const [, label, href] = match;
-    const isInternal = href.startsWith("/");
-    if (isInternal) {
+    const [, label, rawHref] = match;
+    const href = normalizeInternalHref(rawHref);
+    if (href.startsWith("/")) {
       parts.push(
         <Link key={key++} href={href} className="text-brand-600 hover:underline">
           {label}
