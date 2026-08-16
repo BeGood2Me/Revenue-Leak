@@ -1,3 +1,5 @@
+import { CANONICAL_DEFINITIONS } from "@/lib/canonical-definitions";
+
 export interface GuideFaqItem {
   q: string;
   a: string;
@@ -53,6 +55,32 @@ export const guides: Guide[] = [
       "revenue-leakage-detection",
       "failed-payment-recovery",
     ],
+    faq: [
+      {
+        q: "What is an example of revenue leakage in SaaS?",
+        a: "Trial users who never convert, monthly churn above 5% with no save flow, failed card charges with no dunning, or customers on the lowest tier who never see an upgrade path — each is money you almost earned but did not collect.",
+      },
+      {
+        q: "What is an example of revenue leakage in ecommerce?",
+        a: "Cart abandonment above 65% with weak recovery emails, one-time buyers who never get a second-purchase offer, refunds climbing on hero SKUs, or ad traffic landing on pages that do not match the ad promise.",
+      },
+      {
+        q: "What is an example of revenue leakage for agencies?",
+        a: "Proposals sent without follow-up within 48 hours, inbound leads answered after a full business day, retainer clients never offered adjacent services, or scope creep absorbed without change orders.",
+      },
+      {
+        q: "What is an example of revenue leakage for local services?",
+        a: "No-show rates above 10% with no reminder policy, quotes never followed up by phone or text, jobs invoiced weeks after completion, or happy customers who never rebook or leave a review.",
+      },
+      {
+        q: "How much can revenue leakage cost per month?",
+        a: "It varies by niche and funnel size. A single leak — failed payments, cart abandonment, or slow follow-up — often costs hundreds to tens of thousands per month once you multiply the gap by average order value or MRR.",
+      },
+      {
+        q: "What should you fix first after spotting a leak example?",
+        a: "The pattern with the highest estimated monthly dollar impact that you can improve within a few weeks — often response time, failed payment recovery, or one conversion bottleneck.",
+      },
+    ],
   },
   {
     slug: "revenue-leakage-detection",
@@ -64,6 +92,28 @@ export const guides: Guide[] = [
       "revenue-leakage-analysis",
       "identify-profit-leaks",
       "revenue-leakage-examples",
+    ],
+    faq: [
+      {
+        q: "What is revenue leakage detection?",
+        a: CANONICAL_DEFINITIONS.revenueLeakageDetection.text,
+      },
+      {
+        q: "How do you detect revenue leakage?",
+        a: "Map each funnel step, compare conversion between steps to niche benchmarks, flag gaps (slow response, weak conversion, churn, failed payments), estimate monthly dollars lost at each gap, and rank fixes by impact.",
+      },
+      {
+        q: "What are signs of revenue leakage?",
+        a: "Traffic or leads look healthy but revenue lags, trial or cart conversion is below niche norms, churn or failed payments rise without a product change, or customers rarely upgrade or buy again.",
+      },
+      {
+        q: "How often should you run revenue leakage detection?",
+        a: "When growth stalls, before a major spend decision, after a pricing or funnel change, or quarterly as a health check. Detection should be repeatable — not a one-time audit.",
+      },
+      {
+        q: "What tools do you need for revenue leakage detection?",
+        a: "Stripe or your processor, Google Analytics, and your CRM or inbox are enough for a first pass. Structure matters more than enterprise analytics — ask the right questions in the right order.",
+      },
     ],
   },
   {
@@ -81,11 +131,11 @@ export const guides: Guide[] = [
     faq: [
       {
         q: "What are profit leaks?",
-        a: "Profit leaks are places where you almost earn (or keep) money but do not — lost conversions, slow follow-up, churn, failed payments, unnecessary discounts, or missing upsells. They show up as a gap between what your funnel should produce and what you actually collect.",
+        a: CANONICAL_DEFINITIONS.profitLeak.text,
       },
       {
         q: "What is profit leakage?",
-        a: "Profit leakage is the ongoing loss of margin or collectible revenue from operational gaps — the same idea as profit leaks, usually phrased as a process problem rather than a one-off miss.",
+        a: CANONICAL_DEFINITIONS.profitLeakage.text,
       },
       {
         q: "How do you identify profit leaks without a finance team?",
@@ -116,7 +166,7 @@ export const guides: Guide[] = [
     faq: [
       {
         q: "What is failed payment recovery?",
-        a: "The process of retrying declined charges, emailing customers to update cards, and recovering revenue from involuntary churn — before those customers are lost forever.",
+        a: CANONICAL_DEFINITIONS.failedPaymentRecovery.text,
       },
       {
         q: "How to stop revenue leakage from failed payments?",

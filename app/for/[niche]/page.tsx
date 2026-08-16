@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Header, Footer } from "@/components/layout";
 import { Button } from "@/components/Button";
+import { BlogFaqSection } from "@/components/blog/BlogFaqSection";
+import { BlogFaqJsonLd } from "@/components/blog/BlogFaqJsonLd";
 import {
   getBusinessDescription,
   getBusinessLabel,
@@ -57,6 +59,7 @@ export default async function NicheLandingPage({ params }: PageProps) {
 
   return (
     <>
+      <BlogFaqJsonLd faq={landing.faq} />
       <Header />
       <main>
         <section className="border-b border-slate-200 bg-gradient-to-b from-white to-slate-50">
@@ -121,6 +124,11 @@ export default async function NicheLandingPage({ params }: PageProps) {
               </ul>
             </div>
           ) : null}
+
+          <BlogFaqSection
+            faq={landing.faq}
+            title={`${getBusinessLabel(landing.businessType)} revenue leaks — FAQ`}
+          />
 
           <div className="mt-12 rounded-2xl border border-brand-200 bg-brand-50 p-8 text-center">
             <h2 className="text-xl font-bold text-slate-900">

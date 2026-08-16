@@ -21,8 +21,9 @@ export default function PrivacyPage() {
     <LegalPage title="Privacy Policy">
       <p>
         This policy describes how {SITE_NAME} (&quot;we&quot;, &quot;us&quot;) handles
-        information when you use our website and diagnostic tool. We wrote it to match what the
-        product actually does today — not what we might add later.
+        information when you use our website, diagnostic tool, and the Revenue Leak Check Chrome
+        extension. We wrote it to match what the product actually does today — not what we might
+        add later.
       </p>
 
       <h2>What we collect</h2>
@@ -100,7 +101,27 @@ export default function PrivacyPage() {
       <h2>What we do not collect</h2>
       <ul>
         <li>We do not ask you to create a password or user account.</li>
+        <li>
+          We do not receive page HTML, cookies, or browsing history from the Chrome extension.
+        </li>
       </ul>
+
+      <h2>Chrome extension</h2>
+      <p>
+        Revenue Leak Check audits the page in the current tab when you click the extension icon.
+        That check runs entirely in your browser. We do not receive the scanned page, its cookies,
+        or a list of sites you visit. The extension only requests permission to run on the tab you
+        invoked it on.
+      </p>
+      <p>
+        If you click through to run the full diagnostic on this website, that visit is covered by
+        the rest of this policy (including optional email, questionnaire answers, and analytics
+        when those are configured).
+      </p>
+      <p>
+        Learn more on the{" "}
+        <Link href="/extension">Chrome extension page</Link>.
+      </p>
 
       <h2>How we use your information</h2>
       <ul>

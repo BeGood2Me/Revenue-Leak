@@ -67,6 +67,10 @@ export function Footer() {
             About
           </Link>
           <span aria-hidden="true">·</span>
+          <Link href="/extension" className="text-brand-700 hover:underline">
+            Chrome extension
+          </Link>
+          <span aria-hidden="true">·</span>
           <Link href="/privacy" className="text-brand-700 hover:underline">
             Privacy
           </Link>

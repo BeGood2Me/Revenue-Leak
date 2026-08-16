@@ -6,7 +6,7 @@ export const SITE_DESCRIPTION =
   "Find the top 3 places your business is losing revenue and what to fix first. Free diagnostic in 5 minutes.";
 
 /** Last updated date shown on legal pages (YYYY-MM-DD). */
-export const LEGAL_LAST_UPDATED = "2026-06-19";
+export const LEGAL_LAST_UPDATED = "2026-08-14";
 
 /** Canonical public site URL (no trailing slash). */
 export function getSiteUrl(): string {

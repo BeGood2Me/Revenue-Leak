@@ -30,7 +30,8 @@ export default function TermsPage() {
         {SITE_NAME} is an online questionnaire that estimates where a business may be
         losing revenue, based on your answers. You can complete a free preview. You may pay a
         one-time fee (currently {REPORT_PRICE_LABEL}) to unlock a fuller written report with
-        category breakdowns and recommendations.
+        category breakdowns and recommendations. The optional Revenue Leak Check Chrome extension
+        is a page scan of the tab you invoke it on; it is not the paid report.
       </p>
 
       <h2>Not professional advice</h2>

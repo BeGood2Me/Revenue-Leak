@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BlogFaqSection } from "@/components/blog/BlogFaqSection";
 import { GuideCta } from "@/components/GuideCta";
 import { GuideRelated } from "@/components/GuideRelated";
 import { getGuide } from "@/lib/guides";
@@ -73,6 +74,7 @@ export function RevenueLeakageDetectionContent() {
       </p>
 
       <GuideCta headline="Run revenue leakage detection on your business" />
+      {guide.faq ? <BlogFaqSection faq={guide.faq} title="Revenue leakage detection — FAQ" /> : null}
       <GuideRelated slugs={guide.relatedSlugs} currentSlug={guide.slug} />
     </>
   );
