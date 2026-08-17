@@ -5,6 +5,7 @@ import { BlogFaqJsonLd } from "@/components/blog/BlogFaqJsonLd";
 import { GuidePage } from "@/components/GuidePage";
 import { guideContentBySlug } from "@/components/guide-content";
 import { getGuide, guides } from "@/lib/guides";
+import { guideOpenGraphImages } from "@/lib/site-images";
 import { getSiteUrl } from "@/lib/site";
 
 interface PageProps {
@@ -39,11 +40,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       publishedTime: guide.published,
       modifiedTime: guide.updated ?? guide.published,
       url,
+      images: guideOpenGraphImages(guide),
     },
     twitter: {
       card: "summary_large_image",
       title: guide.title,
       description: guide.description,
+      images: guideOpenGraphImages(guide),
     },
   };
 }

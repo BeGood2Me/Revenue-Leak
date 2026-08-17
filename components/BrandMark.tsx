@@ -2,7 +2,7 @@ type BrandMarkProps = {
   className?: string;
 };
 
-/** Inline funnel + copper drip mark (matches app/icon.svg). */
+/** Inline funnel + copper drip mark (matches public/images/revenue-leak-logo.svg). */
 export function BrandMark({ className }: BrandMarkProps) {
   return (
     <svg

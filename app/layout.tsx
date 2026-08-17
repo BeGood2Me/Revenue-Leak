@@ -3,6 +3,7 @@ import { Fraunces, Source_Sans_3 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { CookieConsent } from "@/components/CookieConsent";
+import { homeOpenGraphImages, SITE_LOGO_PATH } from "@/lib/site-images";
 import { getSiteUrl, SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
 
 const fraunces = Fraunces({
@@ -29,6 +30,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [{ url: SITE_LOGO_PATH, type: "image/svg+xml" }],
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -36,11 +40,13 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: siteTitle,
     description: SITE_DESCRIPTION,
+    images: homeOpenGraphImages(),
   },
   twitter: {
     card: "summary_large_image",
     title: siteTitle,
     description: SITE_DESCRIPTION,
+    images: homeOpenGraphImages(),
   },
 };
 

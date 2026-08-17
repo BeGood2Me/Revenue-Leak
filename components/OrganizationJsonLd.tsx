@@ -1,3 +1,4 @@
+import { absoluteImageUrl, SITE_LOGO_PATH } from "@/lib/site-images";
 import { getContactEmail, getSiteUrl, SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
 
 export function OrganizationJsonLd() {
@@ -13,7 +14,7 @@ export function OrganizationJsonLd() {
         name: SITE_NAME,
         url: base,
         description: SITE_DESCRIPTION,
-        logo: `${base}/icon.svg`,
+        logo: absoluteImageUrl(base, SITE_LOGO_PATH),
         ...(contactEmail ? { email: contactEmail } : {}),
       },
       {

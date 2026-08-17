@@ -1,3 +1,4 @@
+import { absoluteImageUrl, SITE_LOGO_ALT, SITE_LOGO_PATH } from "@/lib/site-images";
 import { getSiteUrl, SITE_NAME } from "@/lib/site";
 import type { Guide } from "@/lib/guides";
 
@@ -23,7 +24,8 @@ export function ArticleJsonLd({ guide }: { guide: Guide }) {
       url: base,
       logo: {
         "@type": "ImageObject",
-        url: `${base}/icon.svg`,
+        url: absoluteImageUrl(base, SITE_LOGO_PATH),
+        caption: SITE_LOGO_ALT,
       },
     },
     mainEntityOfPage: {

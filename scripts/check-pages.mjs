@@ -15,8 +15,8 @@ const staticPaths = [
   "/robots.txt",
   "/sitemap.xml",
   "/llms.txt",
-  "/icon.svg",
-  "/opengraph-image",
+  "/images/revenue-leak-logo.svg",
+  "/images/social/revenue-leak-diagnostic-preview",
 ];
 
 const blogPosts = [
@@ -50,7 +50,7 @@ for (const slug of blogPosts) staticPaths.push(`/blog/${slug}`);
 for (const slug of blogPillars) staticPaths.push(`/blog/pillar/${slug}`);
 for (const slug of guides) {
   staticPaths.push(`/guides/${slug}`);
-  staticPaths.push(`/guides/${slug}/opengraph-image`);
+  staticPaths.push(`/images/social/guides/${slug}`);
 }
 for (const slug of niches) staticPaths.push(`/for/${slug}`);
 

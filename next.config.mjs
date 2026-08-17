@@ -21,6 +21,22 @@ const nextConfig = {
         destination: "/blog/:path*",
         permanent: true,
       },
+      // Legacy generic image URLs → keyword-rich paths
+      {
+        source: "/icon.svg",
+        destination: "/images/revenue-leak-logo.svg",
+        permanent: true,
+      },
+      {
+        source: "/opengraph-image",
+        destination: "/images/social/revenue-leak-diagnostic-preview",
+        permanent: true,
+      },
+      {
+        source: "/guides/:slug/opengraph-image",
+        destination: "/images/social/guides/:slug",
+        permanent: true,
+      },
     ];
   },
   async headers() {

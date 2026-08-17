@@ -1,5 +1,6 @@
 import { blogAuthor } from "@/lib/blog";
 import type { BlogPost } from "@/lib/blog/types";
+import { absoluteImageUrl, SITE_LOGO_ALT, SITE_LOGO_PATH } from "@/lib/site-images";
 import { getSiteUrl } from "@/lib/site";
 
 export function BlogArticleJsonLd({
@@ -32,7 +33,8 @@ export function BlogArticleJsonLd({
       url: base,
       logo: {
         "@type": "ImageObject",
-        url: `${base}/icon.svg`,
+        url: absoluteImageUrl(base, SITE_LOGO_PATH),
+        caption: SITE_LOGO_ALT,
       },
     },
     mainEntityOfPage: {
