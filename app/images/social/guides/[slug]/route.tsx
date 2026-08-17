@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getGuide, guides } from "@/lib/guides";
 import { GuideOgContent, OG_IMAGE_SIZE } from "@/lib/site-images";
 
-export const runtime = "edge";
+export const dynamic = "force-static";
 
 export function generateStaticParams() {
   return guides.map((guide) => ({ slug: guide.slug }));

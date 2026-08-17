@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { HomeOgContent, OG_IMAGE_SIZE } from "@/lib/site-images";
 
-export const runtime = "edge";
+export const dynamic = "force-static";
 
 export async function GET() {
   return new ImageResponse(<HomeOgContent />, {
