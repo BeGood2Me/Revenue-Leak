@@ -6,7 +6,10 @@ import {
   getStripeConfigErrors,
   getStripeUserMessage,
 } from "@/lib/stripe-config";
-import { resolveCheckoutLineItems } from "@/lib/stripe-checkout";
+import {
+  buildCheckoutSessionCreateParams,
+  resolveCheckoutLineItems,
+} from "@/lib/stripe-checkout";
 import { verifyDiagnosticAccessToken } from "@/lib/access-token";
 import { enforceRateLimit } from "@/lib/api-rate-limit";
 
@@ -59,22 +62,14 @@ export async function POST(request: Request) {
     const appUrl = getAppUrl();
     const lineItems = await resolveCheckoutLineItems(stripe);
 
-    const session = await stripe.checkout.sessions.create({
-      mode: "payment",
-      payment_method_types: ["card"],
-      line_items: lineItems,
-      // Email is collected by Stripe Checkout during payment
-      success_url: `${appUrl}/result/${diagnosticId}?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: createPreviewRestoreUrl(diagnosticId),
-      metadata: {
+    const session = await stripe.checkout.sessions.create(
+      buildCheckoutSessionCreateParams(
         diagnosticId,
-      },
-      payment_intent_data: {
-        metadata: {
-          diagnosticId,
-        },
-      },
-    });
+        lineItems,
+        `${appUrl}/result/${diagnosticId}?session_id={CHECKOUT_SESSION_ID}`,
+        createPreviewRestoreUrl(diagnosticId)
+      )
+    );
 
     await prisma.diagnostic.update({
       where: { id: diagnosticId },

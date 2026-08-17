@@ -1,5 +1,8 @@
 import Stripe from "stripe";
 
+/** Required for Managed Payments Checkout Sessions. */
+export const STRIPE_API_VERSION = "2025-03-31.basil" as const;
+
 let stripeInstance: Stripe | null = null;
 
 export function getStripe(): Stripe {
@@ -9,7 +12,7 @@ export function getStripe(): Stripe {
       throw new Error("STRIPE_SECRET_KEY is not set");
     }
     stripeInstance = new Stripe(key, {
-      apiVersion: "2025-02-24.acacia",
+      apiVersion: STRIPE_API_VERSION as Stripe.LatestApiVersion,
       typescript: true,
     });
   }

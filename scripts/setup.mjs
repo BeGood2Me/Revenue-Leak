@@ -36,7 +36,7 @@ function configureStripeEnv(envContent) {
   let priceId = existingPrice;
 
   if (isPlaceholderValue(existingPrice)) {
-    console.log("Creating Stripe product and one-time $29 price…");
+    console.log("Creating Stripe product and one-time price…");
     const product = runStripe(["products", "create", "--name=Full Revenue Leak Report", "--description=Unlock your complete revenue leak diagnostic with top 3 fixes"]);
     const price = runStripe([
       "prices",

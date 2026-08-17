@@ -13,6 +13,8 @@ import {
 } from "./lib/env-file.mjs";
 
 const amountCents = Number(process.env.STRIPE_CHECKOUT_AMOUNT_CENTS ?? 2900);
+const currency = process.env.STRIPE_CHECKOUT_CURRENCY?.trim().toLowerCase() || "usd";
+const API_VERSION = "2025-03-31.basil";
 
 async function main() {
   ensureEnvLocal();
@@ -25,7 +27,7 @@ async function main() {
   }
 
   const stripe = new Stripe(secretKey, {
-    apiVersion: "2025-02-24.acacia",
+    apiVersion: API_VERSION,
   });
 
   console.log("Creating product and one-time price in your Stripe account...\n");
@@ -39,14 +41,16 @@ async function main() {
   const price = await stripe.prices.create({
     product: product.id,
     unit_amount: amountCents,
-    currency: "usd",
+    currency,
   });
 
   const updated = upsertEnvValue(content, "STRIPE_PRICE_ID_DIAGNOSTIC", price.id);
   writeEnvLocal(updated);
 
   console.log(`Product: ${product.id}`);
-  console.log(`Price:   ${price.id} ($${(amountCents / 100).toFixed(2)} USD)`);
+  console.log(
+    `Price:   ${price.id} (${(amountCents / 100).toFixed(2)} ${currency.toUpperCase()})`
+  );
   console.log("\nUpdated .env.local — restart npm run dev and try checkout again.\n");
 }
 

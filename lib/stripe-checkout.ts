@@ -1,12 +1,17 @@
 import type Stripe from "stripe";
 import { isPlaceholderStripeValue } from "./stripe-config";
 
+export type CheckoutSessionCreateParams =
+  Stripe.Checkout.SessionCreateParams & {
+    managed_payments?: { enabled: boolean };
+  };
+
 export function getCheckoutAmountCents(): number {
   const cents = Number(process.env.STRIPE_CHECKOUT_AMOUNT_CENTS ?? 2900);
   return Number.isFinite(cents) && cents > 0 ? cents : 2900;
 }
 
-/** Expected one-time report price in cents (from Price ID or env fallback). */
+/** Expected one-time checkout price in cents (from Price ID or env fallback). */
 export async function resolveExpectedCheckoutAmountCents(
   stripe: Stripe
 ): Promise<number> {
@@ -28,15 +33,33 @@ export async function resolveExpectedCheckoutAmountCents(
   return getCheckoutAmountCents();
 }
 
+function getCheckoutCurrency(): string {
+  const currency = process.env.STRIPE_CHECKOUT_CURRENCY?.trim().toLowerCase();
+  return currency && /^[a-z]{3}$/.test(currency) ? currency : "usd";
+}
+
+function getCheckoutTaxCode(): string | undefined {
+  const taxCode = process.env.STRIPE_CHECKOUT_TAX_CODE?.trim();
+  return taxCode || undefined;
+}
+
 function buildInlinePriceLineItem(): Stripe.Checkout.SessionCreateParams.LineItem {
+  const productData: Stripe.Checkout.SessionCreateParams.LineItem.PriceData.ProductData =
+    {
+      name: "Full Revenue Leak Report",
+      description:
+        "Unlock your complete revenue leak diagnostic with top 3 fixes",
+    };
+
+  const taxCode = getCheckoutTaxCode();
+  if (taxCode) {
+    productData.tax_code = taxCode;
+  }
+
   return {
     price_data: {
-      currency: "usd",
-      product_data: {
-        name: "Full Revenue Leak Report",
-        description:
-          "Unlock your complete revenue leak diagnostic with top 3 fixes",
-      },
+      currency: getCheckoutCurrency(),
+      product_data: productData,
       unit_amount: getCheckoutAmountCents(),
     },
     quantity: 1,
@@ -70,6 +93,12 @@ export async function resolveCheckoutLineItems(
       );
       return [buildInlinePriceLineItem()];
     }
+    if (price.type !== "one_time") {
+      console.warn(
+        `STRIPE_PRICE_ID_DIAGNOSTIC (${priceId}) is not a one-time price — using inline price_data. Run npm run stripe:create-price.`
+      );
+      return [buildInlinePriceLineItem()];
+    }
     return [{ price: priceId, quantity: 1 }];
   } catch (error) {
     if (isMissingPriceError(error)) {
@@ -80,4 +109,27 @@ export async function resolveCheckoutLineItems(
     }
     throw error;
   }
+}
+
+export function buildCheckoutSessionCreateParams(
+  diagnosticId: string,
+  lineItems: Stripe.Checkout.SessionCreateParams.LineItem[],
+  successUrl: string,
+  cancelUrl: string
+): CheckoutSessionCreateParams {
+  return {
+    mode: "payment",
+    line_items: lineItems,
+    managed_payments: { enabled: true },
+    success_url: successUrl,
+    cancel_url: cancelUrl,
+    metadata: {
+      diagnosticId,
+    },
+    payment_intent_data: {
+      metadata: {
+        diagnosticId,
+      },
+    },
+  };
 }

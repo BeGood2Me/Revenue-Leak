@@ -58,7 +58,7 @@ async function main() {
       })());
 
   if (shouldCreatePrice) {
-    console.log("Creating Stripe product and one-time $29 price...");
+    console.log("Creating Stripe product and one-time price...");
     const product = runStripe([
       "products",
       "create",
