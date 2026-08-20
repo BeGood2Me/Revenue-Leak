@@ -8,12 +8,18 @@ export const SITE_DESCRIPTION =
 /** Last updated date shown on legal pages (YYYY-MM-DD). */
 export const LEGAL_LAST_UPDATED = "2026-08-20";
 
-/** Legal entity / operator name for privacy and terms. */
+/** Country where the operator is established. */
+export const LEGAL_COUNTRY = "Ireland";
+
+/** Governing law for terms and disputes. */
+export const LEGAL_GOVERNING_LAW = "Ireland";
+
+/** Operator / site name for privacy and terms. */
 export const LEGAL_COMPANY_NAME = SITE_NAME;
 
-/** Short description of the business for legal documents. */
-export const LEGAL_BUSINESS_DESCRIPTION =
-  "online revenue leak diagnostic that estimates where a business may be losing money, based on questionnaire answers, and optional paid written reports";
+/** Short description of the service for legal documents. */
+export const LEGAL_SERVICE_DESCRIPTION =
+  "online revenue leak diagnostic that estimates where revenue may be leaking, based on questionnaire answers, and optional paid written reports";
 
 /** Canonical public site URL (no trailing slash). */
 export function getSiteUrl(): string {

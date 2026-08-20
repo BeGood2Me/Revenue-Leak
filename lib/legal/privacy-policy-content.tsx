@@ -1,9 +1,9 @@
 import Link from "next/link";
 import {
-  LEGAL_BUSINESS_DESCRIPTION,
+  LEGAL_SERVICE_DESCRIPTION,
   LEGAL_COMPANY_NAME,
+  LEGAL_COUNTRY,
   LEGAL_LAST_UPDATED,
-  SITE_NAME,
 } from "@/lib/site";
 import { LegalContactBlock } from "@/lib/legal/contact";
 
@@ -22,24 +22,24 @@ export function PrivacyPolicyContent({ contactEmail, siteUrl }: PrivacyPolicyCon
       </p>
       <p>Effective as of {LEGAL_LAST_UPDATED}.</p>
       <p>
-        <strong>California Notice at Collection / State Privacy Rights Notice</strong>: See the
-        State privacy rights notice section below for important information about your rights under
-        applicable state privacy laws.
-      </p>
-      <p>
         {LEGAL_COMPANY_NAME} (&quot;{LEGAL_COMPANY_NAME},&quot; &quot;we,&quot; &quot;us,&quot; or
-        &quot;our&quot;) provides a {LEGAL_BUSINESS_DESCRIPTION}. This Privacy Policy describes how
-        {LEGAL_COMPANY_NAME} processes personal information that we collect through our digital or
-        online properties or services that link to this Privacy Policy (including our website at{" "}
+        &quot;our&quot;) is operated from {LEGAL_COUNTRY} and provides a{" "}
+        {LEGAL_SERVICE_DESCRIPTION}. This Privacy Policy describes how {LEGAL_COMPANY_NAME}{" "}
+        processes personal information that we collect through our digital or online properties or
+        services that link to this Privacy Policy (including our website at{" "}
         <a href={siteUrl}>{siteUrl}</a>, our Revenue Leak Check Chrome extension, and related
         marketing activities) as well as other activities described in this Privacy Policy
         (collectively, the &quot;Service&quot;).
       </p>
       <p>
-        <strong>Notice to European users</strong>: Please see the Notice to European users section
-        below for additional information for individuals located in the European Economic Area or
-        United Kingdom (which we refer to as &quot;Europe,&quot; and &quot;European&quot; should be
-        understood accordingly).
+        <strong>Your rights under GDPR</strong>: We process personal data in accordance with the
+        General Data Protection Regulation (GDPR) and Irish data protection law. See the section
+        &quot;Your rights under GDPR (including Ireland)&quot; below for your rights and how to
+        exercise them.
+      </p>
+      <p>
+        <strong>California and U.S. state privacy rights</strong>: If you are a resident of certain
+        U.S. states, see the State privacy rights notice section below.
       </p>
 
       <h2>Personal information we collect</h2>
@@ -55,8 +55,8 @@ export function PrivacyPolicyContent({ contactEmail, siteUrl }: PrivacyPolicyCon
           checkout).
         </li>
         <li>
-          <strong>Profile and questionnaire data</strong>, such as your business type (for example
-          SaaS, ecommerce, agency, or service business) and the answers you provide in the
+          <strong>Profile and questionnaire data</strong>, such as your niche or category (for
+          example SaaS, ecommerce, agency, or local services) and the answers you provide in the
           diagnostic wizard.
         </li>
         <li>
@@ -88,17 +88,13 @@ export function PrivacyPolicyContent({ contactEmail, siteUrl }: PrivacyPolicyCon
       <ul>
         <li>
           <strong>Service providers</strong> that provide services on our behalf or help us operate
-          the Service or our business (for example payment confirmation from Stripe).
-        </li>
-        <li>
-          <strong>Business transaction partners</strong> in connection with an actual or prospective
-          business transaction.
+          the Service (for example payment confirmation from Stripe).
         </li>
       </ul>
 
       <h3>Automatic data collection</h3>
       <p>
-        We, our service providers, and our business partners may automatically log information about
+        We and our service providers may automatically log information about
         you, your computer or mobile device, and your interaction over time with the Service, our
         communications and other online services, such as:
       </p>
@@ -214,8 +210,7 @@ export function PrivacyPolicyContent({ contactEmail, siteUrl }: PrivacyPolicyCon
         </li>
         <li>
           <strong>Aggregated, de-identified, or anonymized data</strong> — create aggregated,
-          de-identified, or anonymized data from personal information and use it for lawful business
-          purposes, including analyzing and improving the Service. We do not attempt to reidentify
+          de-identified, or anonymized data from personal information and use it for lawful purposes, including analyzing and improving the Service. We do not attempt to reidentify
           such data.
         </li>
       </ul>
@@ -239,7 +234,7 @@ export function PrivacyPolicyContent({ contactEmail, siteUrl }: PrivacyPolicyCon
       <ul>
         <li>
           <strong>Service providers</strong> — third parties that provide services on our behalf or
-          help us operate the Service or our business (such as hosting, information technology,
+          help us operate the Service (such as hosting, information technology,
           customer support, email delivery, marketing, and website analytics).
         </li>
         <li>
@@ -280,10 +275,6 @@ export function PrivacyPolicyContent({ contactEmail, siteUrl }: PrivacyPolicyCon
           <strong>Authorities and others</strong> — law enforcement, government authorities, and
           private parties, as we believe in good faith to be necessary or appropriate for compliance
           and protection purposes.
-        </li>
-        <li>
-          <strong>Business transferees</strong> — in the context of actual or prospective business
-          transactions (for example merger, acquisition, sale of assets, or similar transaction).
         </li>
       </ul>
       <p>We do not sell your personal information for money.</p>
@@ -344,16 +335,18 @@ export function PrivacyPolicyContent({ contactEmail, siteUrl }: PrivacyPolicyCon
 
       <h2>International data transfer</h2>
       <p>
-        We are headquartered in the United States and may use service providers that operate in
-        other countries. Your personal information may be transferred to the United States or other
-        locations where privacy laws may not be as protective as those in your state, province, or
-        country. Users in Europe should read the Notice to European users section below.
+        We operate from {LEGAL_COUNTRY}. Some of our service providers (for example hosting, payment
+        processing, analytics, and email delivery) may process personal data in the United States or
+        other countries outside the European Economic Area (EEA). When we transfer personal data
+        outside the EEA, we rely on appropriate safeguards under the GDPR, such as the EU Standard
+        Contractual Clauses or other mechanisms approved by the European Commission. You may contact
+        us for more information about transfer mechanisms.
       </p>
 
       <h2>Children</h2>
       <p>
-        The Service is not intended for use by anyone under 18 years of age. The Service is for
-        businesses and is not directed at children. If you are a parent or guardian of a child from
+        The Service is not intended for use by anyone under 18 years of age and is not directed at
+        children. If you are a parent or guardian of a child from whom you believe we have
         whom you believe we have collected personal information in a manner prohibited by law,
         please contact us. If we learn that we have collected personal information through the
         Service from a child without the consent required by law, we will comply with applicable
@@ -367,7 +360,7 @@ export function PrivacyPolicyContent({ contactEmail, siteUrl }: PrivacyPolicyCon
         or other appropriate means. Any modifications will be effective upon posting (or as
         otherwise indicated). Your use of the Service after the effective date of any modified
         Privacy Policy indicates your acknowledging that the modified Privacy Policy applies to your
-        interactions with the Service and our business.
+        interactions with the Service.
       </p>
 
       <h2>How to contact us</h2>
@@ -378,7 +371,48 @@ export function PrivacyPolicyContent({ contactEmail, siteUrl }: PrivacyPolicyCon
         </p>
       ) : null}
 
-      <h2>State privacy rights notice</h2>
+      <h2>Your rights under GDPR (including Ireland)</h2>
+      <p>
+        <strong>General</strong>. This section applies if you are in {LEGAL_COUNTRY}, the United
+        Kingdom, or the European Economic Area (&quot;Europe&quot;). References to
+        &quot;personal information&quot; in this Privacy Policy include &quot;personal data&quot; as
+        defined in the GDPR.
+      </p>
+      <p>
+        <strong>Controller</strong>. {LEGAL_COMPANY_NAME} is the controller in respect of the
+        processing of your personal data covered by this Privacy Policy. We are established in{" "}
+        {LEGAL_COUNTRY} and process personal data in accordance with the GDPR and the Irish Data
+        Protection Act 2018.
+      </p>
+      <p>
+        <strong>Legal bases for processing</strong>. Our legal bases for processing your personal data
+        include: performance of a contract with you (for example delivering the diagnostic and paid
+        report); legitimate interests (for example improving the Service, security, and direct
+        marketing where permitted); compliance with law; and consent (for example optional analytics
+        and advertising cookies).
+      </p>
+      <p>
+        <strong>Your rights</strong>. If you are located in Europe, you may have the right to access,
+        correct, delete, restrict, object to, or request transfer of your personal data, and to
+        withdraw consent where processing is based on consent. You may submit requests by contacting
+        us using the details above.
+      </p>
+      <p>
+        <strong>Supervisory authority</strong>. You have the right to lodge a complaint with your
+        local supervisory authority. In {LEGAL_COUNTRY}, the supervisory authority is the Data
+        Protection Commission (
+        <a href="https://www.dataprotection.ie" target="_blank" rel="noopener noreferrer">
+          www.dataprotection.ie
+        </a>
+        ).
+      </p>
+      <p>
+        <strong>Data processing outside Europe</strong>. As described in the International data
+        transfer section above, some providers may process personal data in the United States or
+        other countries outside the EEA. Where required, we rely on appropriate GDPR safeguards.
+      </p>
+
+      <h2>State privacy rights notice (U.S. residents)</h2>
       <p>
         Except as otherwise provided, this section applies to residents of U.S. states to the extent
         they have privacy laws applicable to us that grant their residents the rights described below
@@ -399,7 +433,7 @@ export function PrivacyPolicyContent({ contactEmail, siteUrl }: PrivacyPolicyCon
       </p>
       <p>
         <strong>Opt-out of sale or sharing</strong>. While we do not sell personal information for
-        money, like many companies, we may use services that help deliver interest-based ads when you
+        money, like many sites, we may use services that help deliver interest-based ads when you
         have consented to analytics cookies. State Privacy Laws may classify our use of some of
         these services as &quot;selling&quot; or &quot;sharing&quot; your Personal Information with
         advertising partners. You can opt out by declining analytics cookies on our cookie banner,
@@ -462,41 +496,6 @@ export function PrivacyPolicyContent({ contactEmail, siteUrl }: PrivacyPolicyCon
       <p>
         <strong>Consumers under 16</strong>. We do not have actual knowledge that we collect, sell, or
         share the personal information of consumers under 16 years of age.
-      </p>
-
-      <h2>Notice to European users</h2>
-      <p>
-        <strong>General</strong>. The information in this section applies only to individuals in the
-        United Kingdom and the European Economic Area (&quot;Europe&quot;). References to
-        &quot;personal information&quot; in this Privacy Policy include &quot;personal data&quot; as
-        defined in the GDPR.
-      </p>
-      <p>
-        <strong>Controller</strong>. {LEGAL_COMPANY_NAME} is the controller in respect of the
-        processing of your personal information covered by this Privacy Policy for purposes of
-        European data protection legislation. We are a U.S.-based company without an establishment in
-        the EEA or UK.
-      </p>
-      <p>
-        <strong>Legal bases for processing</strong>. Our legal bases for processing your personal
-        information include: performance of a contract with you (for example delivering the
-        diagnostic and paid report); legitimate interests (for example improving the Service,
-        security, and direct marketing where permitted); compliance with law; and consent (for
-        example optional analytics and advertising cookies).
-      </p>
-      <p>
-        <strong>Your rights</strong>. If you are located in Europe, you may have the right to access,
-        correct, delete, restrict, object to, or request transfer of your personal information, and
-        to withdraw consent where processing is based on consent. You may submit requests by
-        contacting us using the details above. You also have the right to lodge a complaint with your
-        local supervisory authority.
-      </p>
-      <p>
-        <strong>Data processing outside Europe</strong>. Your personal information may be transferred
-        to the United States and other countries that may not provide an equivalent level of data
-        protection. Where required, we rely on appropriate safeguards such as standard contractual
-        clauses approved by relevant authorities. You may contact us for more information about
-        transfer mechanisms.
       </p>
 
       <p className="text-sm text-slate-600">
