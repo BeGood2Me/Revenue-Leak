@@ -32,7 +32,21 @@ export function FailedPaymentRecoveryContent() {
         Good programs recover 50–70% of failed charges.
       </p>
 
-      <h2>How to recover failed recurring payments</h2>
+      <h2>How to stop revenue leakage from failed payments</h2>
+      <p>
+        To stop revenue leakage from failed payments, treat every decline as recoverable MRR until
+        proven otherwise. Failed recurring payment recovery is usually faster ROI than new
+        acquisition: you already acquired the customer — you just need a working card on file.
+      </p>
+      <ol>
+        <li>Turn on processor smart retries (do not cancel on the first decline).</li>
+        <li>Send branded dunning with a one-click update-payment link at each failure.</li>
+        <li>Remind customers before cards expire (30 / 14 / 7 days).</li>
+        <li>Call or email high-ARPU accounts still failing after two retries.</li>
+        <li>Track recovered dollars ÷ failed dollars weekly.</li>
+      </ol>
+
+      <h2>Failed recurring payment recovery playbook</h2>
       <ol>
         <li>
           <strong>Measure</strong> current failed-payment rate and the share of churn that is

@@ -1,15 +1,16 @@
 {
   "slug": "identify-profit-leaks",
-  "title": "How to Identify Profit Leaks in Your Business (Not Just Revenue)",
-  "description": "Identify profit leaks by connecting funnel gaps to margin — discount creep, scope creep, CAC waste, and recovery opportunities.",
+  "title": "How to Identify Profit Leaks in Your Business (Checklist)",
+  "description": "Identify profit leaks and revenue leaks with a short checklist — including how to find leaks in a B2B SaaS business without a finance team.",
   "published": "2026-07-16",
-  "updated": "2026-08-06",
+  "updated": "2026-08-20",
   "pillar": "funnel-profit-leaks",
   "keywords": [
     "identify profit leaks",
+    "profit leaks",
     "profit leak identification",
-    "profit leaks in business",
-    "profit leaks"
+    "how to identify revenue leaks",
+    "profit leaks in business"
   ],
   "relatedSlugs": [
     "profit-leakage-recovery",
@@ -23,8 +24,12 @@
       "a": "Revenue you lose or margin you give away through operational gaps — not just top-line shortfalls."
     },
     {
-      "q": "How do you identify profit leaks in a business?",
+      "q": "How do you identify profit leaks?",
       "a": "Map each funnel stage, estimate the monthly dollar gap versus a realistic benchmark, then fix the largest leak you can improve in a few weeks."
+    },
+    {
+      "q": "How do I identify revenue leaks in my B2B SaaS business?",
+      "a": "Measure trial-to-paid, time-to-first-value, involuntary churn from failed cards, expansion asks, and discount/refund drag. Rank by monthly dollars and fix the largest operational gap first."
     },
     {
       "q": "What are common profit leaks?",
@@ -47,6 +52,14 @@
     {
       "type": "p",
       "text": "Revenue leakage is top-line money that never gets booked. Profit leaks include that plus margin waste — discounts, refunds, bad-fit customers, and unpaid scope. If you only track “revenue leak,” you will miss margin drains that still wreck contribution profit. Full definition: [what is revenue leakage](/blog/what-is-revenue-leakage)."
+    },
+    {
+      "type": "h2",
+      "text": "How to identify revenue leaks in B2B SaaS"
+    },
+    {
+      "type": "p",
+      "text": "For SaaS teams asking how to identify revenue leaks without hiring more analysts: measure trial-to-paid, activation time, failed-card involuntary churn, expansion ask rate, and promo/refund drag. Estimate each gap in monthly dollars, then run the [SaaS diagnostic](/for/saas) or the longer [identify profit leaks guide](/guides/identify-profit-leaks)."
     },
     {
       "type": "h2",

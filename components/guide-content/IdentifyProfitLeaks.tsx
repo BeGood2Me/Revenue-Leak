@@ -71,6 +71,37 @@ export function IdentifyProfitLeaksContent() {
         free diagnostic below.
       </p>
 
+      <h2>How to identify revenue leaks in a B2B SaaS business</h2>
+      <p>
+        If you are asking how to identify revenue leaks in your B2B SaaS business — or how to spot
+        revenue leakage without hiring more analysts — start with five SaaS-specific measurements:
+      </p>
+      <ol>
+        <li>
+          <strong>Trial-to-paid conversion</strong> vs a realistic benchmark for your motion.
+        </li>
+        <li>
+          <strong>Time-to-first-value</strong> — delayed activation predicts early churn.
+        </li>
+        <li>
+          <strong>Failed card / involuntary churn share</strong> of monthly cancellations.
+        </li>
+        <li>
+          <strong>Expansion ask rate</strong> on healthy accounts (plan upgrades, seats, annual).
+        </li>
+        <li>
+          <strong>Discount and refund drag</strong> that quietly erodes contribution profit.
+        </li>
+      </ol>
+      <p>
+        Put a rough monthly dollar range on each gap, then fix the largest operational leak first —
+        often{" "}
+        <Link href="/guides/failed-payment-recovery">failed payment recovery</Link> or onboarding —
+        before buying more traffic. Run the structured{" "}
+        <Link href="/for/saas">SaaS revenue leak diagnostic</Link> if you want the questions in
+        order.
+      </p>
+
       <h2>Profit leaks by business type</h2>
       <ul>
         <li>

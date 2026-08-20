@@ -1,10 +1,19 @@
 {
   "slug": "failed-payment-recovery",
-  "title": "Failed Payment Recovery: Stop Involuntary Churn Revenue Leaks",
-  "description": "Recover revenue from failed card charges — dunning emails, Smart Retries, card updater, and benchmarks for subscription businesses.",
+  "title": "Failed Payment Recovery: How to Stop Revenue Leakage from Failed Payments",
+  "description": "How to stop revenue leakage from failed payments and recover failed recurring payments — dunning, smart retries, card updater, and DIY vs software.",
   "published": "2026-07-16",
+  "updated": "2026-08-20",
   "pillar": "billing-recovery",
-  "keywords": ["failed payment recovery", "dunning emails", "involuntary churn", "recover failed payments"],
+  "keywords": [
+    "failed payment recovery",
+    "failed payments recovery",
+    "failed recurring payment recovery",
+    "how to stop revenue leakage from failed payments",
+    "recurring payment recovery",
+    "dunning emails",
+    "involuntary churn"
+  ],
   "relatedSlugs": ["subscription-billing-leaks", "saas-revenue-leakage", "revenue-leakage-examples"],
   "faq": [
     {
@@ -12,18 +21,26 @@
       "a": "Automated retries and customer communication to collect revenue when a subscription charge fails — before the customer churns involuntarily."
     },
     {
+      "q": "How to stop revenue leakage from failed payments?",
+      "a": "Enable smart retries, send branded dunning emails with a one-click payment update link, pre-notify before card expiry, and outreach high-ARPU accounts that still fail."
+    },
+    {
+      "q": "What is failed recurring payment recovery?",
+      "a": "Failed recurring payment recovery is collecting declined subscription renewals with timed retries, dunning, and card-update links so involuntary churn does not become permanent."
+    },
+    {
       "q": "How much revenue can dunning recover?",
-      "a": "Many SaaS businesses recover 20–40% of failed charges with proper retries and emails; results vary by audience and card mix."
+      "a": "Many SaaS businesses recover 20–40% of failed charges with basic retries and emails; strong programs often recover 50–70% of failed dollars."
     }
   ],
   "blocks": [
     {
       "type": "p",
-      "text": "Failed payment recovery targets involuntary churn — customers who did not intend to leave. Without dunning, you leak MRR that a few emails and retries would save."
+      "text": "Failed payment recovery targets involuntary churn — customers who did not intend to leave. Without dunning, you leak MRR that a few emails and retries would save. This brief covers how to stop revenue leakage from failed payments; the full playbook is in the guide linked below."
     },
     {
       "type": "h2",
-      "text": "Recovery stack"
+      "text": "Failed recurring payment recovery stack"
     },
     {
       "type": "ol",

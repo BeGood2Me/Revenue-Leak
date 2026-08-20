@@ -134,9 +134,10 @@ export const blogManifest: BlogManifest = {
   "posts": [
     {
       "slug": "profit-leakage-recovery",
-      "title": "Profit Leakage Recovery: How to Stop Margin and Funnel Leaks",
+      "title": "Profit Leakage Recovery: Stop Profit Leaks and Recover Margin",
       "description": "Profit leakage recovery playbook — find profit leaks, estimate monthly impact, and recover margin from conversion, billing, and discount gaps.",
       "published": "2026-08-05",
+      "updated": "2026-08-20",
       "pillar": "funnel-profit-leaks",
       "keywords": [
         "profit leakage recovery",
@@ -155,6 +156,10 @@ export const blogManifest: BlogManifest = {
         {
           "q": "What is profit leakage?",
           "a": "Profit leakage is money you almost earn or keep but lose through funnel gaps and margin waste — including discounts, refunds, failed conversions, and failed payments."
+        },
+        {
+          "q": "What is profit leakage recovery?",
+          "a": "Profit leakage recovery means measuring each leak in monthly dollars, fixing the highest-impact operational gap first, then cutting structural margin drains like evergreen discounts."
         },
         {
           "q": "How do you recover from profit leakage?",
@@ -513,15 +518,19 @@ export const blogManifest: BlogManifest = {
     },
     {
       "slug": "failed-payment-recovery",
-      "title": "Failed Payment Recovery: Stop Involuntary Churn Revenue Leaks",
-      "description": "Recover revenue from failed card charges — dunning emails, Smart Retries, card updater, and benchmarks for subscription businesses.",
+      "title": "Failed Payment Recovery: How to Stop Revenue Leakage from Failed Payments",
+      "description": "How to stop revenue leakage from failed payments and recover failed recurring payments — dunning, smart retries, card updater, and DIY vs software.",
       "published": "2026-07-16",
+      "updated": "2026-08-20",
       "pillar": "billing-recovery",
       "keywords": [
         "failed payment recovery",
+        "failed payments recovery",
+        "failed recurring payment recovery",
+        "how to stop revenue leakage from failed payments",
+        "recurring payment recovery",
         "dunning emails",
-        "involuntary churn",
-        "recover failed payments"
+        "involuntary churn"
       ],
       "relatedSlugs": [
         "subscription-billing-leaks",
@@ -534,18 +543,26 @@ export const blogManifest: BlogManifest = {
           "a": "Automated retries and customer communication to collect revenue when a subscription charge fails — before the customer churns involuntarily."
         },
         {
+          "q": "How to stop revenue leakage from failed payments?",
+          "a": "Enable smart retries, send branded dunning emails with a one-click payment update link, pre-notify before card expiry, and outreach high-ARPU accounts that still fail."
+        },
+        {
+          "q": "What is failed recurring payment recovery?",
+          "a": "Failed recurring payment recovery is collecting declined subscription renewals with timed retries, dunning, and card-update links so involuntary churn does not become permanent."
+        },
+        {
           "q": "How much revenue can dunning recover?",
-          "a": "Many SaaS businesses recover 20–40% of failed charges with proper retries and emails; results vary by audience and card mix."
+          "a": "Many SaaS businesses recover 20–40% of failed charges with basic retries and emails; strong programs often recover 50–70% of failed dollars."
         }
       ],
       "blocks": [
         {
           "type": "p",
-          "text": "Failed payment recovery targets involuntary churn — customers who did not intend to leave. Without dunning, you leak MRR that a few emails and retries would save."
+          "text": "Failed payment recovery targets involuntary churn — customers who did not intend to leave. Without dunning, you leak MRR that a few emails and retries would save. This brief covers how to stop revenue leakage from failed payments; the full playbook is in the guide linked below."
         },
         {
           "type": "h2",
-          "text": "Recovery stack"
+          "text": "Failed recurring payment recovery stack"
         },
         {
           "type": "ol",
@@ -625,16 +642,17 @@ export const blogManifest: BlogManifest = {
     },
     {
       "slug": "identify-profit-leaks",
-      "title": "How to Identify Profit Leaks in Your Business (Not Just Revenue)",
-      "description": "Identify profit leaks by connecting funnel gaps to margin — discount creep, scope creep, CAC waste, and recovery opportunities.",
+      "title": "How to Identify Profit Leaks in Your Business (Checklist)",
+      "description": "Identify profit leaks and revenue leaks with a short checklist — including how to find leaks in a B2B SaaS business without a finance team.",
       "published": "2026-07-16",
-      "updated": "2026-08-06",
+      "updated": "2026-08-20",
       "pillar": "funnel-profit-leaks",
       "keywords": [
         "identify profit leaks",
+        "profit leaks",
         "profit leak identification",
-        "profit leaks in business",
-        "profit leaks"
+        "how to identify revenue leaks",
+        "profit leaks in business"
       ],
       "relatedSlugs": [
         "profit-leakage-recovery",
@@ -648,8 +666,12 @@ export const blogManifest: BlogManifest = {
           "a": "Revenue you lose or margin you give away through operational gaps — not just top-line shortfalls."
         },
         {
-          "q": "How do you identify profit leaks in a business?",
+          "q": "How do you identify profit leaks?",
           "a": "Map each funnel stage, estimate the monthly dollar gap versus a realistic benchmark, then fix the largest leak you can improve in a few weeks."
+        },
+        {
+          "q": "How do I identify revenue leaks in my B2B SaaS business?",
+          "a": "Measure trial-to-paid, time-to-first-value, involuntary churn from failed cards, expansion asks, and discount/refund drag. Rank by monthly dollars and fix the largest operational gap first."
         },
         {
           "q": "What are common profit leaks?",
@@ -672,6 +694,14 @@ export const blogManifest: BlogManifest = {
         {
           "type": "p",
           "text": "Revenue leakage is top-line money that never gets booked. Profit leaks include that plus margin waste — discounts, refunds, bad-fit customers, and unpaid scope. If you only track “revenue leak,” you will miss margin drains that still wreck contribution profit. Full definition: [what is revenue leakage](/blog/what-is-revenue-leakage)."
+        },
+        {
+          "type": "h2",
+          "text": "How to identify revenue leaks in B2B SaaS"
+        },
+        {
+          "type": "p",
+          "text": "For SaaS teams asking how to identify revenue leaks without hiring more analysts: measure trial-to-paid, activation time, failed-card involuntary churn, expansion ask rate, and promo/refund drag. Estimate each gap in monthly dollars, then run the [SaaS diagnostic](/for/saas) or the longer [identify profit leaks guide](/guides/identify-profit-leaks)."
         },
         {
           "type": "h2",
@@ -921,13 +951,15 @@ export const blogManifest: BlogManifest = {
     },
     {
       "slug": "saas-revenue-leakage",
-      "title": "SaaS Revenue Leakage: Trial, Churn & Billing Leaks Explained",
-      "description": "Where SaaS companies leak revenue — trial conversion, activation, churn, failed payments, and expansion — with benchmarks and fixes.",
+      "title": "SaaS Revenue Leakage: How to Identify Revenue Leaks in B2B SaaS",
+      "description": "How to identify revenue leaks in a B2B SaaS business — trial conversion, activation, churn, failed payments, and expansion — without hiring more analysts.",
       "published": "2026-07-16",
+      "updated": "2026-08-20",
       "pillar": "revenue-leakage",
       "keywords": [
         "saas revenue leakage",
         "saas revenue leak",
+        "how to identify revenue leaks in b2b saas",
         "subscription revenue leakage"
       ],
       "relatedSlugs": [
@@ -936,6 +968,14 @@ export const blogManifest: BlogManifest = {
         "revenue-leakage-examples"
       ],
       "faq": [
+        {
+          "q": "How do I identify revenue leaks in my B2B SaaS business?",
+          "a": "Measure trial-to-paid conversion, time-to-first-value, involuntary churn from failed cards, expansion ask rate, and discount/refund drag. Estimate monthly dollars per gap and fix the largest operational leak first."
+        },
+        {
+          "q": "How can I identify revenue leakage in my SaaS business without hiring more analysts?",
+          "a": "Use Stripe (or your processor), product analytics, and CRM exports plus five structured questions. Rough ranges are enough to prioritize — you do not need a dedicated analytics hire for a first pass."
+        },
         {
           "q": "Where do SaaS companies leak the most revenue?",
           "a": "Typically trial-to-paid conversion, early churn before activation, and involuntary churn from failed card charges."
@@ -949,6 +989,14 @@ export const blogManifest: BlogManifest = {
         {
           "type": "p",
           "text": "SaaS revenue leakage rarely shows up as one broken metric. It is usually a stack: trials that never activate, cards that fail silently, and customers who would upgrade but never see the right plan."
+        },
+        {
+          "type": "h2",
+          "text": "How to identify revenue leaks in B2B SaaS"
+        },
+        {
+          "type": "p",
+          "text": "Start with five measurements you can pull without a dedicated analyst: trial-to-paid rate, days to first value, share of churn that is involuntary (failed cards), expansion ask rate on healthy accounts, and promo/refund drag. Put a monthly dollar range on each, then fix the largest operational gap — often [failed payment recovery](/guides/failed-payment-recovery) or onboarding — before buying more traffic."
         },
         {
           "type": "h2",
@@ -1144,5 +1192,5 @@ export const blogManifest: BlogManifest = {
       ]
     }
   ],
-  "generatedAt": "2026-08-06T17:50:38.315Z"
+  "generatedAt": "2026-08-20T10:37:37.562Z"
 } as const;

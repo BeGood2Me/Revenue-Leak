@@ -1,12 +1,26 @@
 {
   "slug": "saas-revenue-leakage",
-  "title": "SaaS Revenue Leakage: Trial, Churn & Billing Leaks Explained",
-  "description": "Where SaaS companies leak revenue — trial conversion, activation, churn, failed payments, and expansion — with benchmarks and fixes.",
+  "title": "SaaS Revenue Leakage: How to Identify Revenue Leaks in B2B SaaS",
+  "description": "How to identify revenue leaks in a B2B SaaS business — trial conversion, activation, churn, failed payments, and expansion — without hiring more analysts.",
   "published": "2026-07-16",
+  "updated": "2026-08-20",
   "pillar": "revenue-leakage",
-  "keywords": ["saas revenue leakage", "saas revenue leak", "subscription revenue leakage"],
+  "keywords": [
+    "saas revenue leakage",
+    "saas revenue leak",
+    "how to identify revenue leaks in b2b saas",
+    "subscription revenue leakage"
+  ],
   "relatedSlugs": ["subscription-billing-leaks", "failed-payment-recovery", "revenue-leakage-examples"],
   "faq": [
+    {
+      "q": "How do I identify revenue leaks in my B2B SaaS business?",
+      "a": "Measure trial-to-paid conversion, time-to-first-value, involuntary churn from failed cards, expansion ask rate, and discount/refund drag. Estimate monthly dollars per gap and fix the largest operational leak first."
+    },
+    {
+      "q": "How can I identify revenue leakage in my SaaS business without hiring more analysts?",
+      "a": "Use Stripe (or your processor), product analytics, and CRM exports plus five structured questions. Rough ranges are enough to prioritize — you do not need a dedicated analytics hire for a first pass."
+    },
     {
       "q": "Where do SaaS companies leak the most revenue?",
       "a": "Typically trial-to-paid conversion, early churn before activation, and involuntary churn from failed card charges."
@@ -20,6 +34,14 @@
     {
       "type": "p",
       "text": "SaaS revenue leakage rarely shows up as one broken metric. It is usually a stack: trials that never activate, cards that fail silently, and customers who would upgrade but never see the right plan."
+    },
+    {
+      "type": "h2",
+      "text": "How to identify revenue leaks in B2B SaaS"
+    },
+    {
+      "type": "p",
+      "text": "Start with five measurements you can pull without a dedicated analyst: trial-to-paid rate, days to first value, share of churn that is involuntary (failed cards), expansion ask rate on healthy accounts, and promo/refund drag. Put a monthly dollar range on each, then fix the largest operational gap — often [failed payment recovery](/guides/failed-payment-recovery) or onboarding — before buying more traffic."
     },
     {
       "type": "h2",

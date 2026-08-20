@@ -1,8 +1,9 @@
 {
   "slug": "profit-leakage-recovery",
-  "title": "Profit Leakage Recovery: How to Stop Margin and Funnel Leaks",
+  "title": "Profit Leakage Recovery: Stop Profit Leaks and Recover Margin",
   "description": "Profit leakage recovery playbook — find profit leaks, estimate monthly impact, and recover margin from conversion, billing, and discount gaps.",
   "published": "2026-08-05",
+  "updated": "2026-08-20",
   "pillar": "funnel-profit-leaks",
   "keywords": [
     "profit leakage recovery",
@@ -21,6 +22,10 @@
     {
       "q": "What is profit leakage?",
       "a": "Profit leakage is money you almost earn or keep but lose through funnel gaps and margin waste — including discounts, refunds, failed conversions, and failed payments."
+    },
+    {
+      "q": "What is profit leakage recovery?",
+      "a": "Profit leakage recovery means measuring each leak in monthly dollars, fixing the highest-impact operational gap first, then cutting structural margin drains like evergreen discounts."
     },
     {
       "q": "How do you recover from profit leakage?",

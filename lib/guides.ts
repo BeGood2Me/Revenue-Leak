@@ -118,11 +118,11 @@ export const guides: Guide[] = [
   },
   {
     slug: "identify-profit-leaks",
-    title: "How to Identify Profit Leaks in Your Business (Free Diagnostic)",
+    title: "How to Identify Profit Leaks (and Revenue Leaks) in Your Business",
     description:
-      "Identify profit leaks across acquisition, conversion, retention, and billing with five questions and rough math — no finance team required.",
+      "Identify profit leaks and revenue leaks across acquisition, conversion, retention, and billing — including how to find leaks in a B2B SaaS business without a finance team.",
     published: "2026-07-13",
-    updated: "2026-08-06",
+    updated: "2026-08-20",
     relatedSlugs: [
       "revenue-leakage-detection",
       "failed-payment-recovery",
@@ -138,8 +138,16 @@ export const guides: Guide[] = [
         a: CANONICAL_DEFINITIONS.profitLeakage.text,
       },
       {
-        q: "How do you identify profit leaks without a finance team?",
+        q: "How do you identify profit leaks?",
         a: "Ask five measurement questions (visitor-to-customer rate, response speed, repeat purchase rate, failed payment share, and expansion asks), put a rough monthly dollar estimate on each gap, and fix the largest leak first.",
+      },
+      {
+        q: "How do I identify revenue leaks in my B2B SaaS business?",
+        a: "Measure trial-to-paid conversion, time-to-first-value, monthly involuntary churn from failed cards, expansion ask rate, and discount/refund drag. Estimate each gap in monthly dollars, then fix the largest operational leak before buying more traffic.",
+      },
+      {
+        q: "How can I identify revenue leakage in my SaaS business without hiring more analysts?",
+        a: "Use tools you already have — Stripe or your processor, product analytics, and CRM — plus five structured questions. Rough ranges beat perfect data when you need a fix-first priority in under an hour.",
       },
       {
         q: "How do you fix profit leakage?",
@@ -153,11 +161,11 @@ export const guides: Guide[] = [
   },
   {
     slug: "failed-payment-recovery",
-    title: "Failed Payment Recovery: Stop Revenue Leakage from Declined Charges",
+    title: "Failed Payment Recovery: How to Stop Revenue Leakage from Failed Payments",
     description:
-      "How to stop revenue leakage from failed payments — dunning, smart retries, card updates, and a playbook to recover recurring revenue.",
+      "How to stop revenue leakage from failed payments and recover failed recurring payments — dunning, smart retries, card updates, and a DIY vs software checklist.",
     published: "2026-07-13",
-    updated: "2026-08-06",
+    updated: "2026-08-20",
     relatedSlugs: [
       "identify-profit-leaks",
       "revenue-leakage-examples",
@@ -173,6 +181,10 @@ export const guides: Guide[] = [
         a: "Enable smart retries, send dunning emails with a one-click payment update link at each decline, pre-notify before card expiry, and outreach high-ARPU accounts that still fail.",
       },
       {
+        q: "What is failed recurring payment recovery?",
+        a: "Failed recurring payment recovery is the playbook for collecting declined subscription renewals: timed retries, branded dunning, card-update links, and outreach so involuntary churn does not become permanent churn.",
+      },
+      {
         q: "How do you recover failed recurring payments?",
         a: "Enable 3–4 automated retries over two weeks (including payday timing), send branded dunning emails with a one-click update link at each failure, and manually outreach high-ARPU accounts that still fail.",
       },
@@ -181,8 +193,8 @@ export const guides: Guide[] = [
         a: "Failed payments recovery for subscriptions is the same playbook applied to recurring charges: retries, dunning, card-update links, and outreach so a declined renewal does not become silent churn.",
       },
       {
-        q: "What is recurring billing recovery?",
-        a: "Recurring billing recovery is the timed sequence of retries and customer outreach used to collect failed subscription invoices before access is canceled.",
+        q: "What is recurring payment recovery?",
+        a: "Recurring payment recovery (or recurring billing recovery) is the timed sequence of retries and customer outreach used to collect failed subscription invoices before access is canceled.",
       },
       {
         q: "Do I need dedicated failed payment recovery software?",
